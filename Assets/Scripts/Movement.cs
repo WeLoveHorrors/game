@@ -5,6 +5,8 @@ using TMPro;
 
 public class Movement : MonoBehaviour
 {
+
+  
     [Header("Movement")]
     private float moveSpeed;
     public float walkSpeed;
@@ -59,6 +61,7 @@ public class Movement : MonoBehaviour
 
     private void Start()
     {
+      
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
@@ -79,6 +82,7 @@ public class Movement : MonoBehaviour
         // handle drag
         if (grounded)
             rb.drag = groundDrag;
+
         else
             rb.drag = 0;
     }

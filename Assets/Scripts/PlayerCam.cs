@@ -9,10 +9,13 @@ public class PlayerCam : MonoBehaviour
     public Transform orientation;
     float xRotation;
     float yRotation;
+    private Animator cameraShake;
+ 
 
     // Start is called before the first frame update
     void Start()
     {
+        cameraShake= Camera.main.GetComponent<Animator>();
         //Фиксация курсора в пространстве
         Cursor.lockState=CursorLockMode.Locked;
         //Скрытие курсора
@@ -23,6 +26,7 @@ public class PlayerCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        cameraShake.SetTrigger("Moving");
         //просцет координат курсора
         float mouseX=Input.GetAxisRaw("Mouse X")*Time.deltaTime*sensX;
         float mouseY=Input.GetAxisRaw("Mouse Y")*Time.deltaTime*sensY;
