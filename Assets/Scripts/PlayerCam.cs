@@ -15,6 +15,14 @@ public class PlayerCam : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(sensX == 0)
+        {
+            sensX = 0.4f;
+        }
+        if(sensY == 0)
+        {
+            sensY = 0.4f;
+        }
         cameraShake= Camera.main.GetComponent<Animator>();
         //Фиксация курсора в пространстве
         Cursor.lockState=CursorLockMode.Locked;
