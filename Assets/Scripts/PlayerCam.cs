@@ -4,8 +4,8 @@ using UnityEngine;
 //кто доебется до ошибок в комментариях, тот сдохнет через 5 минут ;)
 public class PlayerCam : MonoBehaviour
 {
-    public float sensX = 0.3f;
-    public float sensY = 0.3f;
+    private float sensX = CfgManagement.mouseSensitivity;
+    private float sensY = CfgManagement.mouseSensitivity;
     public Transform orientation;
     float xRotation;
     float yRotation;
@@ -28,8 +28,8 @@ public class PlayerCam : MonoBehaviour
     {
         cameraShake.SetTrigger("Moving");
         //просцет координат курсора
-        float mouseX=Input.GetAxisRaw("Mouse X")*Time.deltaTime*sensX;
-        float mouseY=Input.GetAxisRaw("Mouse Y")*Time.deltaTime*sensY;
+        float mouseX=Input.GetAxisRaw("Mouse X")*Time.deltaTime*sensX * 1000;
+        float mouseY=Input.GetAxisRaw("Mouse Y")*Time.deltaTime*sensY * 1000;
         xRotation-=mouseY;
         yRotation+=mouseX;
         //ограничение вращения камеры по вертикали 

@@ -1,18 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class VolumeSlider : MonoBehaviour
 {
     public AudioMixer Mixer;
+    public Slider Slider;
 
-    public void SetLevel(float sliderValue)
+    public void Start()
     {
-        if(sliderValue==0)
+        Slider.value = CfgManagement.audioLevel;
+        SetAudioLevel(CfgManagement.audioLevel);
+    }
+    public void SetLevelMixer(float sliderValue)
+    {
+        if (sliderValue == 0)
         {
             sliderValue = 0.000001f;
         }
-        Mixer.SetFloat("MusicVol", Mathf.Log10(sliderValue) * 40);
+        SetAudioLevel(sliderValue);
+        CfgManagement.audioLevel = sliderValue;
+    }
+    private void SetAudioLevel(float value)
+    {
+        Mixer.SetFloat("MusicVol", Mathf.Log10(value) * 40);
     }
 }
