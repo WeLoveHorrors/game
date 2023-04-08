@@ -544,7 +544,7 @@ MonoBehaviour:
   Seed: 0
   SectionContainer: {fileID: 0}
   MaxLevelSize: 800
-  MaxAllowedOrder: 30
+  MaxAllowedOrder: 100
   Sections:
   - {fileID: 1492136533057598152, guid: a53c3c7d7c7a455419092c05e890a804, type: 3}
   - {fileID: 1492136533057598152, guid: d55c0423bb4ce244ab5b947c233ddb75, type: 3}
@@ -552,6 +552,9 @@ MonoBehaviour:
   - {fileID: 9014937463811898191, guid: e7a44541ce241984e80a6fcef0fc2acf, type: 3}
   - {fileID: 9014937463811898191, guid: f25b204aaf45c2d45bf7774a28b8e6db, type: 3}
   - {fileID: 9014937463811898191, guid: 254b689aa599a36488d36c3e1a00cd99, type: 3}
+  - {fileID: 9014937463811898191, guid: ab1f29f98c7b66247bac7530b0658ce3, type: 3}
+  - {fileID: 9014937463811898191, guid: 998c87178a3bb0544b83d55d2719e5f9, type: 3}
+  - {fileID: 9014937463811898191, guid: 22fbb832df7319d42962ed44177adb52, type: 3}
   DeadEnds:
   - {fileID: 7587804042119494993, guid: 6ff0e41fddae81d499d8dd6bc7b1495a, type: 3}
   - {fileID: 8755765321756186301, guid: 6aa5f4f39e83c854d85f210eb1f575ec, type: 3}
