@@ -5,6 +5,7 @@ using UnityEngine;
 public class CamHolder : MonoBehaviour
 {
     public Transform camPosition;
+ 
     // Start is called before the first frame update
     void Start()
     {
@@ -15,5 +16,6 @@ public class CamHolder : MonoBehaviour
     void Update()
     {
         transform.position=camPosition.position;
+       
     }
 }

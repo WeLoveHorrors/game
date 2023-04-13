@@ -5,7 +5,7 @@ using TMPro;
 
 public class Movement : MonoBehaviour
 {
-
+    public ExplosionCamShake expcamshake;
   
     [Header("Movement")]
     private float moveSpeed;
@@ -72,6 +72,10 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
+
+        if(Input.GetKeyDown(KeyCode.F)){
+            StartCoroutine(expcamshake.Shake(.15f,.4f));
+        }
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
