@@ -10,6 +10,17 @@ public class PlayerCam : MonoBehaviour
     float xRotation;
     float yRotation;
 
+    public float leanAngle = 10f;
+    public float maxLeanAmount = 1f;
+    public float leanSpeed = 2f;
+    public float maxTiltAngle = 15f;
+    public float tiltSpeed = 2f;
+
+    private Vector3 lastPlayerPosition;
+    private Vector3 movementDirection;
+    private float leanAmount;
+    private float tiltAmount;
+
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +37,7 @@ public class PlayerCam : MonoBehaviour
         Cursor.lockState=CursorLockMode.Locked;
         //Скрытие курсора
         Cursor.visible=false;
+        lastPlayerPosition = orientation.position;
         
     }
 
@@ -42,5 +54,25 @@ public class PlayerCam : MonoBehaviour
         //изменение поворота камеры в игре
         transform.rotation=Quaternion.Euler(xRotation,yRotation,0);
         orientation.rotation=Quaternion.Euler(0,yRotation,0);
+
+        movementDirection = orientation.position - lastPlayerPosition;
+        float distance = movementDirection.magnitude;
+
+        
+        float leanX = Mathf.Clamp(movementDirection.x * leanAngle, -maxLeanAmount, maxLeanAmount);
+        float leanZ = Mathf.Clamp(movementDirection.z * leanAngle, -maxLeanAmount, maxLeanAmount);
+        leanAmount = Mathf.Lerp(leanAmount, Mathf.Abs(leanX + leanZ), Time.deltaTime * leanSpeed);
+
+        
+        float targetTiltAngle = Mathf.Clamp(movementDirection.z * maxTiltAngle, -maxTiltAngle, maxTiltAngle);
+        tiltAmount = Mathf.Lerp(tiltAmount, targetTiltAngle, Time.deltaTime * tiltSpeed);
+
+       
+        Quaternion leanRotation = Quaternion.Euler(tiltAmount, 1, -leanX);
+        transform.localRotation = Quaternion.Lerp(transform.localRotation, leanRotation, leanAmount);
+
+        
+        lastPlayerPosition = orientation.position;
+        
     }
 }

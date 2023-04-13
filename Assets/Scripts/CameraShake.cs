@@ -4,45 +4,44 @@ using UnityEngine;
 
 public class CameraShake : MonoBehaviour
 {
-   Camera cam;
-    public float shakeIntensity = 0.1f; // интенсивность тряски
-    public float shakeSpeed = 0.4f; // скорость тряски
+   public Transform playerTransform;
+    public float leanAngle = 10f;
+    public float maxLeanAmount = 1f;
+    public float leanSpeed = 2f;
+    public float maxTiltAngle = 15f;
+    public float tiltSpeed = 2f;
 
-    private Vector3 initialPosition; // начальное положение камеры
-    
+    private Vector3 lastPlayerPosition;
+    private Vector3 movementDirection;
+    private float leanAmount;
+    private float tiltAmount;
 
     void Start()
     {
-        cam=GetComponent<Camera>();
+        lastPlayerPosition = playerTransform.position;
     }
 
     void Update()
     {
-        if(Input.GetKey(KeyCode.W))
-        {
-            Shake();
-        }
-        if(Input.GetKey(KeyCode.S))
-        {
-            Shake();
-        }
-        if(Input.GetKey(KeyCode.A))
-        {
-            Shake();
-        }
-        if(Input.GetKey(KeyCode.D))
-        {
-            Shake();
-        }
         
-    }
+        movementDirection = playerTransform.position - lastPlayerPosition;
+        float distance = movementDirection.magnitude;
 
-    void Shake(){
-        float shakeAmount = Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0 ? shakeIntensity * 2 : shakeIntensity; 
+        
+        float leanX = Mathf.Clamp(movementDirection.x * leanAngle, -maxLeanAmount, maxLeanAmount);
+        float leanZ = Mathf.Clamp(movementDirection.z * leanAngle, -maxLeanAmount, maxLeanAmount);
+        leanAmount = Mathf.Lerp(leanAmount, Mathf.Abs(leanX + leanZ), Time.deltaTime * leanSpeed);
 
-        Vector3 shake = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f) * shakeAmount; 
+        
+        float targetTiltAngle = Mathf.Clamp(movementDirection.z * maxTiltAngle, -maxTiltAngle, maxTiltAngle);
+        tiltAmount = Mathf.Lerp(tiltAmount, targetTiltAngle, Time.deltaTime * tiltSpeed);
 
-        transform.localPosition = Vector3.Lerp(transform.localPosition, initialPosition + shake, Time.deltaTime * shakeSpeed);
+       
+        Quaternion leanRotation = Quaternion.Euler(tiltAmount, 1, -leanX);
+        transform.localRotation = Quaternion.Lerp(transform.localRotation, leanRotation, leanAmount);
+
+        
+        lastPlayerPosition = playerTransform.position;
     }
 
    
