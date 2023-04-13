@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 2.77
+  m_AmbientIntensity: 5.19
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 860a66ca4259b384f9ec01b687f71c3c, type: 2}
@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 283934086}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -428,7 +428,7 @@ GameObject:
   - component: {fileID: 796577008}
   m_Layer: 0
   m_Name: PlayerObj
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -543,8 +543,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Seed: 0
   SectionContainer: {fileID: 0}
-  MaxLevelSize: 800
-  MaxAllowedOrder: 100
+  MaxLevelSize: 200
+  MaxAllowedOrder: 50
   Sections:
   - {fileID: 1492136533057598152, guid: a53c3c7d7c7a455419092c05e890a804, type: 3}
   - {fileID: 1492136533057598152, guid: d55c0423bb4ce244ab5b947c233ddb75, type: 3}
@@ -555,6 +555,7 @@ MonoBehaviour:
   - {fileID: 9014937463811898191, guid: ab1f29f98c7b66247bac7530b0658ce3, type: 3}
   - {fileID: 9014937463811898191, guid: 998c87178a3bb0544b83d55d2719e5f9, type: 3}
   - {fileID: 9014937463811898191, guid: 22fbb832df7319d42962ed44177adb52, type: 3}
+  - {fileID: 9014937463811898191, guid: e6f556ce58c4b8b45a179214ffc694cc, type: 3}
   DeadEnds:
   - {fileID: 7587804042119494993, guid: 6ff0e41fddae81d499d8dd6bc7b1495a, type: 3}
   - {fileID: 8755765321756186301, guid: 6aa5f4f39e83c854d85f210eb1f575ec, type: 3}
@@ -654,6 +655,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tolik
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: eb83d6af993863941b5f405c5c835422, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb83d6af993863941b5f405c5c835422, type: 3}
 --- !u!1 &1603301512
@@ -667,7 +672,7 @@ GameObject:
   - component: {fileID: 1603301513}
   m_Layer: 0
   m_Name: Orientation
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -700,7 +705,7 @@ GameObject:
   - component: {fileID: 1617840396}
   - component: {fileID: 1617840395}
   - component: {fileID: 1617840394}
-  - component: {fileID: 1617840393}
+  - component: {fileID: 1617840397}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -723,27 +728,6 @@ Transform:
   m_Father: {fileID: 2037280446}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1617840393
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1617840391}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: dc3916cfc69924d40ae55088ec746a2f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1617840394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -808,6 +792,27 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!95 &1617840397
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617840391}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dc3916cfc69924d40ae55088ec746a2f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!850595691 &1755605635
 LightingSettings:
   m_ObjectHideFlags: 0
