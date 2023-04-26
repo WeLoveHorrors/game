@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
+    public Transform weapon;
     public Camera normalCamera;
 
     public float speed = 12f;
@@ -12,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public float gravity = -29.43f;
     public float jump = 3.4f;
 
-    Vector3 velocity;
+    public Vector3 velocity;
 
     public float baseFov;
 
@@ -36,9 +37,10 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
         float movingForward = Input.GetAxisRaw("Vertical");
+        float movingRight = Input.GetAxisRaw("Horizontal");
 
         bool Sprint = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-        bool isSprinting = Sprint && movingForward > 0;
+        bool isSprinting = Sprint;
 
         float t_adjustedSpeed = speed;
         if (isSprinting)
@@ -73,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         velocity.y += gravity * Time.deltaTime;
-
+        
         controller.Move(velocity * Time.deltaTime);
     }
 }
