@@ -6,6 +6,7 @@ public class MouseLook : MonoBehaviour
 {
     public float mouseSensitivity = 290f;
     public Transform playerBody;
+    public Transform weapon;
     float xRotation = 0f;
 
     // Start is called before the first frame update
@@ -24,6 +25,9 @@ public class MouseLook : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        weapon.localRotation = Quaternion.Euler(weapon.localRotation.x, 90f, xRotation);
+        weapon.localPosition.Set(weapon.localPosition.x, xRotation, weapon.localPosition.z);
+
         playerBody.Rotate(Vector3.up * mouseX);
     }
 }
