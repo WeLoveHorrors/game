@@ -5,8 +5,13 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
-    public Transform weapon;
     public Camera normalCamera;
+
+    public Transform weapon;
+    public Vector3 weaponOrigin;
+    public float movementCounter;
+    public float idleCounter;
+    public Vector3 targetWeaponBobPosition;
 
     public float speed = 12f;
     public float sprintModifier = 2f;
@@ -22,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         baseFov = normalCamera.fieldOfView;
+        weaponOrigin = weapon.localPosition;
         // Camera.main.enabled = false;
     }
 
@@ -48,19 +54,19 @@ public class PlayerMovement : MonoBehaviour
             if(movingForward < 0)
             {
                 t_adjustedSpeed *= sprintModifier;
-                normalCamera.fieldOfView = Mathf.Lerp(normalCamera.fieldOfView, baseFov * 0.8f, Time.deltaTime * 8f);
+                normalCamera.fieldOfView = Mathf.Lerp(normalCamera.fieldOfView, baseFov * 0.85f, Time.deltaTime * 8f);
             }
             else
             {
                 t_adjustedSpeed *= sprintModifier;
-                normalCamera.fieldOfView = Mathf.Lerp(normalCamera.fieldOfView, baseFov * sprintModifier * 0.65f, Time.deltaTime * 8f);
+                normalCamera.fieldOfView = Mathf.Lerp(normalCamera.fieldOfView, baseFov * sprintModifier * 0.55f, Time.deltaTime * 8f);
             }
         }
         else
         {
             if(movingForward < 0)
             {
-                normalCamera.fieldOfView = Mathf.Lerp(normalCamera.fieldOfView, baseFov * 0.9f, Time.deltaTime * 8f);
+                normalCamera.fieldOfView = Mathf.Lerp(normalCamera.fieldOfView, baseFov * 0.95f, Time.deltaTime * 8f);
             }
             else if(movingForward > 0)
             {
@@ -85,5 +91,29 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         
         controller.Move(velocity * Time.deltaTime);
+
+
+        if(movingForward == 0 && movingRight == 0) {
+            HeadBob(idleCounter, 0.015f, 0.015f);
+            idleCounter += Time.deltaTime;
+            weapon.localPosition = Vector3.Lerp(weapon.localPosition, targetWeaponBobPosition, Time.deltaTime * 2f);
+        }
+        else if(Sprint)
+        {
+            HeadBob(movementCounter, 0.05f, 0.05f);
+            movementCounter += Time.deltaTime * 5f;
+            weapon.localPosition = Vector3.Lerp(weapon.localPosition, targetWeaponBobPosition, Time.deltaTime * 10f);
+        }
+        else
+        {
+            HeadBob(movementCounter, 0.035f, 0.035f);
+            movementCounter += Time.deltaTime * 3f;
+            weapon.localPosition = Vector3.Lerp(weapon.localPosition, targetWeaponBobPosition, Time.deltaTime * 6f);
+        }
+    }
+
+    void HeadBob(float p_z, float p_x_intensity, float p_y_intensity)
+    {
+        targetWeaponBobPosition = weaponOrigin + new Vector3(Mathf.Cos(p_z * 2) * p_x_intensity, Mathf.Sin(p_z * 2) * p_y_intensity, 0);
     }
 }
