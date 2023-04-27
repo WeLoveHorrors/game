@@ -482,11 +482,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 599104984}
+  weapon: {fileID: 0}
   normalCamera: {fileID: 862326609}
   speed: 12
   sprintModifier: 2
   gravity: -29.43
   jump: 3
+  velocity: {x: 0, y: 0, z: 0}
   baseFov: 0
 --- !u!114 &599104987
 MonoBehaviour:
@@ -2316,6 +2318,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   intensity: 1
   smooth: 10
+  player: {fileID: 0}
+  rotationAmount: 4
+  maxRotationAmount: 5
+  smoothRotation: 12
 --- !u!1 &2061351465
 GameObject:
   m_ObjectHideFlags: 0
@@ -2401,6 +2407,10 @@ PrefabInstance:
     - target: {fileID: 7240942494812921581, guid: 1db722556b9e613458da34b0d7c8c317, type: 3}
       propertyPath: m_Name
       value: M4A4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9160878454004461176, guid: 1db722556b9e613458da34b0d7c8c317, type: 3}
+      propertyPath: intensity
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1db722556b9e613458da34b0d7c8c317, type: 3}

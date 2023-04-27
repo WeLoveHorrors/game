@@ -45,8 +45,16 @@ public class PlayerMovement : MonoBehaviour
         float t_adjustedSpeed = speed;
         if (isSprinting)
         {
-            t_adjustedSpeed *= sprintModifier;
-            normalCamera.fieldOfView = Mathf.Lerp(normalCamera.fieldOfView, baseFov * sprintModifier * 0.75f, Time.deltaTime * 8f);
+            if(movingForward < 0)
+            {
+                t_adjustedSpeed *= sprintModifier;
+                normalCamera.fieldOfView = Mathf.Lerp(normalCamera.fieldOfView, baseFov * 0.8f, Time.deltaTime * 8f);
+            }
+            else
+            {
+                t_adjustedSpeed *= sprintModifier;
+                normalCamera.fieldOfView = Mathf.Lerp(normalCamera.fieldOfView, baseFov * sprintModifier * 0.65f, Time.deltaTime * 8f);
+            }
         }
         else
         {

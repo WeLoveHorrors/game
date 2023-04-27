@@ -205,8 +205,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6d7ae8a47deedc408c6e1b19a6c93d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intensity: 5
+  intensity: 10
   smooth: 20
+  player: {fileID: 0}
+  rotationAmount: 4
+  maxRotationAmount: 5
+  smoothRotation: 12
 --- !u!1001 &4395755895881458448
 PrefabInstance:
   m_ObjectHideFlags: 0

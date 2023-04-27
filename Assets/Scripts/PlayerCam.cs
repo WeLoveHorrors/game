@@ -73,6 +73,5 @@ public class PlayerCam : MonoBehaviour
 
         
         lastPlayerPosition = orientation.position;
-        
     }
 }
