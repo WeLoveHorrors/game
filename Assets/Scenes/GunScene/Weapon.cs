@@ -6,12 +6,14 @@ public class Weapon : MonoBehaviour
 {
     public GameObject[] loadout;
     public Transform weaponParent;
+    public int currentWeaponType;
 
     private GameObject currentWeapon;
 
     // Start is called before the first frame update
     void Start()
     {
+        currentWeaponType = -1;
         Equip(0);
     }
 
@@ -24,14 +26,21 @@ public class Weapon : MonoBehaviour
 
     void Equip(int p_ind)
     {
-        if(currentWeapon != null) Destroy(currentWeapon);
+        if(currentWeaponType != p_ind)
+        {
+            currentWeaponType = p_ind;
 
-        GameObject t_newWeapon = Instantiate (loadout[p_ind], weaponParent.position, weaponParent.rotation, weaponParent) as GameObject;
-        t_newWeapon.transform.localPosition = Vector3.zero;
-        t_newWeapon.transform.localEulerAngles = Vector3.zero;
+            if(currentWeapon != null)
+            {
+                Destroy(currentWeapon);
+            }
 
-        t_newWeapon.GetComponent<Animator>().Play("Equip", 0, 0);
+            GameObject t_newWeapon = Instantiate (loadout[p_ind], weaponParent.position, weaponParent.rotation, weaponParent) as GameObject;
+            t_newWeapon.transform.localPosition = Vector3.zero;
+            t_newWeapon.transform.localEulerAngles = Vector3.zero;
 
-        currentWeapon = t_newWeapon;
+            t_newWeapon.GetComponent<Animator>().Play("Equip", 0, 0);
+            currentWeapon = t_newWeapon;
+        }
     }
 }
