@@ -2446,7 +2446,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 934266531006669337, guid: 1db722556b9e613458da34b0d7c8c317, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905479892629274158, guid: 1db722556b9e613458da34b0d7c8c317, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2995884750138507197, guid: 1db722556b9e613458da34b0d7c8c317, type: 3}
       propertyPath: shotOrigin

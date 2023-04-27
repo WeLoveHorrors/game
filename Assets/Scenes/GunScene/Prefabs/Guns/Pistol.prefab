@@ -168,6 +168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8790024743252962699}
   - component: {fileID: 1457038154002797766}
+  - component: {fileID: 464727075832045101}
   m_Layer: 0
   m_Name: Anchor
   m_TagString: Untagged
@@ -207,6 +208,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 100
   shotOrigin: {fileID: 9024369506126781968}
+--- !u!95 &464727075832045101
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8790024743252962696}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5e8e86297705bf74dbe5e6f8e5f36932, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8790024743979841300
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,6 +239,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8790024743979841303}
   - component: {fileID: 1086274200970764723}
+  - component: {fileID: 1232053480414398968}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -259,6 +282,27 @@ MonoBehaviour:
   rotationAmount: 4
   maxRotationAmount: 5
   smoothRotation: 12
+--- !u!95 &1232053480414398968
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8790024743979841300}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2138e2ffc2c3d3444b4557f89db6ac92, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &9024369506126781968
 GameObject:
   m_ObjectHideFlags: 0
