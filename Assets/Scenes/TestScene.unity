@@ -220,6 +220,11 @@ Transform:
   m_Father: {fileID: 1043882581}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &275673436 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 109318224920796187, guid: 1db722556b9e613458da34b0d7c8c317, type: 3}
+  m_PrefabInstance: {fileID: 8769054489900656970}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &338851002
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,8 +487,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 599104984}
-  weapon: {fileID: 0}
   normalCamera: {fileID: 862326609}
+  weapon: {fileID: 2061351466}
+  weaponOrigin: {x: 0, y: 0, z: 0}
+  movementCounter: 0
+  idleCounter: 0
+  targetWeaponBobPosition: {x: 0, y: 0, z: 0}
   speed: 12
   sprintModifier: 2
   gravity: -29.43
@@ -2008,6 +2017,37 @@ Transform:
   m_Father: {fileID: 1043882581}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1707834131
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1707834132}
+  m_Layer: 0
+  m_Name: Muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1707834132
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707834131}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.215, y: -0.1319, z: 0.2125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 275673436}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1973792085
 GameObject:
   m_ObjectHideFlags: 0
@@ -2404,6 +2444,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 934266531006669337, guid: 1db722556b9e613458da34b0d7c8c317, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2995884750138507197, guid: 1db722556b9e613458da34b0d7c8c317, type: 3}
+      propertyPath: shotOrigin
+      value: 
+      objectReference: {fileID: 1707834131}
     - target: {fileID: 7240942494812921581, guid: 1db722556b9e613458da34b0d7c8c317, type: 3}
       propertyPath: m_Name
       value: M4A4
@@ -2421,6 +2469,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2260932691876943709, guid: daabd8ff90dc07945a3f8ee2a658ec59, type: 3}
+      propertyPath: shotOrigin
+      value: 
+      objectReference: {fileID: 862326607}
     - target: {fileID: 8790024743979841300, guid: daabd8ff90dc07945a3f8ee2a658ec59, type: 3}
       propertyPath: m_Name
       value: Pistol

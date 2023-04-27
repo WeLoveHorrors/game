@@ -13,10 +13,10 @@ public class PlayerMovement : MonoBehaviour
     public float idleCounter;
     public Vector3 targetWeaponBobPosition;
 
-    public float speed = 12f;
+    public float speed = 24f;
     public float sprintModifier = 2f;
     public float gravity = -29.43f;
-    public float jump = 3.4f;
+    public float jump = 6f;
 
     public Vector3 velocity;
 
