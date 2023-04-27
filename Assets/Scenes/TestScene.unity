@@ -515,6 +515,7 @@ MonoBehaviour:
   - {fileID: 8790024743979841300, guid: daabd8ff90dc07945a3f8ee2a658ec59, type: 3}
   - {fileID: 7240942494812921581, guid: 1db722556b9e613458da34b0d7c8c317, type: 3}
   weaponParent: {fileID: 2061351466}
+  currentWeaponType: 0
 --- !u!1 &643055043
 GameObject:
   m_ObjectHideFlags: 0
