@@ -401,14 +401,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
-  timeBetweenShooting: 0.05
-  spread: 0.02
+  timeBetweenShooting: 0.08
+  spread: 0.035
   range: 100
   reloadTime: 1
   timeBetweenShots: 0
-  magazineSize: 100
+  magazineSize: 30
   bulletsPerTap: 1
   allowButtonHold: 1
+  bulletsLeft: 0
+  bulletsShot: 0
   fpsCam: {fileID: 1611384077616814015}
   attackPoint: {fileID: 1643759021356087111}
   whatIsEnemy:
@@ -418,6 +420,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 1476780548710835789}
   ribbonSmoke: {fileID: 5402935447374230078}
   isRibbonEnabled: 0
+  RibbonTimeAlive: 2
 --- !u!1001 &1485815233802627476
 PrefabInstance:
   m_ObjectHideFlags: 0

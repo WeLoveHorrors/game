@@ -254,6 +254,10 @@ PrefabInstance:
       propertyPath: fpsCam
       value: 
       objectReference: {fileID: 862326609}
+    - target: {fileID: 118509444466296950, guid: 1db722556b9e613458da34b0d7c8c317, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7240942494812921581, guid: 1db722556b9e613458da34b0d7c8c317, type: 3}
       propertyPath: m_Name
       value: M4A4

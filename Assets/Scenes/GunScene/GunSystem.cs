@@ -8,7 +8,7 @@ public class GunSystem : MonoBehaviour
     public float timeBetweenShooting,spread,range,reloadTime,timeBetweenShots;
     public int magazineSize,bulletsPerTap;
     public bool allowButtonHold;
-    int bulletsLeft,bulletsShot;
+    public int bulletsLeft,bulletsShot;
 
     bool shooting,readyToShoot,reloading;
 
@@ -28,10 +28,10 @@ public class GunSystem : MonoBehaviour
         fpsCam = Camera.main;
         Invoke("AllowShoot", 0.2f);
         ribbonSmoke.Stop();
+        bulletsLeft = magazineSize;
     }
     private void Update()
     {
-        bulletsLeft = 1000;
         MyInput();
     }
     private void MyInput()
@@ -41,7 +41,7 @@ public class GunSystem : MonoBehaviour
         else
             shooting = Input.GetKeyDown(KeyCode.Mouse0);
 
-        if (readyToShoot && shooting)
+        if (readyToShoot && shooting && bulletsLeft > 0)
         {
             Shoot();
         }
@@ -75,32 +75,36 @@ public class GunSystem : MonoBehaviour
 
     private void Shoot()
     {
-        readyToShoot = false;
-
-        float x = Random.Range(-spread, spread);
-        float y = Random.Range(-spread, spread);
-
-        Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
-
-        if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy))
+        if(readyToShoot)
         {
-            Debug.Log(rayHit.collider.name);
+            bulletsLeft--;
+            readyToShoot = false;
 
-            if (rayHit.collider.CompareTag("Enemy"))
+            float x = Random.Range(-spread, spread);
+            float y = Random.Range(-spread, spread);
+
+            Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
+
+            if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy))
             {
-                // rayHit.collider.GetComponent
+                Debug.Log(rayHit.collider.name);
+
+                if (rayHit.collider.CompareTag("Enemy"))
+                {
+                    // rayHit.collider.GetComponent
+                }
             }
+
+            Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.identity);
+            muzzleFlash.Play();
+            // foreach(GameObject tmp in GameObject.FindGameObjectsWithTag("Muzzle"))
+            // {
+            //     Destroy(tmp);
+            // }
+            // Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity).Play();
+
+            Invoke("ResetShot", timeBetweenShooting); 
         }
-
-        Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.identity);
-        muzzleFlash.Play();
-        // foreach(GameObject tmp in GameObject.FindGameObjectsWithTag("Muzzle"))
-        // {
-        //     Destroy(tmp);
-        // }
-        // Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity).Play();
-
-        Invoke("ResetShot", timeBetweenShooting);
     }
 
     private void ResetShot()
