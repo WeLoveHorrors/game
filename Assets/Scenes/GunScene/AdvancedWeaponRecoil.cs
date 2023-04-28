@@ -11,12 +11,12 @@ public class AdvancedWeaponRecoil : MonoBehaviour
 	[Space(10)]
 
 	[Header("Speed Settings")]
-	public float positionalRecoilSpeed = 8f;
-	public float rotationalRecoilSpeed = 8f;
+	public float positionalRecoilSpeed = 30f;
+	public float rotationalRecoilSpeed = 70f;
 	[Space(10)]
 
-	public float positionalReturnSpeed = 18f;
-	public float rotationalReturnSpeed = 38f;
+	public float positionalReturnSpeed = 20f;
+	public float rotationalReturnSpeed = 44.5f;
 	[Space(10)]
 
 	[Header("Amount Settings:")]
@@ -36,16 +36,17 @@ public class AdvancedWeaponRecoil : MonoBehaviour
 	private void FixedUpdate()
 	{
 		rotationalRecoil = Vector3.Lerp(rotationalRecoil, Vector3.zero, rotationalReturnSpeed * Time.deltaTime);
-		positionalRecoil = Vector3.Lerp(positionalRecoil, Vector3.zero, positionalReturnSpeed * Time.deltaTime);
+		positionalRecoil = Vector3.Lerp(positionalRecoil, Vector3.zero, positionalReturnSpeed * Time.deltaTime * 0.6f);
         rotationalMuzzleRecoil = Vector3.Lerp(rotationalMuzzleRecoil, Vector3.zero,  rotationalReturnSpeed * Time.deltaTime);
 
 		recoilPosition.localPosition = Vector3.Slerp(recoilPosition.localPosition, positionalRecoil, positionalRecoilSpeed * Time.deltaTime);
 		Rot = Vector3.Slerp(Rot, rotationalRecoil, rotationalRecoilSpeed * Time.deltaTime);
 		rotationPoint.localRotation = Quaternion.Euler(Rot);
-        MuzzlePosition.localPosition = Vector3.Slerp(recoilPosition.localPosition + new Vector3(Random.Range(-0.025f, 0.025f), Random.Range(-0.025f, 0.025f), Random.Range(-0.025f, 0.025f)), positionalRecoil, positionalRecoilSpeed * Time.deltaTime);
+        MuzzlePosition.localPosition = Vector3.Slerp(recoilPosition.localPosition + new Vector3(Random.Range(-0.045f, 0.045f), Random.Range(-0.045f, 0.045f), 0), positionalRecoil, positionalRecoilSpeed * Time.deltaTime);
+        MuzzlePosition.localScale = new Vector3(Random.Range(2f, 4f), Random.Range(2f, 4f), Random.Range(2f, 4f));
 
         MuzzleRot = Vector3.Slerp(MuzzleRot, rotationalRecoil, rotationalRecoilSpeed * Time.deltaTime);
-        MuzzlePosition.localRotation = Quaternion.Euler(Random.Range(0, 360), 270, Random.Range(-10, 10));
+        MuzzlePosition.localRotation = Quaternion.Euler(Random.Range(0, 360), 270, 0);
 	}
 
 	void Update()
@@ -59,6 +60,7 @@ public class AdvancedWeaponRecoil : MonoBehaviour
 	public void Fire()
 	{
         float movingRight = Input.GetAxisRaw("Horizontal");
+        positionalRecoil += new Vector3(0.003f, 0f, 0f);
 		rotationalRecoil += new Vector3(RecoilRotation.x * (movingRight >= 0 ? 1 : 0.35f), Random.Range(-RecoilRotation.y, RecoilRotation.y), Random.Range(-RecoilRotation.z, RecoilRotation.z));
 		rotationalRecoil += new Vector3(Random.Range(-RecoilKickBack.x, RecoilKickBack.x), Random.Range(-RecoilKickBack.y, RecoilKickBack.y), RecoilKickBack.z);
 

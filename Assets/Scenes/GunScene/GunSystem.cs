@@ -22,7 +22,7 @@ public class GunSystem : MonoBehaviour
 
     private void Awake()
     {
-        readyToShoot = true;
+        Invoke("AllowShoot", 0.2f);
     }
     private void Update()
     {
@@ -39,6 +39,10 @@ public class GunSystem : MonoBehaviour
         if (readyToShoot && shooting)
         {
             Shoot();
+        }
+
+        if(shooting)
+        {
             GetComponent<Animator>().SetBool("isShooting", true);
         }
         else
@@ -78,6 +82,11 @@ public class GunSystem : MonoBehaviour
     }
 
     private void ResetShot()
+    {
+        readyToShoot = true;
+    }
+
+    private void AllowShoot()
     {
         readyToShoot = true;
     }
