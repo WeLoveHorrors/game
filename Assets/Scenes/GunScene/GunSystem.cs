@@ -25,6 +25,7 @@ public class GunSystem : MonoBehaviour
     public float RibbonTimeAlive = 2f;
     private void Awake()
     {
+        fpsCam = Camera.main;
         Invoke("AllowShoot", 0.2f);
         ribbonSmoke.Stop();
     }
@@ -79,19 +80,19 @@ public class GunSystem : MonoBehaviour
         float x = Random.Range(-spread, spread);
         float y = Random.Range(-spread, spread);
 
-        // Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
+        Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
 
-        // if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy))
-        // {
-        //     Debug.Log(rayHit.collider.name);
+        if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy))
+        {
+            Debug.Log(rayHit.collider.name);
 
-        //     if (rayHit.collider.CompareTag("Enemy"))
-        //     {
-        //         // rayHit.collider.GetComponent
-        //     }
-        // }
+            if (rayHit.collider.CompareTag("Enemy"))
+            {
+                // rayHit.collider.GetComponent
+            }
+        }
 
-        Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 90, 0));
+        Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.identity);
         muzzleFlash.Play();
         // foreach(GameObject tmp in GameObject.FindGameObjectsWithTag("Muzzle"))
         // {
