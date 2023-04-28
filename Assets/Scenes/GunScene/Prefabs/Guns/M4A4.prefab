@@ -136,6 +136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7353716144964713601}
   - component: {fileID: 4086311434482707864}
+  - component: {fileID: 2807955685644456694}
   m_Layer: 0
   m_Name: Anchor
   m_TagString: Untagged
@@ -174,6 +175,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 100
   shotOrigin: {fileID: 1611384077616814015}
+--- !u!114 &2807955685644456694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2947770763742645154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f791ab707d4277949871251eb5ac253c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  rotationAmount: 4
+  maxRotationAmount: 5
+  smoothRotation: 12
 --- !u!1 &3136412053329816684
 GameObject:
   m_ObjectHideFlags: 0

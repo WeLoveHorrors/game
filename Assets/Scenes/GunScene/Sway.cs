@@ -12,7 +12,6 @@ public class Sway : MonoBehaviour
     private Quaternion origin_rotation;
 
     private Vector3 initialPosition;
-    private Quaternion initialRotation;
     public GameObject player;
 
     public float rotationAmount = 4f;
@@ -23,7 +22,6 @@ public class Sway : MonoBehaviour
     {
         origin_rotation = transform.localRotation;
         initialPosition = transform.localPosition;
-        initialRotation = transform.localRotation;
     }
 
     // Update is called once per frame
@@ -51,18 +49,5 @@ public class Sway : MonoBehaviour
             finalPosition + initialPosition,
             Time.deltaTime * 6f
         );
-    }
-    
-
-    private void TiltSway()
-    {
-        Vector3 playerVelocity = player.GetComponent<PlayerMovement>().velocity;
-        Vector3 localPlayerVelocity = transform.InverseTransformDirection(playerVelocity);
-        float tiltY = Mathf.Clamp(localPlayerVelocity.x * rotationAmount, -maxRotationAmount, maxRotationAmount); // tiltY зависит от локальной скорости по x
-        float tiltX = Mathf.Clamp(localPlayerVelocity.z * rotationAmount, -maxRotationAmount, maxRotationAmount); // tiltX зависит от локальной скорости по z
-
-        Quaternion finalRotation = Quaternion.Euler(new Vector3(-tiltX, tiltY * 5, tiltY));
-
-        transform.localRotation = Quaternion.Slerp(transform.localRotation, finalRotation * initialRotation, Time.deltaTime * smoothRotation);
     }
 }

@@ -9,20 +9,23 @@ public class PlayerMovement : MonoBehaviour
 
     public Transform weapon;
     public Vector3 weaponOrigin;
+
     public float movementCounter;
     public float idleCounter;
     public Vector3 targetWeaponBobPosition;
 
-    public float speed = 24f;
-    public float sprintModifier = 2f;
-    public float gravity = -29.43f;
-    public float jump = 6f;
+    public float speed = 18f;
+    // public float sprintModifier = 2f;
+    public float gravity = -42.43f;
+    public float jump = 9f;
+    public float fallingModifier = 14f;
 
     public Vector3 velocity;
 
     public float baseFov;
 
     bool isAbleToJump;
+    bool isFastFalling;
 
     private void Start()
     {
@@ -38,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y = -2f;
             isAbleToJump = true;
+            isFastFalling = false;
         }
 
         float x = Input.GetAxis("Horizontal");
@@ -45,50 +49,59 @@ public class PlayerMovement : MonoBehaviour
         float movingForward = Input.GetAxisRaw("Vertical");
         float movingRight = Input.GetAxisRaw("Horizontal");
 
-        bool Sprint = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-        bool isSprinting = Sprint;
+        // bool Sprint = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+        // bool isSprinting = Sprint;
 
-        float t_adjustedSpeed = speed;
-        if (isSprinting)
+        // float t_adjustedSpeed = speed;
+        if(movingForward < 0)
         {
-            if(movingForward < 0)
-            {
-                t_adjustedSpeed *= sprintModifier;
-                normalCamera.fieldOfView = Mathf.Lerp(normalCamera.fieldOfView, baseFov * 0.85f, Time.deltaTime * 8f);
-            }
-            else
-            {
-                t_adjustedSpeed *= sprintModifier;
-                normalCamera.fieldOfView = Mathf.Lerp(normalCamera.fieldOfView, baseFov * sprintModifier * 0.55f, Time.deltaTime * 8f);
-            }
+            // t_adjustedSpeed *= sprintModifier;
+            normalCamera.fieldOfView = Mathf.Lerp(normalCamera.fieldOfView, baseFov * 0.95f, Time.deltaTime * 8f);
+        }
+        else if(movingForward > 0)
+        {
+            // t_adjustedSpeed *= sprintModifier;
+            normalCamera.fieldOfView = Mathf.Lerp(normalCamera.fieldOfView, baseFov * 2 * 0.53f, Time.deltaTime * 8f);
         }
         else
         {
-            if(movingForward < 0)
-            {
-                normalCamera.fieldOfView = Mathf.Lerp(normalCamera.fieldOfView, baseFov * 0.95f, Time.deltaTime * 8f);
-            }
-            else if(movingForward > 0)
-            {
-                normalCamera.fieldOfView = Mathf.Lerp(normalCamera.fieldOfView, baseFov * 1.1f, Time.deltaTime * 8f);
-            }
-            else
-            {
-                normalCamera.fieldOfView = Mathf.Lerp(normalCamera.fieldOfView, baseFov, Time.deltaTime * 8f);
-            }
+            normalCamera.fieldOfView = Mathf.Lerp(normalCamera.fieldOfView, baseFov, Time.deltaTime * 8f);
         }
+        // if (isSprinting)
+        // {
+        // }
+        // else
+        // {
+        //     if(movingForward < 0)
+        //     {
+        //         normalCamera.fieldOfView = Mathf.Lerp(normalCamera.fieldOfView, baseFov * 0.95f, Time.deltaTime * 8f);
+        //     }
+        //     else if(movingForward > 0)
+        //     {
+        //         normalCamera.fieldOfView = Mathf.Lerp(normalCamera.fieldOfView, baseFov * 1.1f, Time.deltaTime * 8f);
+        //     }
+        //     else
+        //     {
+        //         normalCamera.fieldOfView = Mathf.Lerp(normalCamera.fieldOfView, baseFov, Time.deltaTime * 8f);
+        //     }
+        // }
 
         Vector3 move = transform.right * x + transform.forward * z;
 
-        controller.Move(move * t_adjustedSpeed * Time.deltaTime);
+        controller.Move(move * speed * Time.deltaTime);
 
         if (Input.GetButtonDown("Jump") && isAbleToJump)
         {
             velocity.y = Mathf.Sqrt(jump * -2f * gravity);
             isAbleToJump = false;
         }
+        
+        if (Input.GetKeyDown(KeyCode.LeftControl) && !isAbleToJump && !controller.isGrounded)
+        {
+            isFastFalling = true;
+        }
 
-        velocity.y += gravity * Time.deltaTime;
+        velocity.y += gravity * Time.deltaTime * (isFastFalling ? fallingModifier : 1);
         
         controller.Move(velocity * Time.deltaTime);
 
@@ -97,23 +110,25 @@ public class PlayerMovement : MonoBehaviour
             HeadBob(idleCounter, 0.015f, 0.015f);
             idleCounter += Time.deltaTime;
             weapon.localPosition = Vector3.Lerp(weapon.localPosition, targetWeaponBobPosition, Time.deltaTime * 2f);
+
         }
-        else if(Sprint)
+        else
         {
             HeadBob(movementCounter, 0.05f, 0.05f);
             movementCounter += Time.deltaTime * 5f;
             weapon.localPosition = Vector3.Lerp(weapon.localPosition, targetWeaponBobPosition, Time.deltaTime * 10f);
+
         }
-        else
-        {
-            HeadBob(movementCounter, 0.035f, 0.035f);
-            movementCounter += Time.deltaTime * 3f;
-            weapon.localPosition = Vector3.Lerp(weapon.localPosition, targetWeaponBobPosition, Time.deltaTime * 6f);
-        }
+        // else
+        // {
+        //     HeadBob(movementCounter, 0.035f, 0.035f);
+        //     movementCounter += Time.deltaTime * 3f;
+        //     weapon.localPosition = Vector3.Lerp(weapon.localPosition, targetWeaponBobPosition, Time.deltaTime * 6f);
+        // }
     }
 
     void HeadBob(float p_z, float p_x_intensity, float p_y_intensity)
     {
-        targetWeaponBobPosition = weaponOrigin + new Vector3(Mathf.Cos(p_z * 2) * p_x_intensity, Mathf.Sin(p_z * 2) * p_y_intensity, 0);
+        targetWeaponBobPosition = weaponOrigin + new Vector3(Mathf.Cos(p_z * 2.5f) * p_x_intensity, Mathf.Sin(p_z * 2.5f) * p_y_intensity, Mathf.Sin(p_z) * 0.03f);
     }
 }
