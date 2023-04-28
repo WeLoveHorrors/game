@@ -1123,7 +1123,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
+  m_Radius: 0
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
@@ -4639,6 +4639,10 @@ PrefabInstance:
       propertyPath: shotOrigin
       value: 
       objectReference: {fileID: 1707834131}
+    - target: {fileID: 5796097014529480786, guid: 1db722556b9e613458da34b0d7c8c317, type: 3}
+      propertyPath: fpsCam
+      value: 
+      objectReference: {fileID: 862326609}
     - target: {fileID: 7240942494812921581, guid: 1db722556b9e613458da34b0d7c8c317, type: 3}
       propertyPath: m_Name
       value: M4A4

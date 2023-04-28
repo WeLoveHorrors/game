@@ -39,8 +39,8 @@ public class Sway : MonoBehaviour
         // Quaternion target_rotation = origin_rotation * t_x_adj * t_y_adj;
 
         // transform.localRotation = Quaternion.Lerp(transform.localRotation, target_rotation, Time.deltaTime * smooth);
-        float t_x_mouse = Mathf.Clamp(Input.GetAxis("Mouse X") * 0.02f, -0.06f, 0.06f);
-        float t_y_mouse = Mathf.Clamp(Input.GetAxis("Mouse Y") * 0.02f, -0.06f, 0.06f);
+        float t_x_mouse = Mathf.Clamp(Input.GetAxis("Mouse X") * 0.08f, -0.2f, 0.2f);
+        float t_y_mouse = Mathf.Clamp(Input.GetAxis("Mouse Y") * 0.08f, -0.06f, 0.06f);
 
         Vector3 finalPosition = new Vector3(t_x_mouse, t_y_mouse, 0);
 

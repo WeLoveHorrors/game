@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 7353716144964713601}
   - component: {fileID: 4086311434482707864}
   - component: {fileID: 2807955685644456694}
+  - component: {fileID: 5796097014529480786}
   m_Layer: 0
   m_Name: Anchor
   m_TagString: Untagged
@@ -187,10 +188,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f791ab707d4277949871251eb5ac253c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   rotationAmount: 4
   maxRotationAmount: 5
   smoothRotation: 12
+  multiplier: 1
+--- !u!114 &5796097014529480786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2947770763742645154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeb95659103e5d146a4cff8dff7dfd09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100
+  timeBetweenShooting: 0.05
+  spread: 0.02
+  range: 100
+  reloadTime: 1
+  timeBetweenShots: 0
+  magazineSize: 100
+  bulletsPerTap: 1
+  allowButtonHold: 1
+  fpsCam: {fileID: 1611384077616814015}
+  attackPoint: {fileID: 934266531006669337}
+  whatIsEnemy:
+    serializedVersion: 2
+    m_Bits: 2147483647
+  muzzleFlash: {fileID: 1000010254994808, guid: 9defeac88977c0d448aa4541073ee9e4, type: 3}
+  bulletHoleGraphic: {fileID: 1000010844420130, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
 --- !u!1 &3136412053329816684
 GameObject:
   m_ObjectHideFlags: 0
