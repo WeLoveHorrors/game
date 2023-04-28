@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Rope
   - Enemy
+  - PhisicalObject
+  - Muzzle
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - 
   - Ground
   - whatIsGround
-  - 
+  - PhysicalObject
   - 
   - 
   - 

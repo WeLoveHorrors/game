@@ -17,7 +17,8 @@ public class GunSystem : MonoBehaviour
     public RaycastHit rayHit;
     public LayerMask whatIsEnemy;
 
-    public GameObject muzzleFlash, bulletHoleGraphic;
+    public GameObject bulletHoleGraphic;
+    public ParticleSystem muzzleFlash;
 
     private void Awake()
     {
@@ -38,6 +39,11 @@ public class GunSystem : MonoBehaviour
         if (readyToShoot && shooting)
         {
             Shoot();
+            GetComponent<Animator>().SetBool("isShooting", true);
+        }
+        else
+        {
+            GetComponent<Animator>().SetBool("isShooting", false);
         }
     }
 
@@ -48,20 +54,25 @@ public class GunSystem : MonoBehaviour
         float x = Random.Range(-spread, spread);
         float y = Random.Range(-spread, spread);
 
-        Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
+        // Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
 
-        if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy))
-        {
-            Debug.Log(rayHit.collider.name);
+        // if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy))
+        // {
+        //     Debug.Log(rayHit.collider.name);
 
-            if (rayHit.collider.CompareTag("Enemy"))
-            {
-                // rayHit.collider.GetComponent
-            }
-        }
+        //     if (rayHit.collider.CompareTag("Enemy"))
+        //     {
+        //         // rayHit.collider.GetComponent
+        //     }
+        // }
 
-        Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 180, 0));
-        Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
+        Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 90, 0));
+        muzzleFlash.Play();
+        // foreach(GameObject tmp in GameObject.FindGameObjectsWithTag("Muzzle"))
+        // {
+        //     Destroy(tmp);
+        // }
+        // Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity).Play();
 
         Invoke("ResetShot", timeBetweenShooting);
     }
@@ -69,5 +80,13 @@ public class GunSystem : MonoBehaviour
     private void ResetShot()
     {
         readyToShoot = true;
+    }
+
+    private void RemoveMuzzle(ParticleSystem Muzzle)
+    {
+        if(Muzzle != null)
+        {
+            Destroy(Muzzle);
+        }
     }
 }
