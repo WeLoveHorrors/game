@@ -19,10 +19,14 @@ public class GunSystem : MonoBehaviour
 
     public GameObject bulletHoleGraphic;
     public ParticleSystem muzzleFlash;
+    public ParticleSystem ribbonSmoke;
 
+    public bool isRibbonEnabled;
+    public float RibbonTimeAlive = 2f;
     private void Awake()
     {
         Invoke("AllowShoot", 0.2f);
+        ribbonSmoke.Stop();
     }
     private void Update()
     {
@@ -44,10 +48,27 @@ public class GunSystem : MonoBehaviour
         if(shooting)
         {
             GetComponent<Animator>().SetBool("isShooting", true);
+            isRibbonEnabled = true;
+            RibbonTimeAlive = 2f;
         }
         else
         {
             GetComponent<Animator>().SetBool("isShooting", false);
+        }
+
+        if(isRibbonEnabled && !shooting)
+        {
+            RibbonTimeAlive -= Time.deltaTime;
+            if(RibbonTimeAlive > 0)
+            {
+                ribbonSmoke.Play();
+            }
+            else
+            {
+                ribbonSmoke.Stop();
+                isRibbonEnabled = false;
+            }
+            //  = new Color(255,255,255,0);
         }
     }
 
