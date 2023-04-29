@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - PhisicalObject
   - Muzzle
+  - CamWeaponHolder
   layers:
   - Default
   - TransparentFX

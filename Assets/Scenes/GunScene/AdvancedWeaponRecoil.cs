@@ -33,6 +33,16 @@ public class AdvancedWeaponRecoil : MonoBehaviour
 	Vector3 Rot;
 	Vector3 MuzzleRot;
 
+    Camera fpsCam;
+    GameObject CamHolder;
+	float CameraVelocity;
+    private void Awake()
+    {
+		fpsCam = Camera.main;
+        CamHolder = GameObject.FindGameObjectWithTag("CamWeaponHolder");
+	}
+
+
 	private void FixedUpdate()
 	{
 		rotationalRecoil = Vector3.Lerp(rotationalRecoil, Vector3.zero, rotationalReturnSpeed * Time.deltaTime);
@@ -63,7 +73,9 @@ public class AdvancedWeaponRecoil : MonoBehaviour
         positionalRecoil += new Vector3(0.003f, 0f, 0f);
 		rotationalRecoil += new Vector3(RecoilRotation.x * (movingRight >= 0 ? 1 : 0.35f), Random.Range(-RecoilRotation.y, RecoilRotation.y), Random.Range(-RecoilRotation.z, RecoilRotation.z));
 		rotationalRecoil += new Vector3(Random.Range(-RecoilKickBack.x, RecoilKickBack.x), Random.Range(-RecoilKickBack.y, RecoilKickBack.y), RecoilKickBack.z);
-
+		// fpsCam.transform.localRotation = Quaternion.Euler(fpsCam.transform.localRotation.x - Random.Range(8f, 10f), fpsCam.transform.localRotation.y, fpsCam.transform.localRotation.z);
+		var Rotation = Mathf.SmoothDamp(CamHolder.transform.localRotation.x, fpsCam.transform.localRotation.x - Random.Range(8f, 10f), ref CameraVelocity, 10);
+		CamHolder.transform.localRotation = Quaternion.Euler(Rotation, fpsCam.transform.localRotation.y, fpsCam.transform.localRotation.z);
 		// rotationalMuzzleRecoil += new Vector3(RecoilRotation.x * (movingRight >= 0 ? 1 : 0.35f), Random.Range(-RecoilRotation.y, RecoilRotation.y), Random.Range(-RecoilRotation.z, RecoilRotation.z));
 		// rotationalMuzzleRecoil += new Vector3(Random.Range(-RecoilKickBack.x, RecoilKickBack.x), Random.Range(-RecoilKickBack.y, RecoilKickBack.y), RecoilKickBack.z);
 

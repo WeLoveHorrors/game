@@ -8,7 +8,7 @@ public class GunSystem : MonoBehaviour
     public float timeBetweenShooting,spread,range,reloadTime,timeBetweenShots;
     public int magazineSize,bulletsPerTap;
     public bool allowButtonHold;
-    public int bulletsLeft,bulletsShot;
+    public int bulletsLeft, bulletsShot;
 
     bool shooting,readyToShoot,reloading;
 
@@ -59,6 +59,7 @@ public class GunSystem : MonoBehaviour
 
         if(isRibbonEnabled && !shooting)
         {
+            bulletsShot = 0;
             RibbonTimeAlive -= Time.deltaTime;
             if(RibbonTimeAlive > 0)
             {
@@ -78,10 +79,11 @@ public class GunSystem : MonoBehaviour
         if(readyToShoot)
         {
             bulletsLeft--;
+            bulletsShot++;
             readyToShoot = false;
 
-            float x = Random.Range(-spread, spread);
-            float y = Random.Range(-spread, spread);
+            float x = bulletsShot == 0 ? 0 : Random.Range(-spread, spread) + bulletsShot * spread * Random.Range(-0.4f, 0.4f);
+            float y = bulletsShot == 0 ? 0 : Random.Range(-spread, spread) + bulletsShot * spread * Random.Range(0.02f, 0.05f);
 
             Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
 
@@ -95,14 +97,9 @@ public class GunSystem : MonoBehaviour
                 }
             }
 
-            Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.identity);
+            Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 90, 0));
             muzzleFlash.Play();
-            // foreach(GameObject tmp in GameObject.FindGameObjectsWithTag("Muzzle"))
-            // {
-            //     Destroy(tmp);
-            // }
-            // Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity).Play();
-
+            
             Invoke("ResetShot", timeBetweenShooting); 
         }
     }
