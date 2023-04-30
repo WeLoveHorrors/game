@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class DeagleGunSystem : MonoBehaviour
 {
-    Animator m_animator;
+    public Animator m_animator;
     bool shooting, readyToShoot, reloading;
     float bulletsLeft;
 
-    void Start()
-    {
-        m_animator = GetComponent<Animator>();
-    }
     void Awake()
     {
         bulletsLeft = 100;
@@ -30,12 +26,9 @@ public class DeagleGunSystem : MonoBehaviour
         
         if(shooting) 
         {
-            m_animator.SetBool("Shooting", true);
             bulletsLeft = 100;
         }
-        else
-        {
-            m_animator.SetBool("Shooting", false);
-        }
+        
+        m_animator.SetBool("Shooting", shooting);
     }
 }
