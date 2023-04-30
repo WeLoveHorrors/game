@@ -30,7 +30,7 @@ public class GunSystem : MonoBehaviour
     private void Awake()
     {
         fpsCam = Camera.main;
-        Invoke("AllowShoot", 0.2f);
+        Invoke("AllowShoot", 0.25f);
         ribbonSmoke.Stop();
         bulletsLeft = magazineSize;
         m_shootingSound = GetComponent<AudioSource>();
@@ -106,7 +106,7 @@ public class GunSystem : MonoBehaviour
                 }
             }
 
-            TrailRenderer trailTemp = Instantiate(trail, attackPoint.position, Quaternion.identity);
+            TrailRenderer trailTemp = Instantiate(trail, attackPoint.position + new Vector3(0.01f, -0.08f,-0.06f), Quaternion.identity);
             StartCoroutine(SpawnTrail(trailTemp, rayHit));
             
             HandleAllBulletsLeftRibbon();

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1356461559927923628}
   - component: {fileID: 4912323985820121362}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: HotTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7284258086185988525}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 497.6479, y: 3.8272552, z: 351.88364}
+  m_LocalPosition: {x: 563.306, y: 2.8838425, z: 349.67847}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -74,10 +74,10 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.1
+  m_Time: 0.05
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.1
+    widthMultiplier: 0.12
     widthCurve:
       serializedVersion: 2
       m_Curve:
