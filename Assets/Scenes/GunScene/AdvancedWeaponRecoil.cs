@@ -52,7 +52,7 @@ public class AdvancedWeaponRecoil : MonoBehaviour
 		recoilPosition.localPosition = Vector3.Slerp(recoilPosition.localPosition, positionalRecoil, positionalRecoilSpeed * Time.deltaTime);
 		Rot = Vector3.Slerp(Rot, rotationalRecoil, rotationalRecoilSpeed * Time.deltaTime);
 		rotationPoint.localRotation = Quaternion.Euler(Rot);
-        MuzzlePosition.localPosition = Vector3.Slerp(recoilPosition.localPosition + new Vector3(Random.Range(-0.045f, 0.045f), Random.Range(-0.045f, 0.045f), 0), positionalRecoil, positionalRecoilSpeed * Time.deltaTime);
+        MuzzlePosition.localPosition = Vector3.Slerp(recoilPosition.localPosition + new Vector3(Random.Range(-0.045f, 0.045f), 0, 0) + new Vector3(-0.1f, 0f, 0), positionalRecoil, positionalRecoilSpeed * Time.deltaTime);
         MuzzlePosition.localScale = new Vector3(Random.Range(2f, 4f), Random.Range(2f, 4f), Random.Range(2f, 4f));
 
         MuzzleRot = Vector3.Slerp(MuzzleRot, rotationalRecoil, rotationalRecoilSpeed * Time.deltaTime);
@@ -70,7 +70,7 @@ public class AdvancedWeaponRecoil : MonoBehaviour
 	public void Fire()
 	{
         float movingRight = Input.GetAxisRaw("Horizontal");
-        positionalRecoil += new Vector3(0.005f, 0f, 0f);
+        positionalRecoil += new Vector3(0.0045f, 0.0015f, 0f);
 		rotationalRecoil += new Vector3(RecoilRotation.x * (movingRight >= 0 ? 1 : 0.35f), Random.Range(-RecoilRotation.y, RecoilRotation.y), Random.Range(-RecoilRotation.z, RecoilRotation.z));
 		rotationalRecoil += new Vector3(Random.Range(-RecoilKickBack.x, RecoilKickBack.x), Random.Range(-RecoilKickBack.y, RecoilKickBack.y), RecoilKickBack.z);
 		// fpsCam.transform.localRotation = Quaternion.Euler(fpsCam.transform.localRotation.x - Random.Range(8f, 10f), fpsCam.transform.localRotation.y, fpsCam.transform.localRotation.z);

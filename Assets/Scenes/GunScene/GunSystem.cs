@@ -87,14 +87,16 @@ public class GunSystem : MonoBehaviour
         {
             m_shootingSound.Play();
             bulletsLeft--;
-            bulletsShot++;
             readyToShoot = false;
             cartridge.Play();
 
-            float x = bulletsShot == 0 ? 0 : Random.Range(-spread, spread) + bulletsShot * spread * Random.Range(-0.2f, 0.2f);
+            float x = bulletsShot == 0 ? 0 : (Random.Range(-spread, spread) + bulletsShot * spread * Random.Range(-0.06f, 0.06f));
             float y = bulletsShot == 0 ? 0 : Random.Range(-spread, spread) + bulletsShot * spread * Random.Range(0.02f, 0.06f);
+            float z = bulletsShot == 0 ? 0 : x * (Random.Range(0, 1) > 0.5f ? -1: 1) / 2;
+            
+            bulletsShot++;
 
-            Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
+            Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, z);
 
             if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy))
             {
@@ -106,7 +108,7 @@ public class GunSystem : MonoBehaviour
                 }
             }
 
-            TrailRenderer trailTemp = Instantiate(trail, attackPoint.position + new Vector3(0.01f, -0.08f,-0.06f), Quaternion.identity);
+            TrailRenderer trailTemp = Instantiate(trail, attackPoint.position + new Vector3(0f, -0.08f, 0.05f), Quaternion.identity);
             StartCoroutine(SpawnTrail(trailTemp, rayHit));
             
             HandleAllBulletsLeftRibbon();
