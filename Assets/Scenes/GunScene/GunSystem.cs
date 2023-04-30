@@ -23,6 +23,8 @@ public class GunSystem : MonoBehaviour
     public ParticleSystem cartridge;
     public TrailRenderer trail;
 
+    public ParticleSystem sparks;
+
     public AudioSource m_shootingSound;
 
     public bool isRibbonEnabled;
@@ -90,7 +92,7 @@ public class GunSystem : MonoBehaviour
             readyToShoot = false;
             cartridge.Play();
 
-            float x = bulletsShot == 0 ? 0 : (Random.Range(-spread, spread) + bulletsShot * spread * Random.Range(-0.06f, 0.06f));
+            float x = bulletsShot == 0 ? 0 : Random.Range(-spread, spread) + bulletsShot * spread * Random.Range(-0.06f, 0.06f);
             float y = bulletsShot == 0 ? 0 : Random.Range(-spread, spread) + bulletsShot * spread * Random.Range(0.02f, 0.06f);
             float z = bulletsShot == 0 ? 0 : x * (Random.Range(0, 1) > 0.5f ? -1: 1) / 2f;
             
@@ -114,10 +116,29 @@ public class GunSystem : MonoBehaviour
             HandleAllBulletsLeftRibbon();
 
             Instantiate(bulletHoleGraphic, rayHit.point + (rayHit.normal * .01f), Quaternion.LookRotation(rayHit.normal));
+
+            ParticleSystem sparksTemp = Instantiate(sparks, rayHit.point + (rayHit.normal * .01f), Quaternion.LookRotation(rayHit.normal));
+            StartCoroutine(SpawnSparks(sparksTemp, rayHit));
+            
             muzzleFlash.Play();
 
             Invoke("ResetShot", timeBetweenShooting); 
         }
+    }
+    private IEnumerator SpawnSparks(ParticleSystem sparks, RaycastHit hit)
+    {
+        float time = 0;
+        Vector3 startPosition = sparks.transform.position;
+
+        while(time < 0.001)
+        {
+            time += Time.deltaTime / 1;
+
+            yield return null;
+        }
+
+        sparks.transform.position = hit.point;
+        Destroy(sparks.gameObject, 0.2f);
     }
     private IEnumerator SpawnTrail(TrailRenderer trail, RaycastHit hit)
     {
