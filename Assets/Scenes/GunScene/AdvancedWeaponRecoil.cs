@@ -52,7 +52,7 @@ public class AdvancedWeaponRecoil : MonoBehaviour
 		recoilPosition.localPosition = Vector3.Slerp(recoilPosition.localPosition, positionalRecoil, positionalRecoilSpeed * Time.deltaTime);
 		Rot = Vector3.Slerp(Rot, rotationalRecoil, rotationalRecoilSpeed * Time.deltaTime);
 		rotationPoint.localRotation = Quaternion.Euler(Rot);
-        MuzzlePosition.localPosition = Vector3.Slerp(recoilPosition.localPosition + new Vector3(Random.Range(-0.045f, 0.045f), 0, 0) + new Vector3(-0.1f, 0f, 0), positionalRecoil, positionalRecoilSpeed * Time.deltaTime);
+        MuzzlePosition.localPosition = Vector3.Slerp(recoilPosition.localPosition + new Vector3(Random.Range(-0.045f, 0.045f), 0, 0) + new Vector3(-0.07f, -0.02f, +0f), positionalRecoil, positionalRecoilSpeed * Time.deltaTime);
         MuzzlePosition.localScale = new Vector3(Random.Range(2f, 4f), Random.Range(2f, 4f), Random.Range(2f, 4f));
 
         MuzzleRot = Vector3.Slerp(MuzzleRot, rotationalRecoil, rotationalRecoilSpeed * Time.deltaTime);

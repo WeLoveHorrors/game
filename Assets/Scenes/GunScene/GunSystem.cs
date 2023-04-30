@@ -92,7 +92,7 @@ public class GunSystem : MonoBehaviour
 
             float x = bulletsShot == 0 ? 0 : (Random.Range(-spread, spread) + bulletsShot * spread * Random.Range(-0.06f, 0.06f));
             float y = bulletsShot == 0 ? 0 : Random.Range(-spread, spread) + bulletsShot * spread * Random.Range(0.02f, 0.06f);
-            float z = bulletsShot == 0 ? 0 : x * (Random.Range(0, 1) > 0.5f ? -1: 1) / 2;
+            float z = bulletsShot == 0 ? 0 : x * (Random.Range(0, 1) > 0.5f ? -1: 1) / 2f;
             
             bulletsShot++;
 
