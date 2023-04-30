@@ -23,11 +23,11 @@ public class Shooting : MonoBehaviour
     }
 
     void Shoot(){
-        RaycastHit hit;
+        // RaycastHit hit;
 
-        if(Physics.Raycast(shotOrigin.transform.position, shotOrigin.transform.forward, out hit, range))
-        {
-            Debug.DrawLine(shotOrigin.transform.position, hit.point, Color.red, 10f);
-        }
+        // if(Physics.Raycast(shotOrigin.transform.position, shotOrigin.transform.forward, out hit, range))
+        // {
+        //     Debug.DrawLine(shotOrigin.transform.position, hit.point, Color.red, 10f);
+        // }
     }
 }

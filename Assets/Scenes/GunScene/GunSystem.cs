@@ -21,6 +21,9 @@ public class GunSystem : MonoBehaviour
     public ParticleSystem muzzleFlash;
     public ParticleSystem ribbonSmoke;
     public ParticleSystem cartridge;
+    public TrailRenderer trail;
+
+    public AudioSource m_shootingSound;
 
     public bool isRibbonEnabled;
     public float RibbonTimeAlive = 2f;
@@ -30,6 +33,7 @@ public class GunSystem : MonoBehaviour
         Invoke("AllowShoot", 0.2f);
         ribbonSmoke.Stop();
         bulletsLeft = magazineSize;
+        m_shootingSound = GetComponent<AudioSource>();
     }
     private void Update()
     {
@@ -81,6 +85,7 @@ public class GunSystem : MonoBehaviour
     {
         if(readyToShoot && bulletsLeft > 0)
         {
+            m_shootingSound.Play();
             bulletsLeft--;
             bulletsShot++;
             readyToShoot = false;
@@ -100,6 +105,9 @@ public class GunSystem : MonoBehaviour
                     // rayHit.collider.GetComponent
                 }
             }
+
+            TrailRenderer trailTemp = Instantiate(trail, attackPoint.position, Quaternion.identity);
+            StartCoroutine(SpawnTrail(trailTemp, rayHit));
             
             HandleAllBulletsLeftRibbon();
 
@@ -108,6 +116,22 @@ public class GunSystem : MonoBehaviour
 
             Invoke("ResetShot", timeBetweenShooting); 
         }
+    }
+    private IEnumerator SpawnTrail(TrailRenderer trail, RaycastHit hit)
+    {
+        float time = 0;
+        Vector3 startPosition = trail.transform.position;
+
+        while(time < 1)
+        {
+            trail.transform.position = Vector3.Lerp(startPosition, hit.point, time);
+            time += Time.deltaTime / trail.time;
+
+            yield return null;
+        }
+
+        trail.transform.position = hit.point;
+        Destroy(trail.gameObject, trail.time);
     }
     private void HandleRibbon()
     {

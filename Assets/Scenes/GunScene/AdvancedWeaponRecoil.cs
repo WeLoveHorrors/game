@@ -45,8 +45,8 @@ public class AdvancedWeaponRecoil : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		rotationalRecoil = Vector3.Lerp(rotationalRecoil, Vector3.zero, rotationalReturnSpeed * Time.deltaTime);
-		positionalRecoil = Vector3.Lerp(positionalRecoil, Vector3.zero, positionalReturnSpeed * Time.deltaTime * 0.6f);
+		rotationalRecoil = Vector3.Slerp(rotationalRecoil, Vector3.zero, rotationalReturnSpeed * Time.deltaTime);
+		positionalRecoil = Vector3.Slerp(positionalRecoil, Vector3.zero, positionalReturnSpeed * Time.deltaTime * 0.6f);
         rotationalMuzzleRecoil = Vector3.Lerp(rotationalMuzzleRecoil, Vector3.zero,  rotationalReturnSpeed * Time.deltaTime);
 
 		recoilPosition.localPosition = Vector3.Slerp(recoilPosition.localPosition, positionalRecoil, positionalRecoilSpeed * Time.deltaTime);
