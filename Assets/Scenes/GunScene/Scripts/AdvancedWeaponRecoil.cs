@@ -61,7 +61,7 @@ public class AdvancedWeaponRecoil : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetKey(KeyCode.Mouse0) && GetComponentInParent<GunSystem>().bulletsLeft > 0)
+		if (Input.GetKey(KeyCode.Mouse0) && GetComponentInParent<M4GunSystem>().bulletsLeft > 0)
 		{
 			Fire();
 		}

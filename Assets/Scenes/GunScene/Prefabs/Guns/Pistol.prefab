@@ -108,7 +108,7 @@ Animator:
   m_GameObject: {fileID: 8790024742885744762}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1fe75a4ea4aa1cb40a40fd69453bb33c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9643ac74280f7b04290e9c568581cb7e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 8790024743979841303}
   - component: {fileID: 1086274200970764723}
   - component: {fileID: 7523337035244680618}
+  - component: {fileID: 6706706817627719783}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -288,6 +289,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6706706817627719783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8790024743979841300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71eeeba6ab4309d4bb5d34fee9452869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9024369506126781968
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,6 +339,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8790024742885744765}
     m_Modifications:
+    - target: {fileID: 4744854618519397250, guid: a35b8c32acba1334b9b31dfe8cdbc9be, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4744854618519397250, guid: a35b8c32acba1334b9b31dfe8cdbc9be, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4744854618519397250, guid: a35b8c32acba1334b9b31dfe8cdbc9be, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4965438261709640327, guid: a35b8c32acba1334b9b31dfe8cdbc9be, type: 3}
       propertyPath: m_Name
       value: Weapon_01

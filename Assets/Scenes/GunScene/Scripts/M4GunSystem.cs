@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunSystem : MonoBehaviour
+public class M4GunSystem : MonoBehaviour
 {
     public int damage;
     public float timeBetweenShooting,spread,range,reloadTime,timeBetweenShots;
@@ -108,6 +108,11 @@ public class GunSystem : MonoBehaviour
                 {
                     // rayHit.collider.GetComponent
                 }
+
+                if (rayHit.rigidbody != null)
+                {
+                    rayHit.rigidbody.AddForce(-rayHit.normal * 30);
+                }
             }
 
             TrailRenderer trailTemp = Instantiate(trail, attackPoint.position + new Vector3(0f, -0.08f, 0.05f), Quaternion.identity);
@@ -115,7 +120,8 @@ public class GunSystem : MonoBehaviour
             
             HandleAllBulletsLeftRibbon();
 
-            Instantiate(bulletHoleGraphic, rayHit.point + (rayHit.normal * .01f), Quaternion.LookRotation(rayHit.normal));
+            GameObject impact = Instantiate(bulletHoleGraphic, rayHit.point + (rayHit.normal * .01f), Quaternion.LookRotation(rayHit.normal));
+            impact.transform.parent = rayHit.transform;
 
             ParticleSystem sparksTemp = Instantiate(sparks, rayHit.point + (rayHit.normal * .01f), Quaternion.LookRotation(rayHit.normal));
             StartCoroutine(SpawnSparks(sparksTemp, rayHit));
