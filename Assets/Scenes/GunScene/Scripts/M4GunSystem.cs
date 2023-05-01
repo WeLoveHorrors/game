@@ -124,6 +124,7 @@ public class M4GunSystem : MonoBehaviour
             impact.transform.parent = rayHit.transform;
 
             ParticleSystem sparksTemp = Instantiate(sparks, rayHit.point + (rayHit.normal * .01f), Quaternion.LookRotation(rayHit.normal));
+            sparksTemp.transform.parent = rayHit.transform;
             StartCoroutine(SpawnSparks(sparksTemp, rayHit));
             
             muzzleFlash.Play();

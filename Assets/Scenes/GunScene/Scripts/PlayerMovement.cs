@@ -9,10 +9,12 @@ public class PlayerMovement : MonoBehaviour
 
     public Transform weapon;
     public Vector3 weaponOrigin;
+    public ParticleSystem jumpDust;
 
     public float movementCounter;
     public float idleCounter;
     public Vector3 targetWeaponBobPosition;
+    public Transform dustPosition;
 
     public float speed = 18f;
     // public float sprintModifier = 2f;
@@ -39,6 +41,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (controller.isGrounded)
         {
+            if(isFastFalling)
+            {
+                ParticleSystem tempJumpDust = Instantiate(jumpDust, dustPosition.transform.position, Quaternion.identity);
+            }
             velocity.y = -2f;
             isAbleToJump = true;
             isFastFalling = false;
@@ -67,24 +73,6 @@ public class PlayerMovement : MonoBehaviour
         {
             normalCamera.fieldOfView = Mathf.Lerp(normalCamera.fieldOfView, baseFov, Time.deltaTime * 8f);
         }
-        // if (isSprinting)
-        // {
-        // }
-        // else
-        // {
-        //     if(movingForward < 0)
-        //     {
-        //         normalCamera.fieldOfView = Mathf.Lerp(normalCamera.fieldOfView, baseFov * 0.95f, Time.deltaTime * 8f);
-        //     }
-        //     else if(movingForward > 0)
-        //     {
-        //         normalCamera.fieldOfView = Mathf.Lerp(normalCamera.fieldOfView, baseFov * 1.1f, Time.deltaTime * 8f);
-        //     }
-        //     else
-        //     {
-        //         normalCamera.fieldOfView = Mathf.Lerp(normalCamera.fieldOfView, baseFov, Time.deltaTime * 8f);
-        //     }
-        // }
 
         Vector3 move = transform.right * x + transform.forward * z;
 

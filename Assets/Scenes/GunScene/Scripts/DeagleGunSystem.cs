@@ -29,7 +29,7 @@ public class DeagleGunSystem : MonoBehaviour
         if(readyToShoot && shooting) 
         {
             bulletsLeft = 100;
-            m_animator.SetBool("Shooting", shooting);
+            m_animator.SetTrigger("Shooting");
             readyToShoot = false;
             GetComponentInChildren<DeagleWeaponRecoil>().Fire();
             
