@@ -44,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
             if(isFastFalling)
             {
                 ParticleSystem tempJumpDust = Instantiate(jumpDust, dustPosition.transform.position, Quaternion.identity);
+                Destroy(tempJumpDust.gameObject, 1f);
             }
             velocity.y = -2f;
             isAbleToJump = true;
@@ -89,8 +90,15 @@ public class PlayerMovement : MonoBehaviour
             isFastFalling = true;
         }
 
+        if(velocity.y < -10)
+        {
+            // HeadBob(idleCounter, 0.2f, 0.015f);
+            weapon.localPosition = Vector3.Lerp(weapon.localPosition, new Vector3(weaponOrigin.x, Mathf.Sqrt(-velocity.y)/2.8f, weaponOrigin.z), Time.deltaTime * 2f);
+        }
+
         velocity.y += gravity * Time.deltaTime * (isFastFalling ? fallingModifier : 1);
         
+
         controller.Move(velocity * Time.deltaTime);
 
 

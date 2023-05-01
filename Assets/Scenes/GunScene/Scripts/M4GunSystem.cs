@@ -112,6 +112,7 @@ public class M4GunSystem : MonoBehaviour
                 if (rayHit.rigidbody != null)
                 {
                     rayHit.rigidbody.AddForce(-rayHit.normal * 30);
+                    rayHit.rigidbody.transform.parent = null;
                 }
             }
 
