@@ -42,8 +42,7 @@ public class AdvancedWeaponRecoil : MonoBehaviour
         CamHolder = GameObject.FindGameObjectWithTag("CamWeaponHolder");
 	}
 
-
-	private void FixedUpdate()
+	void Update()
 	{
 		rotationalRecoil = Vector3.Slerp(rotationalRecoil, Vector3.zero, rotationalReturnSpeed * Time.deltaTime);
 		positionalRecoil = Vector3.Slerp(positionalRecoil, Vector3.zero, positionalReturnSpeed * Time.deltaTime * 0.6f);
@@ -57,20 +56,17 @@ public class AdvancedWeaponRecoil : MonoBehaviour
 
         MuzzleRot = Vector3.Slerp(MuzzleRot, rotationalRecoil, rotationalRecoilSpeed * Time.deltaTime);
         MuzzlePosition.localRotation = Quaternion.Euler(Random.Range(0, 360), 270, 0);
-	}
-
-	void Update()
-	{
-		if (Input.GetKey(KeyCode.Mouse0) && GetComponentInParent<M4GunSystem>().bulletsLeft > 0)
-		{
-			Fire();
-		}
+		
+		// if (Input.GetKey(KeyCode.Mouse0) && GetComponentInParent<M4GunSystem>().bulletsLeft > 0)
+		// {
+		// 	Fire();
+		// }
 	}
 
 	public void Fire()
 	{
         float movingRight = Input.GetAxisRaw("Horizontal");
-        positionalRecoil += new Vector3(0.0055f, 0.0017f, 0f);
+        positionalRecoil += new Vector3(0.08f, 0.017f, 0f);
 		rotationalRecoil += new Vector3(RecoilRotation.x * (movingRight >= 0 ? 1 : 0.35f), Random.Range(-RecoilRotation.y, RecoilRotation.y), Random.Range(-RecoilRotation.z, RecoilRotation.z));
 		rotationalRecoil += new Vector3(Random.Range(-RecoilKickBack.x, RecoilKickBack.x), Random.Range(-RecoilKickBack.y, RecoilKickBack.y), RecoilKickBack.z);
 		// fpsCam.transform.localRotation = Quaternion.Euler(fpsCam.transform.localRotation.x - Random.Range(8f, 10f), fpsCam.transform.localRotation.y, fpsCam.transform.localRotation.z);

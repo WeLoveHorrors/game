@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 199000011351838200}
   m_Layer: 0
   m_Name: SideSparksEffect
-  m_TagString: Untagged
+  m_TagString: Spark
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4595,7 +4595,7 @@ GameObject:
   - component: {fileID: 199000010805106158}
   m_Layer: 0
   m_Name: SparksEffect2
-  m_TagString: Untagged
+  m_TagString: Spark
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9178,7 +9178,7 @@ GameObject:
   - component: {fileID: 199000013327150444}
   m_Layer: 0
   m_Name: SparkDeathEffect
-  m_TagString: Untagged
+  m_TagString: Spark
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13800,7 +13800,7 @@ GameObject:
   - component: {fileID: 199000010504584546}
   m_Layer: 0
   m_Name: SparksEffect
-  m_TagString: Untagged
+  m_TagString: Spark
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -92,10 +92,15 @@ public class M4GunSystem : MonoBehaviour
             readyToShoot = false;
             cartridge.Play();
 
+            GetComponentInChildren<AdvancedWeaponRecoil>().Fire();
+
             float x = bulletsShot == 0 ? 0 : Random.Range(-spread, spread) + bulletsShot * spread * Random.Range(-0.06f, 0.06f);
             float y = bulletsShot == 0 ? 0 : Random.Range(-spread, spread) + bulletsShot * spread * Random.Range(0.02f, 0.06f);
             float z = bulletsShot == 0 ? 0 : x * (Random.Range(0, 1) > 0.5f ? -1: 1) / 2f;
-            
+            x = bulletsShot < 5 ? Mathf.Sqrt(bulletsShot / 3.5f) * x : x;
+            y = bulletsShot < 5 ? Mathf.Sqrt(bulletsShot / 3.5f) * y : y;
+            z = bulletsShot < 5 ? Mathf.Sqrt(bulletsShot / 3.5f) * z : z;
+
             bulletsShot++;
 
             Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, z);

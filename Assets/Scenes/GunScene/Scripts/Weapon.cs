@@ -41,6 +41,20 @@ public class Weapon : MonoBehaviour
 
             t_newWeapon.GetComponent<Animator>().Play("Equip", 0, 0);
             currentWeapon = t_newWeapon;
+
+            DestroyAllSparks();
+        }
+    }
+
+    void DestroyAllSparks()
+    {
+        var Sparks = GameObject.FindGameObjectsWithTag("Spark");
+        if(Sparks != null)
+        {
+            foreach(var item in Sparks)
+            {
+                Destroy(item, 0.15f);
+            }
         }
     }
 }
