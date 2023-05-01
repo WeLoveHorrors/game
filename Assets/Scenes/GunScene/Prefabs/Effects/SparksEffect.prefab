@@ -13800,7 +13800,7 @@ GameObject:
   - component: {fileID: 199000010504584546}
   m_Layer: 0
   m_Name: SparksEffect
-  m_TagString: Spark
+  m_TagString: MustBeRemovedOnChange
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
