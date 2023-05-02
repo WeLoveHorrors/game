@@ -121,7 +121,7 @@ public class M4GunSystem : MonoBehaviour
                 }
             }
 
-            TrailRenderer trailTemp = Instantiate(trail, attackPoint.position + new Vector3(0f, -0.08f, 0.05f), Quaternion.identity);
+            TrailRenderer trailTemp = Instantiate(trail, attackPoint.position + new Vector3(0.25f, -0.05f, 0.05f), Quaternion.identity);
             StartCoroutine(SpawnTrail(trailTemp, rayHit));
             
             HandleAllBulletsLeftRibbon();
