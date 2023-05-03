@@ -1,0 +1,78 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SwayAdditional : MonoBehaviour
+{
+    [Header("Position")]
+    public float amount = 0.02f;
+    public float maxAmonut = 0.06f;
+    public float smoothAmount = 6f;
+
+    [Header("Rotation")]
+    public float rotationAmount = 4f;
+    public float maxRotationAmount = 5f;
+    public float smoothRotation = 12f;
+
+    [Space]
+    public bool rotationX = true;
+    public bool rotationY = true;
+    public bool rotationZ = true;
+
+    private Vector3 initialPosition;
+    private Quaternion initialRotation;
+
+    private float InputX;
+    private float InputY;
+
+    private Rigidbody playerRigidbody;
+
+    void Start()
+    {
+        initialPosition = transform.localPosition;
+        initialRotation = transform.localRotation;
+
+        playerRigidbody = GetComponentInParent<Rigidbody>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        CalculateSway();
+
+        MoveSway();
+        TiltSway();
+    }
+
+    private void CalculateSway()
+    {
+        InputX = -Input.GetAxis("Mouse X");
+        InputY = -Input.GetAxis("Mouse Y");
+    }
+
+    private void MoveSway()
+    {
+        float moveX = Mathf.Clamp(InputX * amount, -maxAmonut, maxAmonut);
+        float moveY = Mathf.Clamp(InputY * amount, -maxAmonut, maxAmonut);
+
+        Vector3 finalPosition = new Vector3(moveX, moveY, 0);
+
+        transform.localPosition = Vector3.Lerp(
+            transform.localPosition,
+            finalPosition + initialPosition,
+            Time.deltaTime * smoothAmount
+        );
+    }
+
+    private void TiltSway()
+    {
+        Vector3 playerVelocity = playerRigidbody.velocity;
+        Vector3 localPlayerVelocity = transform.InverseTransformDirection(playerVelocity);
+        float tiltY = Mathf.Clamp(localPlayerVelocity.x * rotationAmount, -maxRotationAmount, maxRotationAmount); // tiltY зависит от локальной скорости по x
+        float tiltX = Mathf.Clamp(localPlayerVelocity.z * rotationAmount, -maxRotationAmount, maxRotationAmount); // tiltX зависит от локальной скорости по z
+
+        Quaternion finalRotation = Quaternion.Euler(new Vector3(rotationX ? -tiltX : 0f, rotationY ? tiltY : 0f, rotationZ ? tiltY : 0f));
+
+        transform.localRotation = Quaternion.Slerp(transform.localRotation, finalRotation * initialRotation, Time.deltaTime * smoothRotation);
+    }
+}
