@@ -32,7 +32,8 @@ public class ButtonScript : MonoBehaviour
     
     public void StartGame()
     {
-        SceneManager.LoadScene((int)Scenes.Game);
+        Debug.Log("start game...");
+        SceneManager.LoadScene("TestScene");
     }
     public void ExitGame()
     {
