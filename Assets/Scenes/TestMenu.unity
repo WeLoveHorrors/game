@@ -1948,8 +1948,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: DHS
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3eaf059cabd9e7a419e8d270e4cd979c, type: 2}
-  m_sharedMaterial: {fileID: -7024090557662203829, guid: 3eaf059cabd9e7a419e8d270e4cd979c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 93677df3089d2dc4198034d0d4284c82, type: 2}
+  m_sharedMaterial: {fileID: -6809364988986718910, guid: 93677df3089d2dc4198034d0d4284c82, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1979,7 +1979,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
