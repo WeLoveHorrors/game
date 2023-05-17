@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9082399668264423384}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: ADS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 934266531006669337}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5992184446139433988}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: States
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5127789675375644239}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Hip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 4086311434482707864}
   - component: {fileID: 2807955685644456694}
   - component: {fileID: 240020169486615739}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Anchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +227,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2905479892629274158}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Design
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5085329276590628766}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: RecoilPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,7 +291,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6548202235791227505}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: RotationPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,7 +327,7 @@ GameObject:
   - component: {fileID: 7275384631091556897}
   - component: {fileID: 118509444466296950}
   - component: {fileID: 7120103349741371000}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: M4A4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -534,6 +534,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RibbonSmoke
       objectReference: {fileID: 0}
+    - target: {fileID: 6674792981294007290, guid: 46526419d8796154b8789d6d5e0b2dfc, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 6676764549835756818, guid: 46526419d8796154b8789d6d5e0b2dfc, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -619,7 +623,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1000010254994808, guid: 9defeac88977c0d448aa4541073ee9e4, type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1000010254994808, guid: 9defeac88977c0d448aa4541073ee9e4, type: 3}
       propertyPath: m_TagString
@@ -723,6 +727,14 @@ PrefabInstance:
     - target: {fileID: 1000013947318026, guid: 7ca96822084510147adb2aea03d45e3b, type: 3}
       propertyPath: m_Name
       value: CartridgeEjectEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013947318026, guid: 7ca96822084510147adb2aea03d45e3b, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000014084508392, guid: 7ca96822084510147adb2aea03d45e3b, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4000011175361746, guid: 7ca96822084510147adb2aea03d45e3b, type: 3}
       propertyPath: m_RootOrder
@@ -835,6 +847,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6548202235791227505}
     m_Modifications:
+    - target: {fileID: 2802899580617537458, guid: 260ff1508afea5241b6511d8fbe92201, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 4113625917885360746, guid: 260ff1508afea5241b6511d8fbe92201, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
@@ -866,6 +882,26 @@ PrefabInstance:
     - target: {fileID: 5786097810451525583, guid: 260ff1508afea5241b6511d8fbe92201, type: 3}
       propertyPath: m_Name
       value: M4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786097810451525583, guid: 260ff1508afea5241b6511d8fbe92201, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5836183803064680627, guid: 260ff1508afea5241b6511d8fbe92201, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5873469072906034301, guid: 260ff1508afea5241b6511d8fbe92201, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6457148406316477092, guid: 260ff1508afea5241b6511d8fbe92201, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6525049340729374057, guid: 260ff1508afea5241b6511d8fbe92201, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6559362985659250037, guid: 260ff1508afea5241b6511d8fbe92201, type: 3}
       propertyPath: m_RootOrder
@@ -910,6 +946,14 @@ PrefabInstance:
     - target: {fileID: 6559362985659250037, guid: 260ff1508afea5241b6511d8fbe92201, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8011110866493314892, guid: 260ff1508afea5241b6511d8fbe92201, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8350092859965123620, guid: 260ff1508afea5241b6511d8fbe92201, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 260ff1508afea5241b6511d8fbe92201, type: 3}

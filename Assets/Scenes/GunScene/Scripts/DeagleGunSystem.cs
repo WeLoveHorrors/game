@@ -22,12 +22,14 @@ public class DeagleGunSystem : MonoBehaviour
 
     public ParticleSystem sparks;
 
+    public AudioSource m_shootingSound;
     void Awake()
     {
         bulletsLeft = 100;
         Invoke("AllowShoot", 0.1f);
         fpsCam = Camera.main;
-        // Invoke("AllowShoot", 0.25f);
+        m_shootingSound = GetComponent<AudioSource>();
+        Invoke("AllowShoot", 0.05f);
     }
 
     // Update is called once per frame
@@ -67,6 +69,7 @@ public class DeagleGunSystem : MonoBehaviour
         bulletsLeft--;
         readyToShoot = false;
         m_animator.SetTrigger("Shooting");
+        m_shootingSound.Play();
 
         GetComponentInChildren<CamRecoil>().Fire();
 
