@@ -23,6 +23,7 @@ public class DeagleWeaponRecoil : MonoBehaviour
 	public float positionalRecoilSpeed = 30f;
 	public float rotationalRecoilSpeed = 70f;
 
+	Vector3 targetRotation, currentRotation;
     private void Awake()
     {
 	}
@@ -39,9 +40,9 @@ public class DeagleWeaponRecoil : MonoBehaviour
 	public void Fire()
 	{
         float movingRight = Input.GetAxisRaw("Horizontal");
-        positionalRecoil += new Vector3(0.0055f, 0.17f, 0f);
+        // positionalRecoil += new Vector3(0.0055f, 0.17f, 0f);
 		rotationalRecoil += new Vector3(RecoilRotation.x * (movingRight >= 0 ? 1 : 0.35f), 2f, Random.Range(-RecoilRotation.z, RecoilRotation.z));
-		rotationalRecoil += new Vector3(Random.Range(-RecoilKickBack.x, RecoilKickBack.x), Random.Range(-RecoilKickBack.y, RecoilKickBack.y), RecoilKickBack.z);
+		rotationalRecoil += new Vector3(Random.Range(-RecoilKickBack.x, RecoilKickBack.x), Random.Range(-RecoilKickBack.y, RecoilKickBack.y), RecoilKickBack.z - 70);
         
 		recoilPosition.localPosition = Vector3.Slerp(recoilPosition.localPosition, positionalRecoil, positionalRecoilSpeed * Time.deltaTime);
 		Rot = Vector3.Slerp(Rot, rotationalRecoil, rotationalRecoilSpeed * Time.deltaTime);
@@ -51,6 +52,13 @@ public class DeagleWeaponRecoil : MonoBehaviour
 	private void FixedUpdate()
 	{
 		rotationalRecoil = Vector3.Slerp(rotationalRecoil, Vector3.zero, rotationalReturnSpeed * Time.deltaTime);
-		positionalRecoil = Vector3.Slerp(positionalRecoil, Vector3.zero, positionalReturnSpeed * Time.deltaTime * 0.6f);
+		positionalRecoil = Vector3.Slerp(positionalRecoil, Vector3.zero, positionalReturnSpeed * Time.deltaTime * 0.02f);
+
+		recoilPosition.localPosition = Vector3.Slerp(recoilPosition.localPosition, positionalRecoil, positionalRecoilSpeed * Time.deltaTime);
+		Rot = Vector3.Slerp(Rot, rotationalRecoil, rotationalRecoilSpeed * Time.deltaTime);
+		rotationPoint.localRotation = Quaternion.Euler(Rot);
+		
+		targetRotation = Vector3.Lerp(targetRotation, Vector3.zero, Time.deltaTime * 0.2f);
+		currentRotation = Vector3.Slerp(currentRotation, targetRotation, Time.fixedDeltaTime * 0.1f);
     }
 }
