@@ -77,7 +77,7 @@ public class DeagleGunSystem : MonoBehaviour
 
         if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy))
         {
-            Debug.Log(rayHit.collider.name);
+            // Debug.Log(rayHit.collider.name);
 
             if (rayHit.collider.CompareTag("Enemy"))
             {
