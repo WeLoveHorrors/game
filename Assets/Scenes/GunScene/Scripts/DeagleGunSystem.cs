@@ -38,12 +38,12 @@ public class DeagleGunSystem : MonoBehaviour
 
     private void MyInput()
     {
-        shooting = Input.GetKey(KeyCode.Mouse0);
+        // shooting = Input.GetKey(KeyCode.Mouse0);
+        shooting = Input.GetKeyDown(KeyCode.Mouse0);
 
-        if (readyToShoot && shooting)
+        if (shooting)
         {
             bulletsLeft = 100;
-            // m_animator.SetTrigger("Shooting");
             readyToShoot = false;
             GetComponentInChildren<DeagleWeaponRecoil>().Fire();
 
@@ -66,10 +66,11 @@ public class DeagleGunSystem : MonoBehaviour
     {
         bulletsLeft--;
         readyToShoot = false;
+        m_animator.SetTrigger("Shooting");
 
-        // GetComponentInChildren<AdvancedWeaponRecoil>().Fire();
+        GetComponentInChildren<CamRecoil>().Fire();
 
-        Vector3 direction = fpsCam.transform.forward;
+        Vector3 direction = attackPoint.transform.forward;
 
         if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy))
         {

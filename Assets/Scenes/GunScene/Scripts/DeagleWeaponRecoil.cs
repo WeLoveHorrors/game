@@ -40,9 +40,9 @@ public class DeagleWeaponRecoil : MonoBehaviour
 	public void Fire()
 	{
         float movingRight = Input.GetAxisRaw("Horizontal");
-        // positionalRecoil += new Vector3(0.0055f, 0.17f, 0f);
-		rotationalRecoil += new Vector3(RecoilRotation.x * (movingRight >= 0 ? 1 : 0.35f), 2f, Random.Range(-RecoilRotation.z, RecoilRotation.z));
-		rotationalRecoil += new Vector3(Random.Range(-RecoilKickBack.x, RecoilKickBack.x), Random.Range(-RecoilKickBack.y, RecoilKickBack.y), RecoilKickBack.z - 70);
+        positionalRecoil = new Vector3(0.0055f, 0.17f, 0f);
+		rotationalRecoil = new Vector3(RecoilRotation.x * (movingRight >= 0 ? 1 : 0.35f), 2f, Random.Range(-RecoilRotation.z, RecoilRotation.z));
+		rotationalRecoil = new Vector3(Random.Range(-RecoilKickBack.x, RecoilKickBack.x), Random.Range(-RecoilKickBack.y, RecoilKickBack.y), RecoilKickBack.z - 80);
         
 		recoilPosition.localPosition = Vector3.Slerp(recoilPosition.localPosition, positionalRecoil, positionalRecoilSpeed * Time.deltaTime);
 		Rot = Vector3.Slerp(Rot, rotationalRecoil, rotationalRecoilSpeed * Time.deltaTime);
@@ -52,7 +52,7 @@ public class DeagleWeaponRecoil : MonoBehaviour
 	private void FixedUpdate()
 	{
 		rotationalRecoil = Vector3.Slerp(rotationalRecoil, Vector3.zero, rotationalReturnSpeed * Time.deltaTime);
-		positionalRecoil = Vector3.Slerp(positionalRecoil, Vector3.zero, positionalReturnSpeed * Time.deltaTime * 0.02f);
+		positionalRecoil = Vector3.Slerp(positionalRecoil, Vector3.zero, positionalReturnSpeed * Time.deltaTime * 0.2f);
 
 		recoilPosition.localPosition = Vector3.Slerp(recoilPosition.localPosition, positionalRecoil, positionalRecoilSpeed * Time.deltaTime);
 		Rot = Vector3.Slerp(Rot, rotationalRecoil, rotationalRecoilSpeed * Time.deltaTime);
