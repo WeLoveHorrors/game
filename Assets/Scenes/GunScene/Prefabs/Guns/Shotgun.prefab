@@ -122,7 +122,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3832520360775188153}
   - component: {fileID: 2918491216357715038}
-  - component: {fileID: 5105613721912152957}
   m_Layer: 0
   m_Name: Anchor
   m_TagString: Untagged
@@ -163,20 +162,6 @@ MonoBehaviour:
   maxRotationAmount: 5
   smoothRotation: 12
   multiplier: 1
---- !u!114 &5105613721912152957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6483155938167101825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbcf431f266ad684885ceb05bfaad901, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offsetX: 0.15
-  offsetY: 0.2
 --- !u!1 &6753628121055757255
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,6 +171,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 364890264698779783}
+  - component: {fileID: 1513993029672169807}
   m_Layer: 0
   m_Name: RotationPoint
   m_TagString: Untagged
@@ -210,6 +196,27 @@ Transform:
   m_Father: {fileID: 8728548544000271149}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1513993029672169807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6753628121055757255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4deedbf4e9c394248b9c01c3bde743cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recoilPosition: {fileID: 8728548544000271149}
+  rotationPoint: {fileID: 364890264698779783}
+  RecoilRotation: {x: 1, y: 5, z: 7}
+  RecoilKickBack: {x: 10, y: 0, z: -0.2}
+  PositionalRecoil: {x: -0.5, y: 0.5, z: 1}
+  positionalReturnSpeed: 45
+  rotationalReturnSpeed: 6
+  positionalRecoilSpeed: 35
+  rotationalRecoilSpeed: 4
 --- !u!1 &6939923373242878746
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,6 +229,7 @@ GameObject:
   - component: {fileID: 769157608759979338}
   - component: {fileID: 4042549108920750905}
   - component: {fileID: 6743681833591671347}
+  - component: {fileID: 6170932622026108842}
   m_Layer: 0
   m_Name: Shotgun
   m_TagString: Untagged
@@ -277,7 +285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 100
   timeBetweenShooting: 0.08
-  spread: 0.1
+  spread: 0.06
   range: 100
   reloadTime: 1
   timeBetweenShots: 0
@@ -306,7 +314,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 17b3b80257964454587bcff812715143, type: 3}
+  m_audioClip: {fileID: 8300000, guid: af540f15f94180446a4e7720ddb5c8aa, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -392,6 +400,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6170932622026108842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6939923373242878746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbcf431f266ad684885ceb05bfaad901, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offsetX: 13
+  offsetY: 16
 --- !u!1001 &574296495836689142
 PrefabInstance:
   m_ObjectHideFlags: 0

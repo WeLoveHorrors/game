@@ -22,6 +22,6 @@ public class CamRecoil : MonoBehaviour
 
 	public void Fire()
 	{
-		targetRotation += new Vector3(Random.Range(-offsetX, offsetX), Random.Range(-offsetY, offsetY), 0);
+		targetRotation += new Vector3(Random.Range(-offsetX, offsetX), Random.Range(-offsetY, offsetY), Random.Range(-offsetY, offsetY));
 	}
 }

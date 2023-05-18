@@ -42,6 +42,7 @@ public class ShotgunGunSystem : MonoBehaviour
         if (readyToShoot && shooting && bulletsLeft > 0)
         {
             Shoot();
+            GetComponentInChildren<DeagleWeaponRecoil>().Fire();
         }
 
         // if(shooting)
@@ -79,7 +80,8 @@ public class ShotgunGunSystem : MonoBehaviour
             bulletsLeft--;
             readyToShoot = false;
 
-            // GetComponentInChildren<AdvancedWeaponRecoil>().Fire();
+            GetComponent<CamRecoil>().Fire();
+
             for(int i = 0; i < bulletsPerTap; i++)
             {
                 float x = bulletsShot == 0 ? 0 : Random.Range(-spread, spread);

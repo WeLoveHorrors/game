@@ -14,6 +14,7 @@ public class DeagleWeaponRecoil : MonoBehaviour
     
 	public Vector3 RecoilRotation = new Vector3(10, 5, 7);
 	public Vector3 RecoilKickBack = new Vector3(0.015f, 0f, -0.2f);
+	public Vector3 PositionalRecoil = new Vector3(0.0055f, 0.17f, 0f);
     
     [Space(10)]
 	public float positionalReturnSpeed = 20f;
@@ -40,7 +41,7 @@ public class DeagleWeaponRecoil : MonoBehaviour
 	public void Fire()
 	{
         float movingRight = Input.GetAxisRaw("Horizontal");
-        positionalRecoil = new Vector3(0.0055f, 0.17f, 0f);
+        positionalRecoil = PositionalRecoil;
 		rotationalRecoil = new Vector3(RecoilRotation.x * (movingRight >= 0 ? 1 : 0.35f), 2f, Random.Range(-RecoilRotation.z, RecoilRotation.z));
 		rotationalRecoil = new Vector3(Random.Range(-RecoilKickBack.x, RecoilKickBack.x), Random.Range(-RecoilKickBack.y, RecoilKickBack.y), RecoilKickBack.z - 80);
         
