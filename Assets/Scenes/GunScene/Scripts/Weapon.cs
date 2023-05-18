@@ -22,6 +22,7 @@ public class Weapon : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Alpha1)) Equip(0);
         else if(Input.GetKeyDown(KeyCode.Alpha2)) Equip(1);
+        else if(Input.GetKeyDown(KeyCode.Alpha3)) Equip(2);
     }
 
     void Equip(int p_ind)
@@ -39,7 +40,7 @@ public class Weapon : MonoBehaviour
             t_newWeapon.transform.localPosition = Vector3.zero;
             t_newWeapon.transform.localEulerAngles = Vector3.zero;
 
-            t_newWeapon.GetComponent<Animator>().Play("Equip", 0, 0);
+            // t_newWeapon.GetComponent<Animator>().Play("Equip", 0, 0);
             currentWeapon = t_newWeapon;
 
             DestroyAllSparks();
