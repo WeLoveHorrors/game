@@ -40,7 +40,7 @@ public class Weapon : MonoBehaviour
             t_newWeapon.transform.localPosition = Vector3.zero;
             t_newWeapon.transform.localEulerAngles = Vector3.zero;
 
-            // t_newWeapon.GetComponent<Animator>().Play("Equip", 0, 0);
+            t_newWeapon.GetComponent<Animator>().Play("Equip", 0, 0);
             currentWeapon = t_newWeapon;
 
             DestroyAllSparks();
