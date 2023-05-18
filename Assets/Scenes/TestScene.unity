@@ -5625,8 +5625,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadout:
-  - {fileID: 8790024743979841300, guid: daabd8ff90dc07945a3f8ee2a658ec59, type: 3}
+  - {fileID: 3810396608611389201, guid: 9f2bad9985dec744fab3247894a00c48, type: 3}
   - {fileID: 7240942494812921581, guid: 1db722556b9e613458da34b0d7c8c317, type: 3}
+  - {fileID: 6939923373242878746, guid: 0d1a7467597381348bbc225730176353, type: 3}
   weaponParent: {fileID: 2061351466}
   currentWeaponType: 0
 --- !u!1 &608211028
