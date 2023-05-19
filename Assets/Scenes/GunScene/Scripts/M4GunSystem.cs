@@ -5,12 +5,12 @@ using UnityEngine;
 public class M4GunSystem : MonoBehaviour
 {
     public int damage;
-    public float timeBetweenShooting,spread,range,reloadTime,timeBetweenShots;
-    public int magazineSize,bulletsPerTap;
+    public float timeBetweenShooting, spread, range, reloadTime, timeBetweenShots;
+    public int magazineSize, bulletsPerTap;
     public bool allowButtonHold;
     public int bulletsLeft, bulletsShot;
 
-    bool shooting,readyToShoot,reloading;
+    bool shooting, readyToShoot, reloading;
 
     public Camera fpsCam;
     public Transform attackPoint;
@@ -53,7 +53,7 @@ public class M4GunSystem : MonoBehaviour
             Shoot();
         }
 
-        if(shooting)
+        if (shooting)
         {
             GetComponent<Animator>().SetBool("isShooting", true);
             isRibbonEnabled = true;
@@ -85,7 +85,7 @@ public class M4GunSystem : MonoBehaviour
 
     private void Shoot()
     {
-        if(readyToShoot && bulletsLeft > 0)
+        if (readyToShoot && bulletsLeft > 0)
         {
             m_shootingSound.Play();
             bulletsLeft--;
@@ -96,7 +96,7 @@ public class M4GunSystem : MonoBehaviour
 
             float x = bulletsShot == 0 ? 0 : Random.Range(-spread, spread) + bulletsShot * spread * Random.Range(-0.06f, 0.06f);
             float y = bulletsShot == 0 ? 0 : Random.Range(-spread, spread) + bulletsShot * spread * Random.Range(0.02f, 0.06f);
-            float z = bulletsShot == 0 ? 0 : x * (Random.Range(0, 1) > 0.5f ? -1: 1) / 2f;
+            float z = bulletsShot == 0 ? 0 : x * (Random.Range(0, 1) > 0.5f ? -1 : 1) / 2f;
             x = bulletsShot < 5 ? Mathf.Sqrt(bulletsShot / 3.5f) * x : x;
             y = bulletsShot < 5 ? Mathf.Sqrt(bulletsShot / 3.5f) * y : y;
             z = bulletsShot < 5 ? Mathf.Sqrt(bulletsShot / 3.5f) * z : z;
@@ -111,7 +111,7 @@ public class M4GunSystem : MonoBehaviour
 
                 if (rayHit.collider.CompareTag("Enemy"))
                 {
-                    // rayHit.collider.GetComponent
+                    rayHit.collider.GetComponent<Anemy>().TakeDamage(this.damage);
                 }
 
                 if (rayHit.rigidbody != null)
@@ -123,19 +123,21 @@ public class M4GunSystem : MonoBehaviour
 
             TrailRenderer trailTemp = Instantiate(trail, attackPoint.position + new Vector3(0.25f, -0.05f, 0.05f), Quaternion.identity);
             StartCoroutine(SpawnTrail(trailTemp, rayHit));
-            
+
             HandleAllBulletsLeftRibbon();
 
             GameObject impact = Instantiate(bulletHoleGraphic, rayHit.point + (rayHit.normal * .01f), Quaternion.LookRotation(rayHit.normal));
             impact.transform.parent = rayHit.transform;
+            if (rayHit.collider!=null&&!rayHit.collider.CompareTag("Enemy"))
+            {
+                ParticleSystem sparksTemp = Instantiate(sparks, rayHit.point + (rayHit.normal * .01f), Quaternion.LookRotation(rayHit.normal));
+                sparksTemp.transform.parent = rayHit.transform;
+                StartCoroutine(SpawnSparks(sparksTemp, rayHit));
+            }
 
-            ParticleSystem sparksTemp = Instantiate(sparks, rayHit.point + (rayHit.normal * .01f), Quaternion.LookRotation(rayHit.normal));
-            sparksTemp.transform.parent = rayHit.transform;
-            StartCoroutine(SpawnSparks(sparksTemp, rayHit));
-            
             muzzleFlash.Play();
 
-            Invoke("ResetShot", timeBetweenShooting); 
+            Invoke("ResetShot", timeBetweenShooting);
         }
     }
     private IEnumerator SpawnSparks(ParticleSystem sparks, RaycastHit hit)
@@ -143,7 +145,7 @@ public class M4GunSystem : MonoBehaviour
         float time = 0;
         Vector3 startPosition = sparks.transform.position;
 
-        while(time < 0.001)
+        while (time < 0.001)
         {
             time += Time.deltaTime / 1;
 
@@ -152,13 +154,14 @@ public class M4GunSystem : MonoBehaviour
 
         sparks.transform.position = hit.point;
         Destroy(sparks.gameObject, 0.2f);
+
     }
     private IEnumerator SpawnTrail(TrailRenderer trail, RaycastHit hit)
     {
         float time = 0;
         Vector3 startPosition = trail.transform.position;
 
-        while(time < 1)
+        while (time < 1)
         {
             trail.transform.position = Vector3.Lerp(startPosition, hit.point, time);
             time += Time.deltaTime / trail.time;
@@ -171,7 +174,7 @@ public class M4GunSystem : MonoBehaviour
     }
     private void HandleRibbon()
     {
-        if(bulletsShot != 30 && bulletsShot > 20 && !shooting)
+        if (bulletsShot != 30 && bulletsShot > 20 && !shooting)
         {
             Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 90, 0));
             isRibbonEnabled = true;
@@ -182,7 +185,7 @@ public class M4GunSystem : MonoBehaviour
     }
     private void HandleAllBulletsLeftRibbon()
     {
-        if(bulletsLeft <= 0 && bulletsShot == 30)
+        if (bulletsLeft <= 0 && bulletsShot == 30)
         {
             isRibbonEnabled = true;
             RibbonTimeAlive = 3f;
@@ -208,7 +211,7 @@ public class M4GunSystem : MonoBehaviour
 
     private void RemoveMuzzle(ParticleSystem Muzzle)
     {
-        if(Muzzle != null)
+        if (Muzzle != null)
         {
             Destroy(Muzzle);
         }

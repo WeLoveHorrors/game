@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DeagleGunSystem : MonoBehaviour
 {
+    public int damage;
     public Animator m_animator;
     bool shooting,
         readyToShoot,
@@ -81,7 +82,9 @@ public class DeagleGunSystem : MonoBehaviour
 
             if (rayHit.collider.CompareTag("Enemy"))
             {
-                // rayHit.collider.GetComponent
+
+                rayHit.collider.GetComponent<Anemy>().TakeDamage(this.damage);
+
             }
 
             if (rayHit.rigidbody != null)
@@ -91,16 +94,17 @@ public class DeagleGunSystem : MonoBehaviour
             }
         }
 
-            TrailRenderer trailTemp = Instantiate(trail, attackPoint.position + new Vector3(0.25f, -0.05f, 0.05f), Quaternion.identity);
-            StartCoroutine(SpawnTrail(trailTemp, rayHit));
+        TrailRenderer trailTemp = Instantiate(trail, attackPoint.position + new Vector3(0.25f, -0.05f, 0.05f), Quaternion.identity);
+        StartCoroutine(SpawnTrail(trailTemp, rayHit));
 
-            GameObject impact = Instantiate(bulletHoleGraphic, rayHit.point + (rayHit.normal * .01f), Quaternion.LookRotation(rayHit.normal));
-            impact.transform.parent = rayHit.transform;
-
+        GameObject impact = Instantiate(bulletHoleGraphic, rayHit.point + (rayHit.normal * .01f), Quaternion.LookRotation(rayHit.normal));
+        impact.transform.parent = rayHit.transform;
+        if (rayHit.collider != null && !rayHit.collider.CompareTag("Enemy"))
+        {
             ParticleSystem sparksTemp = Instantiate(sparks, rayHit.point + (rayHit.normal * .01f), Quaternion.LookRotation(rayHit.normal));
             sparksTemp.transform.parent = rayHit.transform;
             StartCoroutine(SpawnSparks(sparksTemp, rayHit));
-
+        }
         muzzleFlash.Play();
 
         Invoke("ResetShot", timeBetweenShooting);
@@ -108,6 +112,7 @@ public class DeagleGunSystem : MonoBehaviour
 
     private IEnumerator SpawnSparks(ParticleSystem sparks, RaycastHit hit)
     {
+
         float time = 0;
         Vector3 startPosition = sparks.transform.position;
 
@@ -120,6 +125,7 @@ public class DeagleGunSystem : MonoBehaviour
 
         sparks.transform.position = hit.point;
         Destroy(sparks.gameObject, 0.2f);
+
     }
 
     private IEnumerator SpawnTrail(TrailRenderer trail, RaycastHit hit)

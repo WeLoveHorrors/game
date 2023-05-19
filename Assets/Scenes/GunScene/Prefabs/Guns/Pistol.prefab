@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1156947061741547618, guid: 9f2bad9985dec744fab3247894a00c48, type: 3}
+      propertyPath: damage
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3810396608611389201, guid: 9f2bad9985dec744fab3247894a00c48, type: 3}
       propertyPath: m_Name
       value: Pistol

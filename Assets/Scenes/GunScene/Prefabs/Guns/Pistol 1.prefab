@@ -419,6 +419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71eeeba6ab4309d4bb5d34fee9452869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 50
   m_animator: {fileID: 2699077039975157167}
   bulletsLeft: 0
   range: 100
