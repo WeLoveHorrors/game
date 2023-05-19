@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 50
-  timeBetweenShooting: 0.08
+  timeBetweenShooting: 0.9
   spread: 0.06
   range: 100
   reloadTime: 1
