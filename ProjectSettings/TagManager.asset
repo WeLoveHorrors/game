@@ -12,6 +12,7 @@ TagManager:
   - CamWeaponHolder
   - MustBeRemovedOnChange
   - Spark
+  - Head
   layers:
   - Default
   - TransparentFX

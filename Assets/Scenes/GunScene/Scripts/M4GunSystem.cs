@@ -114,7 +114,7 @@ public class M4GunSystem : MonoBehaviour
                     rayHit.collider.GetComponent<Anemy>().TakeDamage(this.damage);
                 }
                 else if(rayHit.collider.CompareTag("Head")){
-                    rayHit.collider.GetComponentInParent<Anemy>().TakeDamage(this.damage*2);
+                    rayHit.collider.GetComponentInParent<Anemy>().TakeDamage(this.damage*4);
                 }
 
                 if (rayHit.rigidbody != null)
