@@ -103,6 +103,9 @@ public class ShotgunGunSystem : MonoBehaviour
                     {
                         rayHit.collider.GetComponent<Anemy>().TakeDamage(this.damage);
                     }
+                    else if(rayHit.collider.CompareTag("Head")){
+                        rayHit.collider.GetComponentInParent<Anemy>().TakeDamage(this.damage*2);
+                    }
 
                     if (rayHit.rigidbody != null)
                     {
@@ -116,7 +119,7 @@ public class ShotgunGunSystem : MonoBehaviour
 
                 GameObject impact = Instantiate(bulletHoleGraphic, rayHit.point + (rayHit.normal * .01f), Quaternion.LookRotation(rayHit.normal));
                 impact.transform.parent = rayHit.transform;
-                if (rayHit.collider != null && !rayHit.collider.CompareTag("Enemy"))
+                if (rayHit.collider != null && !rayHit.collider.CompareTag("Enemy")&& !rayHit.collider.CompareTag("Head"))
                 {
                     ParticleSystem sparksTemp = Instantiate(sparks, rayHit.point + (rayHit.normal * .01f), Quaternion.LookRotation(rayHit.normal));
                     sparksTemp.transform.parent = rayHit.transform;
