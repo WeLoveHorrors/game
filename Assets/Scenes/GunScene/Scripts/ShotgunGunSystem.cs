@@ -37,7 +37,7 @@ public class ShotgunGunSystem : MonoBehaviour
     }
     private void MyInput()
     {
-        shooting = Input.GetKeyDown(KeyCode.Mouse0);
+        shooting = Input.GetKey(KeyCode.Mouse0);
 
         if (readyToShoot && shooting && bulletsLeft > 0)
         {
@@ -79,6 +79,7 @@ public class ShotgunGunSystem : MonoBehaviour
             m_shootingSound.Play();
             bulletsLeft--;
             readyToShoot = false;
+            GetComponent<Animator>().Play("Reload", 0, 0);
 
             GetComponent<CamRecoil>().Fire();
 
