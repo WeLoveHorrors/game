@@ -42,7 +42,7 @@ public class ShotgunGunSystem : MonoBehaviour
         if (readyToShoot && shooting && bulletsLeft > 0)
         {
             Shoot();
-            GetComponentInChildren<DeagleWeaponRecoil>().Fire();
+            // GetComponentInChildren<DeagleWeaponRecoil>().Fire();
         }
 
         // if(shooting)
