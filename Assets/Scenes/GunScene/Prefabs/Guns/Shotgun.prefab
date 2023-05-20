@@ -10283,6 +10283,7 @@ GameObject:
   - component: {fileID: 6743681833591671347}
   - component: {fileID: 6170932622026108842}
   - component: {fileID: 268003587600303788}
+  - component: {fileID: 1022423039852525824}
   m_Layer: 13
   m_Name: Shotgun
   m_TagString: Untagged
@@ -10338,7 +10339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 50
-  timeBetweenShooting: 0.9
+  timeBetweenShooting: 0.915
   spread: 0.06
   range: 100
   reloadTime: 1
@@ -10489,6 +10490,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1022423039852525824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6939923373242878746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f16112e1a732eec479fe5b76244360a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 6743681833591671347}
+  equip: {fileID: 8300000, guid: 5cfb3a71f3707004480537258216e79f, type: 3}
+  loaded: {fileID: 8300000, guid: 6a08cdb86621a6b42992f2b0be1ad075, type: 3}
 --- !u!1 &7129661848210615074
 GameObject:
   m_ObjectHideFlags: 0
