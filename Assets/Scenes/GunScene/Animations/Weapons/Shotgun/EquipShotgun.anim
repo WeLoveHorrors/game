@@ -19,7 +19,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 0, y: 0, z: 24.596}
+        value: {x: -11.831, y: -5.502, z: 25.167}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -29,8 +29,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.25
         value: {x: 13.894, y: 0, z: 0}
-        inSlope: {x: 0, y: 0, z: -33.194477}
-        outSlope: {x: 0, y: 0, z: -33.194477}
+        inSlope: {x: 0, y: 0, z: -33.194473}
+        outSlope: {x: 0, y: 0, z: -33.194473}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -208,7 +208,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 0.31, y: -0.365, z: -0.0000016667931}
+        value: {x: 0.31, y: -0.365, z: -0.169}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -643,7 +643,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -0.0000016667931
+        value: -0.169
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -698,7 +698,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0
+        value: -11.831
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -753,7 +753,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0
+        value: -5.502
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -808,7 +808,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 24.596
+        value: 25.167
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -818,8 +818,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.25
         value: 0
-        inSlope: -33.194477
-        outSlope: -33.194477
+        inSlope: -33.194473
+        outSlope: -33.194473
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -1872,7 +1872,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Anchor/Design/RecoilPosition/RotationPoint/AnimHolder
+    path: Anchor/Design/RecoilPosition/RotationPoint/AnimHolder/Rifle/rifle:pasted__forestock_geogroup_group1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1882,17 +1882,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Anchor/Design/RecoilPosition/RotationPoint/AnimHolder
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Anchor/Design/RecoilPosition/RotationPoint/AnimHolder
+    path: Anchor/Design/RecoilPosition/RotationPoint/AnimHolder/Rifle/rifle:pasted__forestock_geogroup_group1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1911,8 +1901,18 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Anchor/Design/RecoilPosition/RotationPoint/AnimHolder
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Anchor/Design/RecoilPosition/RotationPoint/AnimHolder/Rifle/rifle:pasted__forestock_geogroup_group1
+    path: Anchor/Design/RecoilPosition/RotationPoint/AnimHolder
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1922,14 +1922,14 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Anchor/Design/RecoilPosition/RotationPoint/AnimHolder/Rifle/rifle:pasted__forestock_geogroup_group1
+    path: Anchor/Design/RecoilPosition/RotationPoint/AnimHolder
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.23333333
-    functionName: PlayEquip
+    functionName: PlayLoaded
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

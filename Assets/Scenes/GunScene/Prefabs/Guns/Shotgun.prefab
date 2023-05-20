@@ -902,7 +902,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -5548,7 +5548,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -10339,7 +10339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 50
-  timeBetweenShooting: 0.915
+  timeBetweenShooting: 10.915
   spread: 0.06
   range: 100
   reloadTime: 1
@@ -10505,6 +10505,10 @@ MonoBehaviour:
   source: {fileID: 6743681833591671347}
   equip: {fileID: 8300000, guid: 5cfb3a71f3707004480537258216e79f, type: 3}
   loaded: {fileID: 8300000, guid: 6a08cdb86621a6b42992f2b0be1ad075, type: 3}
+  shells:
+  - {fileID: 8300000, guid: f42fc8ccf74a2224590d849a89fc537c, type: 3}
+  - {fileID: 8300000, guid: ab75fded6d35024448419f77dc4a2175, type: 3}
+  - {fileID: 8300000, guid: 36c439e7b00e8984c8dab782a01100dc, type: 3}
 --- !u!1 &7129661848210615074
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,7 +27,7 @@ public class ShotgunGunSystem : MonoBehaviour
     private void Awake()
     {
         fpsCam = Camera.main;
-        Invoke("AllowShoot", 0.25f);
+        Invoke("AllowShoot", 0.44f);
         bulletsLeft = magazineSize;
         m_shootingSound = GetComponent<AudioSource>();
     }
@@ -76,9 +76,8 @@ public class ShotgunGunSystem : MonoBehaviour
     {
         if (readyToShoot && bulletsLeft > 0)
         {
-            m_shootingSound.Play();
+            GetComponentInParent<SoundManager>().Play(0);
             bulletsLeft--;
-            readyToShoot = false;
             GetComponent<Animator>().Play("Reload", 0, 0);
 
             GetComponent<CamRecoil>().Fire();
@@ -130,6 +129,7 @@ public class ShotgunGunSystem : MonoBehaviour
 
             muzzleFlash.Play();
 
+            readyToShoot = false;
             Invoke("ResetShot", timeBetweenShooting);
         }
     }
