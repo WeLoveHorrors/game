@@ -81,6 +81,7 @@ public class ShotgunGunSystem : MonoBehaviour
             GetComponent<Animator>().Play("Reload", 0, 0);
 
             GetComponent<CamRecoil>().Fire();
+            GetComponentInParent<PlayerMovement>().ShotJump();
 
             for (int i = 0; i < bulletsPerTap; i++)
             {
