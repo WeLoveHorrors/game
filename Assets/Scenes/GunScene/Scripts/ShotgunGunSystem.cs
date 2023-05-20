@@ -130,7 +130,7 @@ public class ShotgunGunSystem : MonoBehaviour
             muzzleFlash.Play();
 
             readyToShoot = false;
-            Invoke("ResetShot", timeBetweenShooting);
+            Invoke("ResetShot", 1.06f);
         }
     }
     private IEnumerator SpawnSparks(ParticleSystem sparks, RaycastHit hit)
