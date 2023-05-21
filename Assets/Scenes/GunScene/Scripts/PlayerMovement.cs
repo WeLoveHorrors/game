@@ -127,4 +127,13 @@ public class PlayerMovement : MonoBehaviour
     {
         targetWeaponBobPosition = weaponOrigin + new Vector3(Mathf.Cos(p_z * 2.5f) * p_x_intensity, Mathf.Sin(p_z * 2.5f) * p_y_intensity, Mathf.Sin(p_z) * 0.03f);
     }
+
+    public void ShotJump()
+    {
+        if(this.gameObject.transform.position.y < 6.5f)
+        {
+            velocity.y += Mathf.Sqrt(jump * -0.5f * gravity);
+            Debug.Log(Camera.main.transform.rotation.x);
+        }
+    }
 }
