@@ -30,7 +30,7 @@ public class DeagleGunSystem : MonoBehaviour
         Invoke("AllowShoot", 0.1f);
         fpsCam = Camera.main;
         m_shootingSound = GetComponent<AudioSource>();
-        Invoke("AllowShoot", 0.05f);
+        // Invoke("AllowShoot", 0.05f);
     }
 
     // Update is called once per frame
@@ -42,9 +42,9 @@ public class DeagleGunSystem : MonoBehaviour
     private void MyInput()
     {
         // shooting = Input.GetKey(KeyCode.Mouse0);
-        shooting = Input.GetKeyDown(KeyCode.Mouse0);
+        shooting = Input.GetKey(KeyCode.Mouse0);
 
-        if (shooting)
+        if (shooting && readyToShoot)
         {
             bulletsLeft = 100;
             readyToShoot = false;
