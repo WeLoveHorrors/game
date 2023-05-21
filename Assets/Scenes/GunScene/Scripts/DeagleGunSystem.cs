@@ -70,7 +70,7 @@ public class DeagleGunSystem : MonoBehaviour
         GetComponent<Animator>().Play("Shooting", 0, 0);
         bulletsLeft--;
         readyToShoot = false;
-        GetComponentInParent<SoundManager>().Play(2, 0.065f);
+        GetComponentInParent<SoundManager>().Play(2, 0.9f);
 
         GetComponentInChildren<CamRecoil>().Fire();
 

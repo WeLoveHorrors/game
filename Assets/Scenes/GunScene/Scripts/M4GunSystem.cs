@@ -87,7 +87,7 @@ public class M4GunSystem : MonoBehaviour
     {
         if (readyToShoot && bulletsLeft > 0)
         {
-            GetComponentInParent<SoundManager>().Play(1, 0.065f);
+            GetComponentInParent<SoundManager>().Play(1, 0.12f);
             bulletsLeft--;
             readyToShoot = false;
             cartridge.Play();
