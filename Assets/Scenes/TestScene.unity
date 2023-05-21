@@ -7915,6 +7915,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &845915039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845915028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbcf431f266ad684885ceb05bfaad901, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offsetX: 13
+  offsetY: 16
 --- !u!20 &862326609 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 4848741179029353786, guid: 9e4ab5efb42907847a705e5ceffee7b9, type: 3}

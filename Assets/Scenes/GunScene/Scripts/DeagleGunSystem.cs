@@ -27,7 +27,7 @@ public class DeagleGunSystem : MonoBehaviour
     void Awake()
     {
         bulletsLeft = 100;
-        Invoke("AllowShoot", 0.1f);
+        Invoke("AllowShoot", 0.3f);
         fpsCam = Camera.main;
         m_shootingSound = GetComponent<AudioSource>();
         // Invoke("AllowShoot", 0.05f);
