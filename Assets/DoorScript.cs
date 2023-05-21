@@ -6,18 +6,33 @@ public class DoorScript : MonoBehaviour
 {
     // Start is called before the first frame update
     private bool IsOpen;
+    private bool touchingDoor = false;
 
     private void OnTriggerEnter(Collider other)
     {
         Debug.LogWarning(other.gameObject.tag);
-        if(other.gameObject.tag=="Player"&&!IsOpen)
+        if(other.gameObject.tag=="Player")
         {
-           IsOpen=true;
-            
-            GetComponentInParent<Animator>().Play("DoorOpen",0,0);
+    
+           
+            touchingDoor = true;
 
         }
         
         
+    }
+
+     private void OnTriggerExit(Collider other)
+    {
+        touchingDoor=false;
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown("e")&&touchingDoor){
+
+            IsOpen=true;
+            GetComponentInParent<Animator>().Play("DoorOpen",0,0);
+        }
     }
 }
