@@ -24,6 +24,9 @@ public class AnemyNavig : MonoBehaviour
     void Update()
     {
         animator.SetFloat("Speed",agent.velocity.magnitude);
+        //if(){
+
+        //}
         timer-=Time.deltaTime;
         if(timer<0.0f){
             float sqrdistance=(playertransform.position-agent.destination).sqrMagnitude;
