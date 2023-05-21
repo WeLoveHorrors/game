@@ -27,10 +27,10 @@ public class DeagleGunSystem : MonoBehaviour
     void Awake()
     {
         bulletsLeft = 100;
-        Invoke("AllowShoot", 0.1f);
+        Invoke("AllowShoot", 0.3f);
         fpsCam = Camera.main;
         m_shootingSound = GetComponent<AudioSource>();
-        Invoke("AllowShoot", 0.05f);
+        // Invoke("AllowShoot", 0.05f);
     }
 
     // Update is called once per frame
@@ -42,9 +42,9 @@ public class DeagleGunSystem : MonoBehaviour
     private void MyInput()
     {
         // shooting = Input.GetKey(KeyCode.Mouse0);
-        shooting = Input.GetKeyDown(KeyCode.Mouse0);
+        shooting = Input.GetKey(KeyCode.Mouse0);
 
-        if (shooting)
+        if (shooting && readyToShoot)
         {
             bulletsLeft = 100;
             readyToShoot = false;
@@ -70,7 +70,7 @@ public class DeagleGunSystem : MonoBehaviour
         GetComponent<Animator>().Play("Shooting", 0, 0);
         bulletsLeft--;
         readyToShoot = false;
-        m_shootingSound.Play();
+        GetComponentInParent<SoundManager>().Play(2, 0.9f);
 
         GetComponentInChildren<CamRecoil>().Fire();
 

@@ -8,8 +8,8 @@ public class SoundManager : MonoBehaviour
     public AudioSource source;
     public AudioClip[] effects;
     
-    public void Play(int id)
+    public void Play(int id, float Volume)
     {
-        source.PlayOneShot(effects[id], 0.065f);
+        source.PlayOneShot(effects[id], Volume);
     }
 }

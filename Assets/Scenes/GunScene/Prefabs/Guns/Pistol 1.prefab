@@ -423,7 +423,7 @@ MonoBehaviour:
   m_animator: {fileID: 2699077039975157167}
   bulletsLeft: 0
   range: 100
-  timeBetweenShooting: 0.5
+  timeBetweenShooting: 0.8
   fpsCam: {fileID: 0}
   attackPoint: {fileID: 6736343296322501057}
   whatIsEnemy:

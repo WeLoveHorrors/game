@@ -76,7 +76,7 @@ public class ShotgunGunSystem : MonoBehaviour
     {
         if (readyToShoot && bulletsLeft > 0)
         {
-            GetComponentInParent<SoundManager>().Play(0);
+            GetComponentInParent<SoundManager>().Play(0, 0.065f);
             bulletsLeft--;
             GetComponent<Animator>().Play("Reload", 0, 0);
 
