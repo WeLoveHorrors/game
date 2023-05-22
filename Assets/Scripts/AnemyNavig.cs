@@ -5,7 +5,8 @@ using UnityEngine.AI;
 
 public class AnemyNavig : MonoBehaviour
 {
-    public Transform playertransform;
+    //public Transform playertransform;
+    public GameObject palyer;
     public float MaxTime=1.0f;
     public float MaxDistance=1.0f;
     float timer=0.0f;
@@ -16,7 +17,7 @@ public class AnemyNavig : MonoBehaviour
     {
         agent=GetComponent<NavMeshAgent>();
         animator=GetComponent<Animator>();
-
+        palyer=GameObject.FindGameObjectWithTag("Player");
         
     }
 
@@ -24,14 +25,12 @@ public class AnemyNavig : MonoBehaviour
     void Update()
     {
         animator.SetFloat("Speed",agent.velocity.magnitude);
-        //if(){
-
-        //}
+        
         timer-=Time.deltaTime;
         if(timer<0.0f){
-            float sqrdistance=(playertransform.position-agent.destination).sqrMagnitude;
+            float sqrdistance=(palyer.transform.position-agent.destination).sqrMagnitude;
             if(sqrdistance>MaxDistance*MaxDistance){
-                agent.destination=playertransform.position;
+                agent.destination=palyer.transform.position;
             }
             timer=this.MaxTime;
         }

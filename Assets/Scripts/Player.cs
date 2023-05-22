@@ -17,7 +17,6 @@ public class Player : MonoBehaviour
     {
         
     }
-
     public void TakeDamage(int damage){
         if(CurrentHP<0){
             Debug.Log("Chel Pomer");
@@ -27,4 +26,5 @@ public class Player : MonoBehaviour
         }
 
     }
+   
 }
