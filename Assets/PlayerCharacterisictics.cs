@@ -23,9 +23,19 @@ public class PlayerCharacterisictics : MonoBehaviour
             {
                 isAlive = false;
                 LaunchDead();
+                Invoke("RestoreCharacter", 10f);
             }
         }
     }
+
+    // Если нужно будет переинициализировать хар-ки игрока после смерти
+    public void RestoreCharacter()
+    {
+        this.Health = 100;
+        this.isAlive = true;
+        canvas.gameObject.SetActive(false);
+    }
+
     public void Update()
     {
         if(Input.GetKeyDown(KeyCode.C))
