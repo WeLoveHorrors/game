@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Weapon : MonoBehaviour
 {
     public GameObject[] loadout;
     public Transform weaponParent;
     public int currentWeaponType;
+    public CanvasRenderer[] icons;
 
     private GameObject currentWeapon;
 
@@ -44,6 +46,8 @@ public class Weapon : MonoBehaviour
             currentWeapon = t_newWeapon;
 
             DestroyAllSparks();
+            icons.ToList().ForEach(x=>x.SetColor(new Color(255,255,255,0.3f)));
+            icons[p_ind].SetColor(new Color(255,255,255,255f));
         }
     }
 

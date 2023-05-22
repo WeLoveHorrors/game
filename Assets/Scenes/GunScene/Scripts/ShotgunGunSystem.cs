@@ -22,6 +22,8 @@ public class ShotgunGunSystem : MonoBehaviour
     public TrailRenderer trail;
 
     public ParticleSystem sparks;
+    public GameObject shell;
+    public Transform shellFalling;
 
     public AudioSource m_shootingSound;
     private void Awake()
@@ -109,6 +111,9 @@ public class ShotgunGunSystem : MonoBehaviour
                     {
                         rayHit.collider.GetComponentInParent<Anemy>().TakeDamage(this.damage * 2);
                     }
+                    else if(rayHit.collider.CompareTag("BulletDropped")){
+                        Destroy(rayHit.collider.gameObject, 0.05f);
+                    }
 
                     if (rayHit.rigidbody != null)
                     {
@@ -129,7 +134,11 @@ public class ShotgunGunSystem : MonoBehaviour
                     StartCoroutine(SpawnSparks(sparksTemp, rayHit));
                 }
             }
+            
+            GameObject tempshell = Instantiate(shell, shellFalling.transform.position + new Vector3(Random.Range(0,2f),Random.Range(0,2f),Random.Range(0,2f)), Quaternion.LookRotation(-fpsCam.transform.forward));
+            GameObject tempshell2 = Instantiate(shell, shellFalling.transform.position + new Vector3(Random.Range(0,2f),Random.Range(0,2f),Random.Range(0,2f)), Quaternion.LookRotation(-fpsCam.transform.forward));
 
+            
             muzzleFlash.Play();
 
             readyToShoot = false;
