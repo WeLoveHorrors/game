@@ -748,6 +748,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8740354893682763684}
     m_Modifications:
+    - target: {fileID: 1072100153539472491, guid: 427b213d46a6cbf4c8713d1f85159f9a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1072100153539472491, guid: 427b213d46a6cbf4c8713d1f85159f9a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1072100153539472491, guid: 427b213d46a6cbf4c8713d1f85159f9a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1072100153539472491, guid: 427b213d46a6cbf4c8713d1f85159f9a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1072100153539472491, guid: 427b213d46a6cbf4c8713d1f85159f9a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1072100153539472491, guid: 427b213d46a6cbf4c8713d1f85159f9a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1072100153539472491, guid: 427b213d46a6cbf4c8713d1f85159f9a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1072100153539472491, guid: 427b213d46a6cbf4c8713d1f85159f9a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1218639361755430961, guid: 427b213d46a6cbf4c8713d1f85159f9a, type: 3}
       propertyPath: m_Name
       value: Desert Eagle
