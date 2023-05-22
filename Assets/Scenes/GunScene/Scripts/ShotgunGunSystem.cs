@@ -135,15 +135,16 @@ public class ShotgunGunSystem : MonoBehaviour
                 }
             }
             
-            GameObject tempshell = Instantiate(shell, shellFalling.transform.position + new Vector3(Random.Range(0,2f),Random.Range(0,2f),Random.Range(0,2f)), Quaternion.LookRotation(-fpsCam.transform.forward));
-            GameObject tempshell2 = Instantiate(shell, shellFalling.transform.position + new Vector3(Random.Range(0,2f),Random.Range(0,2f),Random.Range(0,2f)), Quaternion.LookRotation(-fpsCam.transform.forward));
-
-            
             muzzleFlash.Play();
 
             readyToShoot = false;
             Invoke("ResetShot", 1.06f);
         }
+    }
+    public void SpawnShells()
+    {
+        GameObject tempshell = Instantiate(shell, shellFalling.transform.position + new Vector3(Random.Range(0,2f),Random.Range(0,2f),Random.Range(0,2f)), Quaternion.LookRotation(-fpsCam.transform.forward));
+        GameObject tempshell2 = Instantiate(shell, shellFalling.transform.position + new Vector3(Random.Range(0,2f),Random.Range(0,2f),Random.Range(0,2f)), Quaternion.LookRotation(-fpsCam.transform.forward));
     }
     private IEnumerator SpawnSparks(ParticleSystem sparks, RaycastHit hit)
     {

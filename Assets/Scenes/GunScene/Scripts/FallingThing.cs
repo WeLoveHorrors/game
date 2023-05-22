@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FallingThing : MonoBehaviour
 {
-    public float lifeTime = 5f;
+    public float lifeTime = 15f;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +16,8 @@ public class FallingThing : MonoBehaviour
         lifeTime -= 1f * Time.deltaTime;
         if(lifeTime <= 0)
         {
-            Destroy(this.gameObject);
+            Destroy(this.gameObject.GetComponent<CapsuleCollider>());
+            Destroy(this.gameObject, 1);
         }
         Debug.Log(lifeTime);
         // if(this.gameObject.transform.position.y < 1){
@@ -24,7 +25,7 @@ public class FallingThing : MonoBehaviour
         // }
 
         // this.gameObject.transform.position += direction * speed * Time.deltaTime;
-        // Vector3 direction = this.gameObject.transform.rotation * Vector3.forward;
-        // this.gameObject.GetComponent<Rigidbody>().AddForce(direction * 60);
+        Vector3 direction = this.gameObject.transform.rotation * Vector3.forward;
+        this.gameObject.GetComponent<Rigidbody>().AddForce(direction * 200);
     }
 }
