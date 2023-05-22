@@ -70,7 +70,7 @@ public class DeagleGunSystem : MonoBehaviour
         GetComponent<Animator>().Play("Shooting", 0, 0);
         bulletsLeft--;
         readyToShoot = false;
-        GetComponentInParent<SoundManager>().Play(2, 0.9f);
+        GetComponentInParent<SoundManager>().Play(2, 1f);
 
         GetComponentInChildren<CamRecoil>().Fire();
 
@@ -82,9 +82,7 @@ public class DeagleGunSystem : MonoBehaviour
 
             if (rayHit.collider.CompareTag("Enemy"))
             {
-                
                 rayHit.collider.GetComponent<Anemy>().TakeDamage(this.damage);
-
             }
             else if(rayHit.collider.CompareTag("Head")){
                 rayHit.collider.GetComponentInParent<Anemy>().TakeDamage(this.damage*4);
@@ -118,7 +116,6 @@ public class DeagleGunSystem : MonoBehaviour
 
     private IEnumerator SpawnSparks(ParticleSystem sparks, RaycastHit hit)
     {
-
         float time = 0;
         Vector3 startPosition = sparks.transform.position;
 
