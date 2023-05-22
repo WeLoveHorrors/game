@@ -22,8 +22,6 @@ public class AnemySpawn : MonoBehaviour
             gg = false;
         }
         gg=true;
-
-
     }
     public void IsAnemyDead(bool IsAlive, string name)
     {
