@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 47597
+  controlID: 48020
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 47598
+  controlID: 48021
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 47599
+  controlID: 48022
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: AnimatorControllerTool
+  m_Name: SceneView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -272,14 +272,14 @@ MonoBehaviour:
     y: 0
     width: 605
     height: 606
-  m_MinSize: {x: 100, y: 100}
+  m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 9}
+  m_ActualView: {fileID: 8}
   m_Panes:
   - {fileID: 8}
   - {fileID: 9}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -539,9 +539,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 274.5, y: 282, z: 0}
+    m_Target: {x: 328.5, y: 282, z: 0}
     speed: 2
-    m_Value: {x: 274.5, y: 282, z: 0}
+    m_Value: {x: 328.5, y: 282, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -592,9 +592,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: -0.024282793, y: -0.010371776, z: 0.0018564382, w: -0.99964964}
   m_Size:
-    m_Target: 692.9686
+    m_Target: 432.9391
     speed: 2
-    m_Value: 692.9686
+    m_Value: 432.9391
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1001,21 +1001,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes/GunScene/Images/gameover
+    - Assets/Scenes/GunScene/Sounds
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scenes/GunScene/Images/gameover
+  - Assets/Scenes/GunScene/Sounds
   m_LastFoldersGridSize: 16
   m_LastProjectPath: D:\Projects\welovetitties_clone\game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 315}
-    m_SelectedIDs: fe400100
-    m_LastClickedID: 82174
+    scrollPos: {x: 0, y: 495}
+    m_SelectedIDs: 34720000
+    m_LastClickedID: 29236
     m_ExpandedIDs: 000000002a7000002c7000002e70000030700000327000003470000036700000387000001e72000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1071,22 +1071,22 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 0c930100
     m_LastClickedInstanceID: 103180
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000b89100000a93000034940000b0b00000caef000026ef00007aef0000aaef0000a2ef000062ef000086ef00002eef00003cef0000f2ef0000d6ef00004eef0000a6ef000096ef0000daef00008eef00009eef000006f00000e2ef0000beef000068ef00008e61010028a8010022c40200c45900003cd50200a4580000546b0000e69b0000748e000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: gameoverstart
+      m_OriginalName: gameoverstart
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 136286
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 11}
     m_CreateAssetUtility:
@@ -1096,7 +1096,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 23}
     m_GridSize: 16
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207

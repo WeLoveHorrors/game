@@ -5,19 +5,33 @@ using UnityEngine;
 public class PlayerCharacterisictics : MonoBehaviour
 {
     public GameObject canvas;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float Health = 100;
+    private bool isAlive = true;
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(float damage)
+    {
+        if(this.isAlive)
+        {
+            this.GetComponentInParent<SoundManager>().Play(3, 1f);
+            this.Health -= damage;
+            if(this.Health <= 0)
+            {
+                isAlive = false;
+                LaunchDead();
+            }
+        }
+    }
+    public void Update()
     {
         if(Input.GetKeyDown(KeyCode.C))
         {
-            canvas.gameObject.SetActive(true);
-            canvas.gameObject.GetComponentInParent<Animator>().Play("End Game", 0, 0);
+            TakeDamage(15);
         }
+    }
+
+    private void LaunchDead()
+    {
+        canvas.gameObject.SetActive(true);
+        canvas.gameObject.GetComponentInParent<Animator>().Play("End Game", 0, 0);
     }
 }
