@@ -116,7 +116,6 @@ public class DeagleGunSystem : MonoBehaviour
 
     private IEnumerator SpawnSparks(ParticleSystem sparks, RaycastHit hit)
     {
-
         float time = 0;
         Vector3 startPosition = sparks.transform.position;
 
