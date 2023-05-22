@@ -13,6 +13,10 @@ TagManager:
   - MustBeRemovedOnChange
   - Spark
   - Head
+  - DeagleIcon
+  - ShotgunIcon
+  - M4Icon
+  - WeaponHolder
   layers:
   - Default
   - TransparentFX

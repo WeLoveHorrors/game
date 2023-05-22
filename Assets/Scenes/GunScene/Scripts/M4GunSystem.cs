@@ -116,6 +116,9 @@ public class M4GunSystem : MonoBehaviour
                 else if(rayHit.collider.CompareTag("Head")){
                     rayHit.collider.GetComponentInParent<Anemy>().TakeDamage(this.damage*4);
                 }
+                else if(rayHit.collider.CompareTag("BulletDropped")){
+                    Destroy(rayHit.collider.gameObject, 0.05f);
+                }
 
                 if (rayHit.rigidbody != null)
                 {
