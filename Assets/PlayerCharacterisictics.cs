@@ -23,7 +23,6 @@ public class PlayerCharacterisictics : MonoBehaviour
             {
                 isAlive = false;
                 LaunchDead();
-                Invoke("RestoreCharacter", 10f);
             }
         }
     }
@@ -38,11 +37,6 @@ public class PlayerCharacterisictics : MonoBehaviour
 
     public void Update()
     {
-        if(Input.GetKeyDown(KeyCode.C))
-        {
-            TakeDamage(15);
-        }
-
         if(damageIndicator.GetComponent<Image>().color.a > 0)
         {
             var color = damageIndicator.GetComponent<Image>().color;
