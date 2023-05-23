@@ -92,6 +92,7 @@ public class PlayerCharacterisictics : MonoBehaviour
 
     private void LaunchDead()
     {
+        // Time.timeScale = 0.8f;
         canvas.gameObject.SetActive(true);
         canvas.gameObject.GetComponentInParent<Animator>().Play("End Game", 0, 0);
     }
