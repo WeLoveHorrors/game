@@ -10,13 +10,13 @@ public class AnemyNavig : MonoBehaviour
     public float MaxTime=1.0f;
     public float MaxDistance=1.0f;
     float timer=0.0f;
-    //public Animator animator;
+    public Animator animator;
     NavMeshAgent agent;
     // Start is called before the first frame update
     void Start()
     {
         agent=GetComponent<NavMeshAgent>();
-        //animator=GetComponent<Animator>();
+        animator=GetComponent<Animator>();
         palyer=GameObject.FindGameObjectWithTag("Player");
         
     }
@@ -25,7 +25,6 @@ public class AnemyNavig : MonoBehaviour
     void Update()
     {
         //animator.SetFloat("Speed",agent.velocity.magnitude);
-        //animator.Play("Jump",0,0);
         timer-=Time.deltaTime;
         if(timer<0.0f){
             float sqrdistance=(palyer.transform.position-agent.destination).sqrMagnitude;

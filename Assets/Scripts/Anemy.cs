@@ -31,6 +31,11 @@ public class Anemy: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // if(Input.GetKeyDown(KeyCode.F)){
+        //     Debug.Log($"{gameObject.transform.forward*5f}");
+        //     gameObject.transform.position+=gameObject.transform.forward*5f;
+            
+        // }
         BlinckTimer-=Time.deltaTime;
         float Lerp=Mathf.Clamp01(BlinckTimer/BlinckDuration);
         float intensiti=(Lerp*BlinckIntensiti)+1.0f;
