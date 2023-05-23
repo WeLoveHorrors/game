@@ -29,10 +29,12 @@ public class DoorScript : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown("e")&&touchingDoor){
+        if(Input.GetKeyDown("e")&&touchingDoor&&IsOpen!=true){
 
             IsOpen=true;
             GetComponentInParent<Animator>().Play("DoorOpen",0,0);
+            //DoorShoot1
+            
         }
     }
 }
