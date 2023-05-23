@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerCharacterisictics : MonoBehaviour
 {
     public GameObject canvas;
     public GameObject damageIndicator;
     public Image healthBar;
+    public TMP_Text timeLabel;
+    public TMP_Text killsLabel;
+    public TMP_Text scoreLabel;
     public float Health = 100;
     private bool isAlive = true;
     private float TimeWithoutDamage = 0;
@@ -15,6 +19,9 @@ public class PlayerCharacterisictics : MonoBehaviour
     public float TimeToHeal = 5;
     public float HealForceInitial = 3f;
     private float HealForce = 0.01f;
+    private float time = 0;
+    private float kills = 0;
+    private float score = 0;
 
     public void TakeDamage(float damage)
     {
@@ -37,6 +44,13 @@ public class PlayerCharacterisictics : MonoBehaviour
         }
     }
 
+    //Вызывать этот метод когда игрок убивает врага, передавать счет за тип врага (Либо сам придумай по поводу счета за врага)
+    public void AddKill(int score)
+    {
+        this.kills++;
+        this.score += score;
+    }
+
     // Если нужно будет переинициализировать хар-ки игрока после смерти
     public void RestoreCharacter()
     {
@@ -47,13 +61,21 @@ public class PlayerCharacterisictics : MonoBehaviour
 
     public void Update()
     {
-        if(damageIndicator.GetComponent<Image>().color.a > 0)
-        {
-            var color = damageIndicator.GetComponent<Image>().color;
-            color.a -= 0.5f * Time.deltaTime;
-            damageIndicator.GetComponent<Image>().color = color;
-        }
+        //Прожитое время в игре
+        time += Time.deltaTime;
 
+        HandleHealthBar();
+        HandleDamageIndicator();
+        HandleRegeneration();
+
+        // if(Input.GetKeyDown(KeyCode.C))
+        // {
+        //     TakeDamage(13);
+        // }
+    }
+
+    private void HandleHealthBar()
+    {
         if(this.Health < 30)
         {
             healthBar.color = new Color(1, 0.121f, 1, 1);
@@ -66,7 +88,18 @@ public class PlayerCharacterisictics : MonoBehaviour
         {
             healthBar.color = new Color(0.6451917f, 0.9433962f, 1, 1);
         }
-
+    }
+    private void HandleDamageIndicator()
+    {
+        if(damageIndicator.GetComponent<Image>().color.a > 0)
+        {
+            var color = damageIndicator.GetComponent<Image>().color;
+            color.a -= 0.5f * Time.deltaTime;
+            damageIndicator.GetComponent<Image>().color = color;
+        }
+    }
+    private void HandleRegeneration()
+    {
         if(this.Health < 100)
         {
             this.TimeWithoutDamage += Time.deltaTime;
@@ -83,17 +116,18 @@ public class PlayerCharacterisictics : MonoBehaviour
                 this.HealForce = this.HealForce * 1.005f + this.HealForceInitial;
             }
         }
-
-        if(Input.GetKeyDown(KeyCode.C))
-        {
-            TakeDamage(13);
-        }
     }
 
     private void LaunchDead()
     {
         // Time.timeScale = 0.8f;
+        // Camera.main.GetComponent<AudioListener>().enabled = false;
         canvas.gameObject.SetActive(true);
         canvas.gameObject.GetComponentInParent<Animator>().Play("End Game", 0, 0);
+        var seconds = (int)(time % 60);
+        var displayingseconds = seconds > 10 ? $"{seconds}" : $"0{seconds}";
+        killsLabel.SetText(kills.ToString());
+        timeLabel.SetText($"{(int)(time/60)}:{displayingseconds}");
+        scoreLabel.SetText(score.ToString());
     }
 }
