@@ -17,6 +17,8 @@ TagManager:
   - ShotgunIcon
   - M4Icon
   - WeaponHolder
+  - BulletDropped
+  - Door
   layers:
   - Default
   - TransparentFX

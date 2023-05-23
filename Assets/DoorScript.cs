@@ -18,8 +18,15 @@ public class DoorScript : MonoBehaviour
             touchingDoor = true;
 
         }
-        
-        
+    }
+
+    public void OpenFastDoor()
+    {
+        if(!IsOpen)
+        {
+            GetComponentInParent<Animator>().Play("DoorShoot1",0,0);
+            IsOpen=true;
+        }
     }
 
      private void OnTriggerExit(Collider other)
