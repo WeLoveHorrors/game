@@ -898,7 +898,7 @@ GameObject:
   - component: {fileID: 5220328984184457650}
   - component: {fileID: 5220171880421000030}
   - component: {fileID: 5414860591311546246}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Shoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15723,7 +15723,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5552613394055173742, guid: e7092db36ac810a41b35056a6847ace0, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 0.6
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 5552613394055173742, guid: e7092db36ac810a41b35056a6847ace0, type: 3}
       propertyPath: InitialModule.startSpeed.minScalar
@@ -15743,7 +15743,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5552613394055173742, guid: e7092db36ac810a41b35056a6847ace0, type: 3}
       propertyPath: InitialModule.startLifetime.minScalar
-      value: 0.2
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 5746846863493727836, guid: e7092db36ac810a41b35056a6847ace0, type: 3}
       propertyPath: m_RootOrder
