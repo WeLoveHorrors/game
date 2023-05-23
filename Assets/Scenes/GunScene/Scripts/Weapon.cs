@@ -46,8 +46,8 @@ public class Weapon : MonoBehaviour
             currentWeapon = t_newWeapon;
 
             DestroyAllSparks();
-            icons.ToList().ForEach(x=>x.SetColor(new Color(255,255,255,0.3f)));
-            icons[p_ind].SetColor(new Color(255,255,255,255f));
+            icons.ToList().ForEach(x=>x.SetColor(new Color(0, 0, 0, 0.3490196f)));
+            icons[p_ind].SetColor(new Color(0, 0, 0, 1f));
         }
     }
 
@@ -59,6 +59,15 @@ public class Weapon : MonoBehaviour
             foreach(var item in Sparks)
             {
                 Destroy(item, 0.15f);
+            }
+        }
+        
+        var Smokes = GameObject.FindGameObjectsWithTag("Smoke");
+        if(Smokes != null)
+        {
+            foreach(var item in Smokes)
+            {
+                Destroy(item, 0.6f);
             }
         }
     }

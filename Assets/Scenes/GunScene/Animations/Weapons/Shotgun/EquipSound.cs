@@ -8,6 +8,7 @@ public class EquipSound : MonoBehaviour
     public AudioClip equip;
     public AudioClip loaded;
     public AudioClip[] shells;
+    public ParticleSystem smoke;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,12 @@ public class EquipSound : MonoBehaviour
         
     }
 
+    public void PlaySmoke()
+    {
+        var tempSmoke = Instantiate(smoke, smoke.transform.position, smoke.transform.rotation);
+        tempSmoke.Play();
+        tempSmoke.tag = "Smoke";
+    }
     public void PlayEquip()
     {
         source.PlayOneShot(equip, 0.16f);

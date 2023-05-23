@@ -17,6 +17,10 @@ TagManager:
   - ShotgunIcon
   - M4Icon
   - WeaponHolder
+  - BulletDropped
+  - Door
+  - FxTemporaire
+  - Smoke
   layers:
   - Default
   - TransparentFX
