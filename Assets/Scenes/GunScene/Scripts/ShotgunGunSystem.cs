@@ -19,6 +19,7 @@ public class ShotgunGunSystem : MonoBehaviour
 
     public GameObject bulletHoleGraphic;
     public ParticleSystem muzzleFlash;
+    public ParticleSystem shotFlash;
     public TrailRenderer trail;
 
     public ParticleSystem sparks;
@@ -147,6 +148,10 @@ public class ShotgunGunSystem : MonoBehaviour
             }
             
             muzzleFlash.Play();
+            // shotFlash.Play();
+            var tempSmoke = Instantiate(shotFlash, shotFlash.transform.position, shotFlash.transform.rotation);
+            tempSmoke.Play();
+            tempSmoke.tag = "Smoke";
 
             readyToShoot = false;
             Invoke("ResetShot", 1.06f);

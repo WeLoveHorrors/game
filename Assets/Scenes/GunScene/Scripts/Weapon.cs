@@ -61,5 +61,14 @@ public class Weapon : MonoBehaviour
                 Destroy(item, 0.15f);
             }
         }
+        
+        var Smokes = GameObject.FindGameObjectsWithTag("Smoke");
+        if(Smokes != null)
+        {
+            foreach(var item in Smokes)
+            {
+                Destroy(item, 0.6f);
+            }
+        }
     }
 }
