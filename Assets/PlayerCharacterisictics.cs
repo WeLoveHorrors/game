@@ -12,6 +12,7 @@ public class PlayerCharacterisictics : MonoBehaviour
     public TMP_Text timeLabel;
     public TMP_Text killsLabel;
     public TMP_Text scoreLabel;
+    public TMP_Text healthCount;
     public float Health = 100;
     private bool isAlive = true;
     private float TimeWithoutDamage = 0;
@@ -68,10 +69,12 @@ public class PlayerCharacterisictics : MonoBehaviour
         HandleDamageIndicator();
         HandleRegeneration();
 
-        // if(Input.GetKeyDown(KeyCode.C))
-        // {
-        //     TakeDamage(13);
-        // }
+        healthCount.SetText($"{(int)(this.Health)}/100");
+
+        if(Input.GetKeyDown(KeyCode.C))
+        {
+            TakeDamage(13);
+        }
     }
 
     private void HandleHealthBar()
@@ -113,7 +116,7 @@ public class PlayerCharacterisictics : MonoBehaviour
                     this.TimeWithoutDamage = 0;
                 }
                 healthBar.fillAmount = this.Health / 100;
-                this.HealForce = this.HealForce * 1.005f + this.HealForceInitial;
+                this.HealForce = this.HealForce * 1.003f + this.HealForceInitial;
             }
         }
     }
