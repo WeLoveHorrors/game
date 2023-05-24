@@ -82,7 +82,7 @@ public class DeagleGunSystem : MonoBehaviour
 
             if (rayHit.collider.CompareTag("Enemy"))
             {
-                rayHit.collider.GetComponent<Anemy>().TakeDamage(this.damage);
+                rayHit.collider.GetComponentInParent<Anemy>().TakeDamage(this.damage);
             }
             else if(rayHit.collider.CompareTag("Head")){
                 rayHit.collider.GetComponentInParent<Anemy>().TakeDamage(this.damage*4);

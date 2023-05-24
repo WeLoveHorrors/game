@@ -8,17 +8,31 @@ public class Animations : MonoBehaviour
 
     public Animator animator;
     NavMeshAgent agent;
+    public GameObject palyer;
     private int rand;
     private int lastrand;
     private bool inRoll;
     private float force = 0.5f;
     private float timeout = 0.03f;
+    private bool inJumpUp;
+    private bool inJumpDown;
+    private bool inJump;
+    private float JumpUpforce = 0.03f;
+    private float Jumptimeout = 0.03f;
+
+    private float distance;
     // Start is called before the first frame update
     void Start()
     {
+        palyer = GameObject.FindGameObjectWithTag("Player");
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         StartCoroutine(GetRandom());
+        inJump = true;
+        inJumpUp = true;
+        inJumpDown = true;
+
+        animator.SetTrigger("Run");
         //animator.SetTrigger("Run");
         //AnimateRun();
         //AnimateAtack();
@@ -27,13 +41,14 @@ public class Animations : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (agent.velocity.magnitude != 0f && lastrand!= rand)
+        distance = Vector3.Distance(transform.position, palyer.transform.position);
+        if (agent.velocity.magnitude != 0f && lastrand != rand && distance > 5)
         {
             AnimateRun(rand);
         }
-        else if(agent.velocity.magnitude == 0f){
-            //AnimateAtack(rand);
+        else if (lastrand != rand && distance <= 5)
+        {
+            AnimateAtack(rand);
         }
 
     }
@@ -42,23 +57,25 @@ public class Animations : MonoBehaviour
     {
         if (rand % 2 == 0)
         {
-            AnimateJump(rand);
+            //StartCoroutine(AnimateJump(rand));
             animator.SetTrigger("Attack1");
         }
         if (rand % 2 == 1)
         {
-            AnimateJump(rand);
+            //StartCoroutine(AnimateJump(rand));
             animator.SetTrigger("Attack2");
         }
     }
 
-    public void AnimateJump(int rand)
+    public IEnumerator AnimateJump(int rand)
     {
         if (rand <= 50)
         {
             animator.SetTrigger("Jump");
             animator.SetTrigger("Land");
+            yield return new WaitForSeconds(0.1f);
         }
+
     }
     public void AnimateRun(int rand)
     {
@@ -93,6 +110,56 @@ public class Animations : MonoBehaviour
             yield return new WaitForSeconds(2);
         }
     }
+    // public IEnumerator JumpUp()
+    // {
+    //     while (inJumpUp == true)
+    //     {
+    //         yield return new WaitForSeconds(0.5f);
+    //         transform.position += new Vector3(0, JumpUpforce, 0);
+    //         yield return new WaitForSeconds(Jumptimeout);
+    //         transform.position += new Vector3(0, JumpUpforce, 0);
+    //         yield return new WaitForSeconds(Jumptimeout);
+    //         transform.position += new Vector3(0, JumpUpforce, 0);
+    //         yield return new WaitForSeconds(Jumptimeout);
+    //         transform.position += new Vector3(0, JumpUpforce, 0);
+    //         yield return new WaitForSeconds(Jumptimeout);
+    //         transform.position += new Vector3(0, JumpUpforce, 0);
+    //         yield return new WaitForSeconds(Jumptimeout);
+    //         transform.position += new Vector3(0, JumpUpforce, 0);
+    //         yield return new WaitForSeconds(Jumptimeout);
+    //         transform.position += new Vector3(0, JumpUpforce, 0);
+    //         yield return new WaitForSeconds(Jumptimeout);
+    //         transform.position += new Vector3(0, JumpUpforce, 0);
+    //         yield return new WaitForSeconds(Jumptimeout);
+    //         inJumpUp = false;
+    //         inJumpDown = true;
+    //     }
+    // }
+    // public IEnumerator JumpDown()
+    // {
+    //     while (inJumpDown == true)
+    //     {
+
+    //         yield return new WaitForSeconds(0.5f);
+    //         transform.position -= new Vector3(0, JumpUpforce, 0);
+    //         yield return new WaitForSeconds(Jumptimeout);
+    //         transform.position -= new Vector3(0, JumpUpforce, 0);
+    //         yield return new WaitForSeconds(Jumptimeout);
+    //         transform.position -= new Vector3(0, JumpUpforce, 0);
+    //         yield return new WaitForSeconds(Jumptimeout);
+    //         transform.position -= new Vector3(0, JumpUpforce, 0);
+    //         yield return new WaitForSeconds(Jumptimeout);
+    //         transform.position -= new Vector3(0, JumpUpforce, 0);
+    //         yield return new WaitForSeconds(Jumptimeout);
+    //         transform.position -= new Vector3(0, JumpUpforce, 0);
+    //         yield return new WaitForSeconds(Jumptimeout);
+    //         transform.position -= new Vector3(0, JumpUpforce, 0);
+    //         yield return new WaitForSeconds(Jumptimeout);
+    //         transform.position -= new Vector3(0, JumpUpforce, 0);
+    //         yield return new WaitForSeconds(Jumptimeout);
+
+    //     }
+    // }
     public IEnumerator Roll(int rand)
     {
         Vector3 forwardDirection = gameObject.transform.forward;
