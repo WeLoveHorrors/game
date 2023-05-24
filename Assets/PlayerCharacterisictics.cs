@@ -32,7 +32,7 @@ public class PlayerCharacterisictics : MonoBehaviour
             this.HealForce = 1;
             this.GetComponentInParent<SoundManager>().Play(3, 0.4f);
             var color = damageIndicator.GetComponent<Image>().color;
-            color.a = 0.8f;
+            color.a = 1f;
             damageIndicator.GetComponent<Image>().color = color;
             this.Health -= damage;
             if(this.Health <= 0)
@@ -97,7 +97,7 @@ public class PlayerCharacterisictics : MonoBehaviour
         if(damageIndicator.GetComponent<Image>().color.a > 0)
         {
             var color = damageIndicator.GetComponent<Image>().color;
-            color.a -= 0.5f * Time.deltaTime;
+            color.a -= 0.7f * Time.deltaTime;
             damageIndicator.GetComponent<Image>().color = color;
         }
     }
