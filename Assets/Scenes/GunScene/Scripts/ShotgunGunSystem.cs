@@ -106,7 +106,7 @@ public class ShotgunGunSystem : MonoBehaviour
                     if (rayHit.collider.CompareTag("Enemy"))
                     {
                        // GetComponent<AnemySpawn>().IsAnemyDead(rayHit.collider.GetComponent<Anemy>().IsAlive, rayHit.collider.GetComponent<Anemy>().name);
-                        rayHit.collider.GetComponent<Anemy>().TakeDamage(this.damage);
+                         rayHit.collider.GetComponentInParent<Anemy>().TakeDamage(this.damage);
                     }
                     else if (rayHit.collider.CompareTag("Head"))
                     {
