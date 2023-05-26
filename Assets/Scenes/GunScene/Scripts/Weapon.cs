@@ -48,8 +48,8 @@ public class Weapon : MonoBehaviour
             currentWeapon = t_newWeapon;
 
             DestroyAllSparks();
-            icons.ToList().ForEach(x=>x.SetColor(new Color(0, 0, 0, 0.3490196f)));
-            icons[p_ind].SetColor(new Color(0, 0, 0, 1f));
+            icons.ToList().ForEach(x=>x.SetColor(new Color(1, 1, 1, 0.015f)));
+            icons[p_ind].SetColor(new Color(0.97f, 0.97f, 0.97f, 0.5f));
         }
     }
 

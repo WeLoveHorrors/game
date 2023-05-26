@@ -88,17 +88,11 @@ public class PlayerCharacterisictics : MonoBehaviour
 
     private void HandleHealthBar()
     {
-        if(this.Health < 30)
+        if(this.Health < 55)
         {
             healthBar.color = new Color(1, 1, 1, 0);
             healthBarLow.color = new Color(1, 1, 1, 1);
-            healthBarMedium.color = new Color(1, 1, 1, (Health - 20) / 30);
-        }
-        else if(this.Health < 55)
-        {
-            healthBar.color = new Color(1, 1, 1, 0);
-            healthBarLow.color = new Color(1, 1, 1, 0);
-            healthBarMedium.color = new Color(1, 1, 1, (Health - 25) / 30);
+            healthBarMedium.color = new Color(1, 1, 1, (Health - 15) / 55);
         }
         else
         {
@@ -151,9 +145,16 @@ public class PlayerCharacterisictics : MonoBehaviour
                 {
                     float normalizedHealth = this.Health / 100;
                     float normalizedProgress = this.CurrentProgress / 100;
+                    float deltaProgress = 4f * (normalizedProgress - normalizedHealth);
+                    
+                    CurrentProgress -= deltaProgress;
 
-                    CurrentProgress -= 3f * (normalizedProgress - normalizedHealth);
+                    if(CurrentProgress - Health <= 0.01f)
+                    {
+                        CurrentProgress = Health;
+                    }
                 }
+
                 healthBarProgress.fillAmount = this.CurrentProgress / 100;
             }
         }
