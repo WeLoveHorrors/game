@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(move * speed * Time.deltaTime);
 
-        if (Input.GetButtonDown("Jump") && isAbleToJump)
+        if (Input.GetButton("Jump") && isAbleToJump)
         {
             velocity.y = Mathf.Sqrt(jump * -2f * gravity);
             isAbleToJump = false;

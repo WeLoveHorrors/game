@@ -25,6 +25,8 @@ public class Weapon : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Alpha1)) Equip(0);
         else if(Input.GetKeyDown(KeyCode.Alpha2)) Equip(1);
         else if(Input.GetKeyDown(KeyCode.Alpha3)) Equip(2);
+
+        if(Input.GetKey(KeyCode.F)) currentWeapon.GetComponent<AnimationsHandle>().Inspect();
     }
 
     void Equip(int p_ind)
@@ -46,8 +48,8 @@ public class Weapon : MonoBehaviour
             currentWeapon = t_newWeapon;
 
             DestroyAllSparks();
-            icons.ToList().ForEach(x=>x.SetColor(new Color(0, 0, 0, 0.3490196f)));
-            icons[p_ind].SetColor(new Color(0, 0, 0, 1f));
+            icons.ToList().ForEach(x=>x.SetColor(new Color(1, 1, 1, 0.015f)));
+            icons[p_ind].SetColor(new Color(0.97f, 0.97f, 0.97f, 0.5f));
         }
     }
 
