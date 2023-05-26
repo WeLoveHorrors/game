@@ -89,7 +89,7 @@ public class PlayerCharacterisictics : MonoBehaviour
         }
         else
         {
-            healthBar.color = new Color(0.6451917f, 0.9433962f, 1, 1);
+            healthBar.color = new Color(1, 0.1f, 0.1f, 1);
         }
     }
     private void HandleDamageIndicator()
