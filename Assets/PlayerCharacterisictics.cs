@@ -9,6 +9,9 @@ public class PlayerCharacterisictics : MonoBehaviour
     public GameObject canvas;
     public GameObject damageIndicator;
     public Image healthBar;
+    public Image healthBarMedium;
+    public Image healthBarLow;
+    public Image healthBarProgress;
     public TMP_Text timeLabel;
     public TMP_Text killsLabel;
     public TMP_Text scoreLabel;
@@ -16,6 +19,8 @@ public class PlayerCharacterisictics : MonoBehaviour
     public float Health = 100;
     private bool isAlive = true;
     private float TimeWithoutDamage = 0;
+    private float TimeAfterDamage = 0;
+    private float CurrentProgress = 100;
 
     public float TimeToHeal = 5;
     public float HealForceInitial = 3f;
@@ -28,6 +33,7 @@ public class PlayerCharacterisictics : MonoBehaviour
     {
         if(this.isAlive)
         {
+            this.TimeAfterDamage = 0;
             this.TimeWithoutDamage = 0;
             this.HealForce = 1;
             this.GetComponentInParent<SoundManager>().Play(3, 0.4f);
@@ -42,6 +48,8 @@ public class PlayerCharacterisictics : MonoBehaviour
                 LaunchDead();
             }
             healthBar.fillAmount = this.Health / 100;
+            healthBarMedium.fillAmount = this.Health / 100;
+            healthBarLow.fillAmount = this.Health / 100;
         }
     }
 
@@ -68,6 +76,7 @@ public class PlayerCharacterisictics : MonoBehaviour
         HandleHealthBar();
         HandleDamageIndicator();
         HandleRegeneration();
+        HandleProgress();
 
         healthCount.SetText($"{(int)(this.Health)}/100");
 
@@ -81,15 +90,21 @@ public class PlayerCharacterisictics : MonoBehaviour
     {
         if(this.Health < 30)
         {
-            healthBar.color = new Color(1, 0.121f, 1, 1);
+            healthBar.color = new Color(1, 1, 1, 0);
+            healthBarLow.color = new Color(1, 1, 1, 1);
+            healthBarMedium.color = new Color(1, 1, 1, (Health - 20) / 30);
         }
         else if(this.Health < 55)
         {
-            healthBar.color = new Color(1, 0.6159f, 0.2594f, 1);
+            healthBar.color = new Color(1, 1, 1, 0);
+            healthBarLow.color = new Color(1, 1, 1, 0);
+            healthBarMedium.color = new Color(1, 1, 1, (Health - 25) / 30);
         }
         else
         {
-            healthBar.color = new Color(1, 0.1f, 0.1f, 1);
+            healthBar.color = new Color(1, 1, 1, (Health - 45) / 55);
+            healthBarMedium.color = new Color(1, 1, 1, 0);
+            healthBarLow.color = new Color(1, 1, 1, 0);
         }
     }
     private void HandleDamageIndicator()
@@ -116,7 +131,30 @@ public class PlayerCharacterisictics : MonoBehaviour
                     this.TimeWithoutDamage = 0;
                 }
                 healthBar.fillAmount = this.Health / 100;
+                healthBarMedium.fillAmount = this.Health / 100;
+                healthBarLow.fillAmount = this.Health / 100;
                 this.HealForce = this.HealForce * 1.003f + this.HealForceInitial;
+                healthBarProgress.fillAmount = this.Health / 100;
+                CurrentProgress = this.Health;
+            }
+        }
+    }
+
+    private void HandleProgress()
+    {
+        if(this.HealForce < 100)
+        {
+            this.TimeAfterDamage += Time.deltaTime;
+            if(this.TimeAfterDamage > 0.6f)
+            {
+                if(CurrentProgress > this.Health)
+                {
+                    float normalizedHealth = this.Health / 100;
+                    float normalizedProgress = this.CurrentProgress / 100;
+
+                    CurrentProgress -= 3f * (normalizedProgress - normalizedHealth);
+                }
+                healthBarProgress.fillAmount = this.CurrentProgress / 100;
             }
         }
     }
