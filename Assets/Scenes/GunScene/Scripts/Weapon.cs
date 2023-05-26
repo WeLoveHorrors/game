@@ -26,7 +26,7 @@ public class Weapon : MonoBehaviour
         else if(Input.GetKeyDown(KeyCode.Alpha2)) Equip(1);
         else if(Input.GetKeyDown(KeyCode.Alpha3)) Equip(2);
 
-        if(Input.GetKeyDown(KeyCode.F)) currentWeapon.GetComponent<AnimationsHandle>().Inspect();
+        if(Input.GetKey(KeyCode.F)) currentWeapon.GetComponent<AnimationsHandle>().Inspect();
     }
 
     void Equip(int p_ind)
