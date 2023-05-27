@@ -21,6 +21,7 @@ TagManager:
   - Door
   - FxTemporaire
   - Smoke
+  - Selectable
   layers:
   - Default
   - TransparentFX

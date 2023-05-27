@@ -28,6 +28,32 @@ public class MouseLook : MonoBehaviour
         weapon.localRotation = Quaternion.Euler(weapon.localRotation.x, 90f, xRotation);
         weapon.localPosition.Set(weapon.localPosition.x, xRotation, weapon.localPosition.z);
 
+        UpdateHighlights();
+
         playerBody.Rotate(Vector3.up * mouseX);
+    }
+
+    void UpdateHighlights()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            if(hit.collider.tag == "Selectable")
+            {
+                hit.collider.GetComponent<Outline>().enabled = true;
+                hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
+            }
+            else
+            {
+                var objects = GameObject.FindGameObjectsWithTag("Selectable");
+                foreach(var item in objects)
+                {
+                    item.GetComponent<Outline>().enabled = false;
+                    item.GetComponent<Highlight>()?.ToggleHighlight(false);
+                }
+            }
+        }
     }
 }
