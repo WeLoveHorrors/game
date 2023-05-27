@@ -48,10 +48,7 @@ public class MouseLook : MonoBehaviour
             if(hit.collider.tag == "Selectable")
             {
                 isAbleToInteract = true;
-                hit.collider.GetComponent<Outline>().enabled = true;
-                hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
-                hit.collider.GetComponent<RemovePlank>().enabled = true;
-                hit.collider.GetComponent<TitleHandler>().Scaling = true;
+                UpdateInstance(hit.collider, null, true);
             }
             else
             {
@@ -59,14 +56,35 @@ public class MouseLook : MonoBehaviour
                 var objects = GameObject.FindGameObjectsWithTag("Selectable");
                 foreach(var item in objects)
                 {
-                    item.GetComponent<Outline>().enabled = false;
-                    item.GetComponent<Highlight>()?.ToggleHighlight(false);
-                    item.GetComponent<RemovePlank>().enabled = false;
-                    item.GetComponent<TitleHandler>().Scaling = false;
-                    // item
+                    UpdateInstance(null, item, false);
                 }
                 Interaction.fillAmount = 0;
             }
         }
+    }
+
+    void UpdateInstance(Collider collider, GameObject item, bool Selected)
+    {
+        if(item != null || collider != null)
+        {
+            if((item != null && item.GetComponent<InstanceData>().Name == "Plank")
+            || (collider != null && collider.GetComponent<InstanceData>().Name == "Plank"))
+            {
+                if(Selected)
+                {
+                    collider.GetComponent<Outline>().enabled = true;
+                    collider.GetComponent<Highlight>()?.ToggleHighlight(true);
+                    collider.GetComponent<RemovePlank>().enabled = true;
+                    collider.GetComponent<TitleHandler>().Scaling = true;
+                }
+                else
+                {
+                    item.GetComponent<Outline>().enabled = false;
+                    item.GetComponent<Highlight>()?.ToggleHighlight(false);
+                    item.GetComponent<RemovePlank>().enabled = false;
+                    item.GetComponent<TitleHandler>().Scaling = false;
+                }
+            }
+        } 
     }
 }

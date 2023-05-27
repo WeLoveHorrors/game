@@ -12,17 +12,17 @@ public class RemovePlank : MonoBehaviour
 
     public bool Interacted = false;    
     public Image Interaction;
+    public GameObject WhatToBlock;
+    public bool isEnabled = false;
 
-    // Start is called before the first frame update
-    void Start()
+    public void SetEnabled(bool Enable)
     {
-        
+        isEnabled = Enable;
     }
-
     // Update is called once per frame
     void Update()
     {
-        if(!Interacted)
+        if(!Interacted && enabled)
         {
             if(Input.GetKey(KeyCode.E))
             {
@@ -38,6 +38,8 @@ public class RemovePlank : MonoBehaviour
                     GetComponent<Highlight>()?.ToggleHighlight(false);
                     GetComponent<RemovePlank>().enabled = false;
                     GetComponent<TitleHandler>().Scaling = false;
+
+                    WhatToBlock.GetComponent<BlockingState>().Unblock();
                 }
             }
             else
