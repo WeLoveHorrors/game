@@ -9,10 +9,13 @@ public class MouseLook : MonoBehaviour
     public Transform weapon;
     float xRotation = 0f;
 
+    public bool isAbleToInteract;
+
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        isAbleToInteract = false;
     }
 
     // Update is called once per frame
@@ -42,11 +45,13 @@ public class MouseLook : MonoBehaviour
         {
             if(hit.collider.tag == "Selectable")
             {
+                isAbleToInteract = true;
                 hit.collider.GetComponent<Outline>().enabled = true;
                 hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
             }
             else
             {
+                isAbleToInteract = false;
                 var objects = GameObject.FindGameObjectsWithTag("Selectable");
                 foreach(var item in objects)
                 {

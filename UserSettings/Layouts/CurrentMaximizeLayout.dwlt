@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 23731
+  controlID: 24629
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 23732
+  controlID: 24630
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 23733
+  controlID: 24631
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -187,8 +187,8 @@ MonoBehaviour:
     y: 0
     width: 263
     height: 636
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -225,7 +225,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
+      scrollPos: {x: 0, y: 420}
       m_SelectedIDs: 582cffff
       m_LastClickedID: -54184
       m_ExpandedIDs: 70d5feff0213ffff1a13fffff218fffffe18ffff0219ffff1c19ffff2019ffff3a3bffffca47ffff4053ffffa4c0ffffa8c0ffffeac0ffff0afbffffd264000040b9010060bd0100b0c301006ac701004ac80100
@@ -538,9 +538,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -44.839012, y: 6.8102374, z: -283.23886}
+    m_Target: {x: -44.606087, y: 4.3520756, z: -283.4251}
     speed: 2
-    m_Value: {x: -44.839012, y: 6.8102374, z: -283.23886}
+    m_Value: {x: -44.606087, y: 4.3520756, z: -283.4251}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -587,9 +587,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.025187865, y: -0.006003002, z: -0.00013927174, w: 0.99967605}
+    m_Target: {x: 0.100638136, y: 0.0059662247, z: -0.0005914758, w: 0.99491656}
     speed: 2
-    m_Value: {x: -0.02518758, y: -0.006002934, z: -0.00013927017, w: 0.9996647}
+    m_Value: {x: 0.10063698, y: 0.0059661563, z: -0.00059146906, w: 0.9949052}
   m_Size:
     m_Target: 4.9041376
     speed: 2
@@ -877,7 +877,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 86
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
