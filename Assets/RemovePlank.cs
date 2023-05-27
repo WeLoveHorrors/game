@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RemovePlank : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class RemovePlank : MonoBehaviour
     public AudioSource source;
     public AudioClip sound;
 
-    public bool Interacted = false;
+    public bool Interacted = false;    
+    public Image Interaction;
 
     // Start is called before the first frame update
     void Start()
@@ -28,21 +30,27 @@ public class RemovePlank : MonoBehaviour
                 if(TimeInteracted > TimeToDoneInteraction)
                 {
                     this.gameObject.AddComponent<Rigidbody>();
+                    this.tag = "Untagged";
                     source.PlayOneShot(sound, 0.2f);
                     Interacted = true;
+
+                    GetComponent<Outline>().enabled = false;
+                    GetComponent<Highlight>()?.ToggleHighlight(false);
+                    GetComponent<RemovePlank>().enabled = false;
                 }
             }
             else
             {
                 if(TimeInteracted > 0)
                 {
-                    TimeInteracted -= Time.deltaTime;
+                    TimeInteracted -= Time.deltaTime * 3;
                     if(TimeInteracted < 0)
                     {
                         TimeInteracted = 0;
                     }
                 }
             }
+            Interaction.fillAmount = TimeInteracted / TimeToDoneInteraction;
         }
     }
 }

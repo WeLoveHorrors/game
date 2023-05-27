@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MouseLook : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class MouseLook : MonoBehaviour
     float xRotation = 0f;
 
     public bool isAbleToInteract;
+    public Image Interaction;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +50,7 @@ public class MouseLook : MonoBehaviour
                 isAbleToInteract = true;
                 hit.collider.GetComponent<Outline>().enabled = true;
                 hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
+                hit.collider.GetComponent<RemovePlank>().enabled = true;
             }
             else
             {
@@ -57,7 +60,10 @@ public class MouseLook : MonoBehaviour
                 {
                     item.GetComponent<Outline>().enabled = false;
                     item.GetComponent<Highlight>()?.ToggleHighlight(false);
+                    item.GetComponent<RemovePlank>().enabled = false;
+                    // item
                 }
+                Interaction.fillAmount = 0;
             }
         }
     }
