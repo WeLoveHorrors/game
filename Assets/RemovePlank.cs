@@ -37,6 +37,7 @@ public class RemovePlank : MonoBehaviour
                     GetComponent<Outline>().enabled = false;
                     GetComponent<Highlight>()?.ToggleHighlight(false);
                     GetComponent<RemovePlank>().enabled = false;
+                    GetComponent<TitleHandler>().Scaling = false;
                 }
             }
             else

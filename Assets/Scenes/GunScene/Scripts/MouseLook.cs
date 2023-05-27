@@ -51,6 +51,7 @@ public class MouseLook : MonoBehaviour
                 hit.collider.GetComponent<Outline>().enabled = true;
                 hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
                 hit.collider.GetComponent<RemovePlank>().enabled = true;
+                hit.collider.GetComponent<TitleHandler>().Scaling = true;
             }
             else
             {
@@ -61,6 +62,7 @@ public class MouseLook : MonoBehaviour
                     item.GetComponent<Outline>().enabled = false;
                     item.GetComponent<Highlight>()?.ToggleHighlight(false);
                     item.GetComponent<RemovePlank>().enabled = false;
+                    item.GetComponent<TitleHandler>().Scaling = false;
                     // item
                 }
                 Interaction.fillAmount = 0;
