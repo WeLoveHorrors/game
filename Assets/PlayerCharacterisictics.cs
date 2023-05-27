@@ -33,6 +33,7 @@ public class PlayerCharacterisictics : MonoBehaviour
     {
         if(this.isAlive)
         {
+            this.healthCount.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             this.TimeAfterDamage = 0;
             this.TimeWithoutDamage = 0;
             this.HealForce = 1;
@@ -156,6 +157,15 @@ public class PlayerCharacterisictics : MonoBehaviour
                 }
 
                 healthBarProgress.fillAmount = this.CurrentProgress / 100;
+            }
+            
+            if(this.healthCount.transform.localScale.x > 0.3995417f)
+            {
+                this.healthCount.transform.localScale -= new Vector3(0.004f, 0.004f, 0.004f);
+            }
+            else
+            {
+                this.healthCount.transform.localScale = new Vector3(0.3995417f, 0.3995417f, 0.3995417f);
             }
         }
     }
