@@ -19,10 +19,6 @@ public class FallingThing : MonoBehaviour
             Destroy(this.gameObject.GetComponent<CapsuleCollider>());
             Destroy(this.gameObject, 1);
         }
-        Debug.Log(lifeTime);
-        // if(this.gameObject.transform.position.y < 1){
-        //     speed = 0f;
-        // }
 
         // this.gameObject.transform.position += direction * speed * Time.deltaTime;
         Vector3 direction = this.gameObject.transform.rotation * Vector3.forward;

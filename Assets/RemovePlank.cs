@@ -13,12 +13,7 @@ public class RemovePlank : MonoBehaviour
     public bool Interacted = false;    
     public Image Interaction;
     public GameObject WhatToBlock;
-    public bool isEnabled = false;
-
-    public void SetEnabled(bool Enable)
-    {
-        isEnabled = Enable;
-    }
+    
     // Update is called once per frame
     void Update()
     {
@@ -40,6 +35,7 @@ public class RemovePlank : MonoBehaviour
                     GetComponent<TitleHandler>().Scaling = false;
 
                     WhatToBlock.GetComponent<BlockingState>().Unblock();
+                    GetComponent<DestroyInstance>().enabled = true;
                 }
             }
             else
