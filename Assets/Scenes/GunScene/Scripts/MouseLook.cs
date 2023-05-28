@@ -92,11 +92,13 @@ public class MouseLook : MonoBehaviour
                 if(Selected)
                 {
                     collider.GetComponentInParent<Outline>().enabled = true;
+                    collider.GetComponent<TitleHandler>().Scaling = true;
                     // collider.GetComponent<Highlight>()?.ToggleHighlight(true);
                 }
                 else
                 {
                     item.GetComponentInParent<Outline>().enabled = false;
+                    item.GetComponent<TitleHandler>().Scaling = false;
                     // item.GetComponent<Highlight>()?.ToggleHighlight(false);
                 }
             }
