@@ -100,8 +100,9 @@ public class PlayerMovement : MonoBehaviour
         }
         else if(movingForward > 0)
         {
-            if(isSprinting)
+            if(isSprinting) 
             {
+                
                 normalCamera.fieldOfView = Mathf.Lerp(normalCamera.fieldOfView, baseFov * 2 * 0.51f, Time.deltaTime * 8f);
             }
             else
