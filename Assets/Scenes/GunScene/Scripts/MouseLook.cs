@@ -45,6 +45,7 @@ public class MouseLook : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
+            Debug.Log(hit.collider.tag);
             if(hit.collider.tag == "Selectable")
             {
                 isAbleToInteract = true;
@@ -83,6 +84,20 @@ public class MouseLook : MonoBehaviour
                     item.GetComponent<Highlight>()?.ToggleHighlight(false);
                     item.GetComponent<RemovePlank>().enabled = false;
                     item.GetComponent<TitleHandler>().Scaling = false;
+                }
+            }
+            if((item != null && item.GetComponent<InstanceData>().Name == "Pickable")
+            || (collider != null && collider.GetComponent<InstanceData>().Name == "Pickable"))
+            {
+                if(Selected)
+                {
+                    collider.GetComponentInParent<Outline>().enabled = true;
+                    // collider.GetComponent<Highlight>()?.ToggleHighlight(true);
+                }
+                else
+                {
+                    item.GetComponentInParent<Outline>().enabled = false;
+                    // item.GetComponent<Highlight>()?.ToggleHighlight(false);
                 }
             }
         } 
