@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.UI;
 
 public class Weapon : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Weapon : MonoBehaviour
     public Transform weaponParent;
     public int currentWeaponType;
     public CanvasRenderer[] icons;
+    public Image[] iconsInstances;
 
     public Dictionary<int, bool> WeaponAvailability;
     private GameObject currentWeapon;
@@ -21,6 +23,9 @@ public class Weapon : MonoBehaviour
             {1, false},
             {2, false}
         };
+
+        iconsInstances.ToList().ForEach(x=>x.enabled = false);
+
         currentWeaponType = -1;
         Equip(0);
     }
@@ -37,6 +42,7 @@ public class Weapon : MonoBehaviour
 
     public void SetEnable(int p_ind){
         WeaponAvailability[p_ind] = true;
+        iconsInstances[p_ind].enabled = true;
     }
 
     public void Equip(int p_ind)
