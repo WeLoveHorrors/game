@@ -36,7 +36,7 @@ public class DoorScript : MonoBehaviour
         if(!IsOpen && !isBlocked)
         {
             Vector3 playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
-            Vector3 thisPos = Door.transform.position;
+            Vector3 thisPos = Door == null ? new Vector3(0,0,0) : Door.transform.position;
 
             if(Vector2.Distance(new Vector2(playerPos.x, playerPos.z), new Vector2(thisPos.x, thisPos.z)) < 8)
             {
@@ -50,7 +50,10 @@ public class DoorScript : MonoBehaviour
             }
             else
             {
-                GetComponent<TitleHandler>().Scaling = false;
+                if(GetComponent<TitleHandler>() != null)
+                {
+                    GetComponent<TitleHandler>().Scaling = false;
+                }
             }
         }
     }

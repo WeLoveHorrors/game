@@ -40,6 +40,10 @@ public class TakeWeapon : MonoBehaviour
                     // GetComponent<TakeWeapon>().enabled = false;
                     Destroy(parentInstance, 1f);
 
+                    if(loadOut == 2)
+                    {
+                        GetComponent<SkeletonInteraction>().ActivateAnimation();
+                    }
                     // GetComponent<DestroyInstance>().enabled = true;
                 }
             }
