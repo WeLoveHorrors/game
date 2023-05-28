@@ -29,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
     bool isAbleToJump;
     bool isFastFalling;
 
+    public AudioSource footsteps;
+
     private void Start()
     {
         baseFov = normalCamera.fieldOfView;
@@ -56,8 +58,17 @@ public class PlayerMovement : MonoBehaviour
         float movingForward = Input.GetAxisRaw("Vertical");
         float movingRight = Input.GetAxisRaw("Horizontal");
 
-        // bool Sprint = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-        // bool isSprinting = Sprint;
+        if((x != 0 || z != 0) && controller.isGrounded)
+        {
+            footsteps.enabled = true;
+        }
+        else
+        {
+            footsteps.enabled = false;
+        }
+
+        bool Sprint = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+        bool isSprinting = Sprint;
 
         // float t_adjustedSpeed = speed;
         if(movingForward < 0)
@@ -77,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = transform.right * x + transform.forward * z;
 
-        controller.Move(move * speed * Time.deltaTime);
+        controller.Move(move * (speed * (isSprinting ? 1.2f : 0.7f)) * Time.deltaTime);
 
         if (Input.GetButton("Jump") && isAbleToJump)
         {

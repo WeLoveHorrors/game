@@ -12,4 +12,8 @@ public class SoundManager : MonoBehaviour
     {
         source.PlayOneShot(effects[id], Volume);
     }
+
+    void Start() {
+        // source.PlayOneShot(songs[0]);    
+    }
 }
