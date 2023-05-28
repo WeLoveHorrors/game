@@ -10,11 +10,17 @@ public class Weapon : MonoBehaviour
     public int currentWeaponType;
     public CanvasRenderer[] icons;
 
+    public Dictionary<int, bool> WeaponAvailability;
     private GameObject currentWeapon;
 
     // Start is called before the first frame update
     void Start()
     {
+        WeaponAvailability = new Dictionary<int, bool>(){
+            {0, false},
+            {1, false},
+            {2, false}
+        };
         currentWeaponType = -1;
         Equip(0);
     }
@@ -29,9 +35,13 @@ public class Weapon : MonoBehaviour
         if(Input.GetKey(KeyCode.F)) currentWeapon.GetComponent<AnimationsHandle>().Inspect();
     }
 
-    void Equip(int p_ind)
+    public void SetEnable(int p_ind){
+        WeaponAvailability[p_ind] = true;
+    }
+
+    public void Equip(int p_ind)
     {
-        if(currentWeaponType != p_ind)
+        if(WeaponAvailability[p_ind] && currentWeaponType != p_ind)
         {
             currentWeaponType = p_ind;
 

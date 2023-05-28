@@ -15,6 +15,8 @@ public class TakeWeapon : MonoBehaviour
 
     public GameObject weaponInstance;
     public GameObject parentInstance;
+
+    public int loadOut;
     
     // Update is called once per frame
     void Update()
@@ -33,6 +35,8 @@ public class TakeWeapon : MonoBehaviour
                     GetComponentInParent<Outline>().enabled = false;
                     GetComponent<TitleHandler>().Scaling = false;
                     weaponInstance.transform.localScale = new Vector3(0, 0, 0);
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<Weapon>().SetEnable(loadOut);
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<Weapon>().Equip(loadOut);
                     // GetComponent<TakeWeapon>().enabled = false;
                     Destroy(parentInstance, 1f);
 
