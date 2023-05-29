@@ -60,6 +60,11 @@ public class DialogueRenderer : MonoBehaviour
             {
                 TextCanvas.enabled = false;
                 Background.enabled = false;
+
+                if(isPlayed)
+                {
+                    Destroy(this.gameObject, 1);
+                }
             }
         }
     }
