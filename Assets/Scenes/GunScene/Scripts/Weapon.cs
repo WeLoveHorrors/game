@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.UI;
 
 public class Weapon : MonoBehaviour
 {
@@ -9,12 +10,22 @@ public class Weapon : MonoBehaviour
     public Transform weaponParent;
     public int currentWeaponType;
     public CanvasRenderer[] icons;
+    public Image[] iconsInstances;
 
+    public Dictionary<int, bool> WeaponAvailability;
     private GameObject currentWeapon;
 
     // Start is called before the first frame update
     void Start()
     {
+        WeaponAvailability = new Dictionary<int, bool>(){
+            {0, false},
+            {1, false},
+            {2, false}
+        };
+
+        iconsInstances.ToList().ForEach(x=>x.enabled = false);
+
         currentWeaponType = -1;
         Equip(0);
     }
@@ -25,11 +36,18 @@ public class Weapon : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Alpha1)) Equip(0);
         else if(Input.GetKeyDown(KeyCode.Alpha2)) Equip(1);
         else if(Input.GetKeyDown(KeyCode.Alpha3)) Equip(2);
+
+        if(Input.GetKey(KeyCode.F)) currentWeapon.GetComponent<AnimationsHandle>().Inspect();
     }
 
-    void Equip(int p_ind)
+    public void SetEnable(int p_ind){
+        WeaponAvailability[p_ind] = true;
+        iconsInstances[p_ind].enabled = true;
+    }
+
+    public void Equip(int p_ind)
     {
-        if(currentWeaponType != p_ind)
+        if(WeaponAvailability[p_ind] && currentWeaponType != p_ind)
         {
             currentWeaponType = p_ind;
 
@@ -46,8 +64,8 @@ public class Weapon : MonoBehaviour
             currentWeapon = t_newWeapon;
 
             DestroyAllSparks();
-            icons.ToList().ForEach(x=>x.SetColor(new Color(0, 0, 0, 0.3490196f)));
-            icons[p_ind].SetColor(new Color(0, 0, 0, 1f));
+            icons.ToList().ForEach(x=>x.SetColor(new Color(1, 1, 1, 0.015f)));
+            icons[p_ind].SetColor(new Color(0.97f, 0.97f, 0.97f, 0.5f));
         }
     }
 

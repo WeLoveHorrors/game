@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class FastOpen : MonoBehaviour
 {
+    public bool Enabled = true;
     public void OpenFastDoorWithShotgun()
     {
-        GetComponentInChildren<DoorScript>().OpenFastDoor();
+        if(Enabled)
+        {
+            GetComponentInChildren<DoorScript>().OpenFastDoor();
+        }
     }
 }

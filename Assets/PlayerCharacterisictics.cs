@@ -8,7 +8,12 @@ public class PlayerCharacterisictics : MonoBehaviour
 {
     public GameObject canvas;
     public GameObject damageIndicator;
+    public Image healthBarBack;
+    public Image healthBarEmpty;
     public Image healthBar;
+    public Image healthBarMedium;
+    public Image healthBarLow;
+    public Image healthBarProgress;
     public TMP_Text timeLabel;
     public TMP_Text killsLabel;
     public TMP_Text scoreLabel;
@@ -16,6 +21,8 @@ public class PlayerCharacterisictics : MonoBehaviour
     public float Health = 100;
     private bool isAlive = true;
     private float TimeWithoutDamage = 0;
+    private float TimeAfterDamage = 0;
+    private float CurrentProgress = 100;
 
     public float TimeToHeal = 5;
     public float HealForceInitial = 3f;
@@ -24,10 +31,28 @@ public class PlayerCharacterisictics : MonoBehaviour
     private float kills = 0;
     private float score = 0;
 
+    public Image dialogueBackground;
+    public TMP_Text dialogueText;
+    private void Start() {
+        healthBarBack.enabled = false;
+        healthBarEmpty.enabled = false;
+        healthBar.enabled = false;
+        healthBarMedium.enabled = false;
+        healthBarLow.enabled = false;
+        healthBarProgress.enabled = false;
+        healthCount.enabled = false;
+
+        dialogueText.color = new Color(1, 1, 1, 0);
+        dialogueBackground.enabled = false;
+        dialogueText.enabled = false;
+    }
+
     public void TakeDamage(float damage)
     {
         if(this.isAlive)
         {
+            this.healthCount.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            this.TimeAfterDamage = 0;
             this.TimeWithoutDamage = 0;
             this.HealForce = 1;
             this.GetComponentInParent<SoundManager>().Play(3, 0.4f);
@@ -42,6 +67,8 @@ public class PlayerCharacterisictics : MonoBehaviour
                 LaunchDead();
             }
             healthBar.fillAmount = this.Health / 100;
+            healthBarMedium.fillAmount = this.Health / 100;
+            healthBarLow.fillAmount = this.Health / 100;
         }
     }
 
@@ -68,6 +95,7 @@ public class PlayerCharacterisictics : MonoBehaviour
         HandleHealthBar();
         HandleDamageIndicator();
         HandleRegeneration();
+        HandleProgress();
 
         healthCount.SetText($"{(int)(this.Health)}/100");
 
@@ -79,17 +107,17 @@ public class PlayerCharacterisictics : MonoBehaviour
 
     private void HandleHealthBar()
     {
-        if(this.Health < 30)
+        if(this.Health < 55)
         {
-            healthBar.color = new Color(1, 0.121f, 1, 1);
-        }
-        else if(this.Health < 55)
-        {
-            healthBar.color = new Color(1, 0.6159f, 0.2594f, 1);
+            healthBar.color = new Color(1, 1, 1, 0);
+            healthBarLow.color = new Color(1, 1, 1, 1);
+            healthBarMedium.color = new Color(1, 1, 1, (Health - 15) / 55);
         }
         else
         {
-            healthBar.color = new Color(0.6451917f, 0.9433962f, 1, 1);
+            healthBar.color = new Color(1, 1, 1, (Health - 45) / 55);
+            healthBarMedium.color = new Color(1, 1, 1, 0);
+            healthBarLow.color = new Color(1, 1, 1, 0);
         }
     }
     private void HandleDamageIndicator()
@@ -116,7 +144,46 @@ public class PlayerCharacterisictics : MonoBehaviour
                     this.TimeWithoutDamage = 0;
                 }
                 healthBar.fillAmount = this.Health / 100;
+                healthBarMedium.fillAmount = this.Health / 100;
+                healthBarLow.fillAmount = this.Health / 100;
                 this.HealForce = this.HealForce * 1.003f + this.HealForceInitial;
+                healthBarProgress.fillAmount = this.Health / 100;
+                CurrentProgress = this.Health;
+            }
+        }
+    }
+
+    private void HandleProgress()
+    {
+        if(this.HealForce < 100)
+        {
+            this.TimeAfterDamage += Time.deltaTime;
+            if(this.TimeAfterDamage > 0.6f)
+            {
+                if(CurrentProgress > this.Health)
+                {
+                    float normalizedHealth = this.Health / 100;
+                    float normalizedProgress = this.CurrentProgress / 100;
+                    float deltaProgress = 4f * (normalizedProgress - normalizedHealth);
+                    
+                    CurrentProgress -= deltaProgress;
+
+                    if(CurrentProgress - Health <= 0.01f)
+                    {
+                        CurrentProgress = Health;
+                    }
+                }
+
+                healthBarProgress.fillAmount = this.CurrentProgress / 100;
+            }
+            
+            if(this.healthCount.transform.localScale.x > 0.3995417f)
+            {
+                this.healthCount.transform.localScale -= new Vector3(0.004f, 0.004f, 0.004f);
+            }
+            else
+            {
+                this.healthCount.transform.localScale = new Vector3(0.3995417f, 0.3995417f, 0.3995417f);
             }
         }
     }
