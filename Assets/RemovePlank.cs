@@ -13,6 +13,7 @@ public class RemovePlank : MonoBehaviour
     public bool Interacted = false;    
     public Image Interaction;
     public GameObject WhatToBlock;
+    public AudioSource woodCrack;
     
     // Update is called once per frame
     void Update()
@@ -22,6 +23,8 @@ public class RemovePlank : MonoBehaviour
             if(Input.GetKey(KeyCode.E))
             {
                 TimeInteracted += Time.deltaTime;
+                woodCrack.enabled = true;
+
                 if(TimeInteracted > TimeToDoneInteraction)
                 {
                     this.gameObject.AddComponent<Rigidbody>();
@@ -36,6 +39,7 @@ public class RemovePlank : MonoBehaviour
 
                     WhatToBlock.GetComponent<BlockingState>().Unblock();
                     GetComponent<DestroyInstance>().enabled = true;
+                    woodCrack.enabled = false;
                 }
             }
             else
@@ -48,7 +52,10 @@ public class RemovePlank : MonoBehaviour
                         TimeInteracted = 0;
                     }
                 }
+
+                woodCrack.enabled = false;
             }
+
             Interaction.fillAmount = TimeInteracted / TimeToDoneInteraction;
         }
     }

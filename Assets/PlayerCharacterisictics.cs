@@ -8,6 +8,8 @@ public class PlayerCharacterisictics : MonoBehaviour
 {
     public GameObject canvas;
     public GameObject damageIndicator;
+    public Image healthBarBack;
+    public Image healthBarEmpty;
     public Image healthBar;
     public Image healthBarMedium;
     public Image healthBarLow;
@@ -28,6 +30,22 @@ public class PlayerCharacterisictics : MonoBehaviour
     private float time = 0;
     private float kills = 0;
     private float score = 0;
+
+    public Image dialogueBackground;
+    public TMP_Text dialogueText;
+    private void Start() {
+        healthBarBack.enabled = false;
+        healthBarEmpty.enabled = false;
+        healthBar.enabled = false;
+        healthBarMedium.enabled = false;
+        healthBarLow.enabled = false;
+        healthBarProgress.enabled = false;
+        healthCount.enabled = false;
+
+        dialogueText.color = new Color(1, 1, 1, 0);
+        dialogueBackground.enabled = false;
+        dialogueText.enabled = false;
+    }
 
     public void TakeDamage(float damage)
     {
