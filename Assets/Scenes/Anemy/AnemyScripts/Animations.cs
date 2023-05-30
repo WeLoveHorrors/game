@@ -42,11 +42,12 @@ public class Animations : MonoBehaviour
     void Update()
     {
         distance = Vector3.Distance(transform.position, palyer.transform.position);
-        if (agent.velocity.magnitude != 0f && lastrand != rand && distance > 5)
+        Debug.Log($"Дистанс до персонажа{distance}");
+        if (distance >4)
         {
             AnimateRun(rand);
         }
-        else if (lastrand != rand && distance <= 5)
+        else if (distance <=4)
         {
             AnimateAtack(rand);
         }
@@ -81,7 +82,7 @@ public class Animations : MonoBehaviour
     {
         lastrand = rand;
         animator.SetTrigger("Run");
-        AnimateRoll(rand);
+       // AnimateRoll(rand);
         inRoll = false;
     }
     public void AnimateRoll(int rand)
