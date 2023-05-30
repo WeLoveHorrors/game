@@ -72,14 +72,14 @@ public class PlayerCharacterisictics : MonoBehaviour
         }
     }
 
-    //Вызывать этот метод когда игрок убивает врага, передавать счет за тип врага (Либо сам придумай по поводу счета за врага)
+    //Викликати коли гравець вбиває ворога
     public void AddKill(int score)
     {
         this.kills++;
         this.score += score;
     }
 
-    // Если нужно будет переинициализировать хар-ки игрока после смерти
+    // Якщо потрібно буде переініціалізувати характеристики гравця після смерті
     public void RestoreCharacter()
     {
         this.Health = 100;
@@ -89,7 +89,7 @@ public class PlayerCharacterisictics : MonoBehaviour
 
     public void Update()
     {
-        //Прожитое время в игре
+        //Час у грі
         time += Time.deltaTime;
 
         HandleHealthBar();
@@ -190,8 +190,6 @@ public class PlayerCharacterisictics : MonoBehaviour
 
     private void LaunchDead()
     {
-        // Time.timeScale = 0.8f;
-        // Camera.main.GetComponent<AudioListener>().enabled = false;
         canvas.gameObject.SetActive(true);
         canvas.gameObject.GetComponentInParent<Animator>().Play("End Game", 0, 0);
         var seconds = (int)(time % 60);

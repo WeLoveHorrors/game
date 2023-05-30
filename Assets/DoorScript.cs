@@ -18,21 +18,9 @@ public class DoorScript : MonoBehaviour
             IsOpen=true;
         }
     }
-
-
     private void Update()
     {
-        // if(Input.GetKeyDown("e"))
-        // {
-        //     Vector3 playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
-        //     Vector3 thisPos = Door.transform.position;
-
-        //     Debug.Log($"Player {playerPos}");
-        //     Debug.Log($"This {thisPos}");
-
-        //     Debug.Log(Vector2.Distance(new Vector2(playerPos.x, playerPos.z), new Vector2(thisPos.x, thisPos.z)));
-        // }
-
+        
         if(!IsOpen && !isBlocked)
         {
             Vector3 playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
