@@ -47,32 +47,6 @@ public class ShotgunGunSystem : MonoBehaviour
             Shoot();
             // GetComponentInChildren<DeagleWeaponRecoil>().Fire();
         }
-
-        // if(shooting)
-        // {
-        //     GetComponent<Animator>().SetBool("isShooting", true);
-        // }
-        // else
-        // {
-        //     GetComponent<Animator>().SetBool("isShooting", false);
-        //     bulletsShot = 0;
-        // }
-
-        // if(isRibbonEnabled && !shooting)
-        // {
-        //     bulletsShot = 0;
-        //     RibbonTimeAlive -= Time.deltaTime;
-        //     if(RibbonTimeAlive > 0)
-        //     {
-        //         ribbonSmoke.Play();
-        //     }
-        //     else
-        //     {
-        //         ribbonSmoke.Stop();
-        //         isRibbonEnabled = false;
-        //     }
-        //     //  = new Color(255,255,255,0);
-        // }
     }
 
     private void Shoot()

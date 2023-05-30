@@ -155,14 +155,7 @@ public class PlayerMovement : MonoBehaviour
             HeadBob(movementCounter, 0.05f, 0.05f);
             movementCounter += Time.deltaTime * 5f;
             weapon.localPosition = Vector3.Lerp(weapon.localPosition, targetWeaponBobPosition, Time.deltaTime * 10f);
-
         }
-        // else
-        // {
-        //     HeadBob(movementCounter, 0.035f, 0.035f);
-        //     movementCounter += Time.deltaTime * 3f;
-        //     weapon.localPosition = Vector3.Lerp(weapon.localPosition, targetWeaponBobPosition, Time.deltaTime * 6f);
-        // }
     }
 
     void HeadBob(float p_z, float p_x_intensity, float p_y_intensity)
