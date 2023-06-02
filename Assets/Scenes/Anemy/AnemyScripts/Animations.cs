@@ -9,6 +9,7 @@ public class Animations : MonoBehaviour
     public Animator animator;
     NavMeshAgent agent;
     public GameObject palyer;
+    public float MaxAttackDistance;
     private int rand;
     private int lastrand;
     private bool inRoll;
@@ -42,12 +43,11 @@ public class Animations : MonoBehaviour
     void Update()
     {
         distance = Vector3.Distance(transform.position, palyer.transform.position);
-        Debug.Log($"Дистанс до персонажа{distance}");
-        if (distance >4)
+        if (distance >MaxAttackDistance)
         {
             AnimateRun(rand);
         }
-        else if (distance <=4)
+        else if (distance <=MaxAttackDistance)
         {
             AnimateAtack(rand);
         }
