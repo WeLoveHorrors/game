@@ -34,13 +34,13 @@ public class PlayerCharacterisictics : MonoBehaviour
     public Image dialogueBackground;
     public TMP_Text dialogueText;
     private void Start() {
-        healthBarBack.enabled = false;
-        healthBarEmpty.enabled = false;
-        healthBar.enabled = false;
-        healthBarMedium.enabled = false;
-        healthBarLow.enabled = false;
-        healthBarProgress.enabled = false;
-        healthCount.enabled = false;
+        // healthBarBack.enabled = false;
+        // healthBarEmpty.enabled = false;
+        // healthBar.enabled = false;
+        // healthBarMedium.enabled = false;
+        // healthBarLow.enabled = false;
+        // healthBarProgress.enabled = false;
+        // healthCount.enabled = false;
 
         dialogueText.color = new Color(1, 1, 1, 0);
         dialogueBackground.enabled = false;
