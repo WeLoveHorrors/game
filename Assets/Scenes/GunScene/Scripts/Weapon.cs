@@ -15,14 +15,27 @@ public class Weapon : MonoBehaviour
     public Dictionary<int, bool> WeaponAvailability;
     private GameObject currentWeapon;
 
+    public bool EnableAllWeapons = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        WeaponAvailability = new Dictionary<int, bool>(){
-            {0, false},
-            {1, false},
-            {2, false}
-        };
+        if(EnableAllWeapons)
+        {
+            WeaponAvailability = new Dictionary<int, bool>(){
+                {0, true},
+                {1, true},
+                {2, true}
+            };
+        }
+        else
+        {
+            WeaponAvailability = new Dictionary<int, bool>(){
+                {0, false},
+                {1, false},
+                {2, false}
+            };
+        }
 
         iconsInstances.ToList().ForEach(x=>x.enabled = false);
 
