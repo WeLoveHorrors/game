@@ -33,7 +33,7 @@ public class ButtonScript : MonoBehaviour
     public void StartGame()
     {
         Debug.Log("start game...");
-        SceneManager.LoadScene("TestScene");
+        SceneManager.LoadScene("TestMap");
     }
     public void ExitGame()
     {
