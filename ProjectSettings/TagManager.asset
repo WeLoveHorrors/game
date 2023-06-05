@@ -22,6 +22,8 @@ TagManager:
   - FxTemporaire
   - Smoke
   - Selectable
+  - Boss
+  - Meteor
   layers:
   - Default
   - TransparentFX

@@ -36,8 +36,9 @@ public class Wawe : MonoBehaviour
             if(rigidbody){
                 PlayerCharacterisictics player=rigidbody.GetComponentInParent<PlayerCharacterisictics>();
                 if(player){
-                    Debug.Log($"+++++++++++++ {rigidbody.name} +++++++++++");
+                    Debug.Log("++++++++++++++++++++++++++++++++++++++++++++++++++++");
                     if(GameObject.FindGameObjectWithTag("Player").transform.position.y<=2){
+                        
                         if(TakeDamage==true){
                             TakeDamage=false;
                             player.TakeDamage(30);
