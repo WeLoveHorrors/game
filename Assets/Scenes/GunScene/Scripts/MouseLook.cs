@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MouseLook : MonoBehaviour
 {
-    public float mouseSensitivity = 290f;
+    public float mouseSensitivity = 145f;
     public Transform playerBody;
     public Transform weapon;
     float xRotation = 0f;
@@ -45,7 +45,7 @@ public class MouseLook : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-            Debug.Log(hit.collider.tag);
+            // Debug.Log(hit.collider.tag);
             if(hit.collider.tag == "Selectable")
             {
                 isAbleToInteract = true;
