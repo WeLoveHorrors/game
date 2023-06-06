@@ -29,6 +29,9 @@ public class PlayerMovement : MonoBehaviour
     bool isAbleToJump;
     bool isFastFalling;
 
+    public AudioSource footsteps;
+    public AudioSource runningsteps;
+
     private void Start()
     {
         baseFov = normalCamera.fieldOfView;
@@ -46,6 +49,10 @@ public class PlayerMovement : MonoBehaviour
                 ParticleSystem tempJumpDust = Instantiate(jumpDust, dustPosition.transform.position, Quaternion.identity);
                 Destroy(tempJumpDust.gameObject, 1f);
             }
+            if(!isAbleToJump)
+            {
+                GetComponent<SoundManager>().Play(5, 0.05f);
+            }
             velocity.y = -2f;
             isAbleToJump = true;
             isFastFalling = false;
@@ -56,19 +63,53 @@ public class PlayerMovement : MonoBehaviour
         float movingForward = Input.GetAxisRaw("Vertical");
         float movingRight = Input.GetAxisRaw("Horizontal");
 
-        // bool Sprint = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-        // bool isSprinting = Sprint;
+        bool Sprint = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+        bool isSprinting = Sprint;
+        
+        if((x != 0 || z != 0) && controller.isGrounded)
+        {
+            if(isSprinting)
+            {
+                runningsteps.enabled = true;
+                footsteps.enabled = false;
+            }
+            else
+            {
+                runningsteps.enabled = false;
+                footsteps.enabled = true;
+            }
+        }
+        else
+        {
+            runningsteps.enabled = false;
+            footsteps.enabled = false;
+        }
 
         // float t_adjustedSpeed = speed;
         if(movingForward < 0)
         {
             // t_adjustedSpeed *= sprintModifier;
-            normalCamera.fieldOfView = Mathf.Lerp(normalCamera.fieldOfView, baseFov * 0.95f, Time.deltaTime * 8f);
+            if(isSprinting)
+            {
+                normalCamera.fieldOfView = Mathf.Lerp(normalCamera.fieldOfView, baseFov * 0.97f, Time.deltaTime * 8f);
+            }
+            else
+            {
+                normalCamera.fieldOfView = Mathf.Lerp(normalCamera.fieldOfView, baseFov * 0.95f, Time.deltaTime * 8f);
+            }
         }
         else if(movingForward > 0)
         {
+            if(isSprinting) 
+            {
+                
+                normalCamera.fieldOfView = Mathf.Lerp(normalCamera.fieldOfView, baseFov * 2 * 0.51f, Time.deltaTime * 8f);
+            }
+            else
+            {
+                normalCamera.fieldOfView = Mathf.Lerp(normalCamera.fieldOfView, baseFov * 2 * 0.53f, Time.deltaTime * 8f);
+            }
             // t_adjustedSpeed *= sprintModifier;
-            normalCamera.fieldOfView = Mathf.Lerp(normalCamera.fieldOfView, baseFov * 2 * 0.53f, Time.deltaTime * 8f);
         }
         else
         {
@@ -77,11 +118,12 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = transform.right * x + transform.forward * z;
 
-        controller.Move(move * speed * Time.deltaTime);
+        controller.Move(move * (speed * (isSprinting ? 1.1f : 0.7f)) * Time.deltaTime);
 
-        if (Input.GetButtonDown("Jump") && isAbleToJump)
+        if (Input.GetButton("Jump") && isAbleToJump)
         {
             velocity.y = Mathf.Sqrt(jump * -2f * gravity);
+            GetComponent<SoundManager>().Play(4, 0.1f);
             isAbleToJump = false;
         }
         
@@ -113,18 +155,20 @@ public class PlayerMovement : MonoBehaviour
             HeadBob(movementCounter, 0.05f, 0.05f);
             movementCounter += Time.deltaTime * 5f;
             weapon.localPosition = Vector3.Lerp(weapon.localPosition, targetWeaponBobPosition, Time.deltaTime * 10f);
-
         }
-        // else
-        // {
-        //     HeadBob(movementCounter, 0.035f, 0.035f);
-        //     movementCounter += Time.deltaTime * 3f;
-        //     weapon.localPosition = Vector3.Lerp(weapon.localPosition, targetWeaponBobPosition, Time.deltaTime * 6f);
-        // }
     }
 
     void HeadBob(float p_z, float p_x_intensity, float p_y_intensity)
     {
         targetWeaponBobPosition = weaponOrigin + new Vector3(Mathf.Cos(p_z * 2.5f) * p_x_intensity, Mathf.Sin(p_z * 2.5f) * p_y_intensity, Mathf.Sin(p_z) * 0.03f);
+    }
+
+    public void ShotJump()
+    {
+        if(this.gameObject.transform.position.y < 6.5f)
+        {
+            velocity.y += Mathf.Sqrt(jump * -0.5f * gravity);
+            Debug.Log(Camera.main.transform.rotation.x);
+        }
     }
 }

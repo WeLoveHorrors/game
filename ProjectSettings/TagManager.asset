@@ -12,6 +12,19 @@ TagManager:
   - CamWeaponHolder
   - MustBeRemovedOnChange
   - Spark
+  - Head
+  - DeagleIcon
+  - ShotgunIcon
+  - M4Icon
+  - WeaponHolder
+  - BulletDropped
+  - Door
+  - FxTemporaire
+  - Smoke
+  - Selectable
+  - Boss
+  - Meteor
+  - Room
   layers:
   - Default
   - TransparentFX
@@ -26,8 +39,8 @@ TagManager:
   - whatIsGround
   - PhysicalObject
   - Lights
-  - 
-  - 
+  - Weapon
+  - Titles
   - 
   - 
   - 
