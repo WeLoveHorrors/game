@@ -45,7 +45,7 @@ public class MouseLook : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-            Debug.Log(hit.collider.tag);
+            // Debug.Log(hit.collider.tag);
             if(hit.collider.tag == "Selectable")
             {
                 isAbleToInteract = true;
