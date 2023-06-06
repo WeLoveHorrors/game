@@ -41,7 +41,7 @@ public class PauseInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Q))
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
             if(canvas.activeSelf == true && pauseCanvas.activeSelf == false)
             {
