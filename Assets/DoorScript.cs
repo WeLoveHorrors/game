@@ -10,6 +10,10 @@ public class DoorScript : MonoBehaviour
     public bool isBlocked = false;
     public GameObject Door;
     public GameObject[] RoomsToShow;
+    public GameObject[]spawnPoints;
+    public GameObject[]objs;
+
+    public bool Spawn;
 
     public void OpenFastDoor()
     {
@@ -22,7 +26,6 @@ public class DoorScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
         foreach (var item in GameObject.FindGameObjectsWithTag("Room"))
         {
             item.SetActive(false);
@@ -31,6 +34,11 @@ public class DoorScript : MonoBehaviour
         {
             item.SetActive(true);
         }
+        if(Spawn==true){
+            Spawn=false;
+            EnemySpawn();
+        }
+       
     }
     private void Update()
     {
@@ -58,5 +66,13 @@ public class DoorScript : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void EnemySpawn(){
+        for (int i = 0; i < objs.Length; i++)
+        {
+            GameObject impact = Instantiate(objs[i], spawnPoints[i].transform.position, Quaternion.LookRotation(new Vector3(0f, 0f, 0f)));
+        }
+
     }
 }

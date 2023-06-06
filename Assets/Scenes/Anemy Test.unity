@@ -6947,7 +6947,7 @@ Transform:
   - {fileID: 909597763}
   - {fileID: 1719755130}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1531520612 stripped
 GameObject:
@@ -11493,7 +11493,7 @@ Transform:
   - {fileID: 698146196}
   - {fileID: 530592849}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &2557816277396135171
 SkinnedMeshRenderer:
