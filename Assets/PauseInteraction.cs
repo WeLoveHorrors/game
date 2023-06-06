@@ -43,7 +43,14 @@ public class PauseInteraction : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Q))
         {
-            TogglePause();
+            if(canvas.activeSelf == true && pauseCanvas.activeSelf == false)
+            {
+                BackToPauseMenu();
+            }
+            else
+            {
+                TogglePause();
+            }
         }
     }
 
