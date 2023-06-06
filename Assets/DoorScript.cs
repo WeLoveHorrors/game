@@ -9,36 +9,50 @@ public class DoorScript : MonoBehaviour
     private bool touchingDoor = false;
     public bool isBlocked = false;
     public GameObject Door;
+    public GameObject[] RoomsToShow;
 
     public void OpenFastDoor()
     {
-        if(!IsOpen)
+        if (!IsOpen)
         {
-            GetComponentInParent<Animator>().Play("DoorShoot1",0,0);
-            IsOpen=true;
+            GetComponentInParent<Animator>().Play("DoorShoot1", 0, 0);
+            IsOpen = true;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        foreach (var item in GameObject.FindGameObjectsWithTag("Room"))
+        {
+            item.SetActive(false);
+        }
+        foreach (var item in RoomsToShow)
+        {
+            item.SetActive(true);
         }
     }
     private void Update()
     {
-        
-        if(!IsOpen && !isBlocked)
+
+        if (!IsOpen && !isBlocked)
         {
             Vector3 playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
-            Vector3 thisPos = Door == null ? new Vector3(0,0,0) : Door.transform.position;
+            Vector3 thisPos = Door == null ? new Vector3(0, 0, 0) : Door.transform.position;
 
-            if(Vector2.Distance(new Vector2(playerPos.x, playerPos.z), new Vector2(thisPos.x, thisPos.z)) < 8)
+            if (Vector2.Distance(new Vector2(playerPos.x, playerPos.z), new Vector2(thisPos.x, thisPos.z)) < 8)
             {
                 GetComponent<TitleHandler>().Scaling = true;
-                if(Input.GetKeyDown("e") )
+                if (Input.GetKeyDown("e"))
                 {
-                    IsOpen=true;
+                    IsOpen = true;
                     GetComponentInParent<Animator>().Play("DoorOpen", 0, 0);
                     GetComponent<TitleHandler>().Scaling = false;
                 }
             }
             else
             {
-                if(GetComponent<TitleHandler>() != null)
+                if (GetComponent<TitleHandler>() != null)
                 {
                     GetComponent<TitleHandler>().Scaling = false;
                 }
