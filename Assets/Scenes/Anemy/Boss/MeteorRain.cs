@@ -5,7 +5,6 @@ using UnityEngine;
 public class MeteorRain : MonoBehaviour
 {
     // Start is called before the first frame update
-
     public Transform Boss;
     public GameObject Meteor;
     public int MeteorCount;
@@ -15,6 +14,7 @@ public class MeteorRain : MonoBehaviour
     void Start()
     {
         Boss=GameObject.FindGameObjectWithTag("Boss").transform;
+        StartCoroutine(RunMeteorRain());
     }
 
     public void Spawn()
@@ -27,14 +27,22 @@ public class MeteorRain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Y)){
-            for (int i = 0; i < MeteorCount; i++)
-            {
-                Spawn();
-            }
-        }
-        
+        // if(Input.GetKeyDown(KeyCode.Y)){
+        //     for (int i = 0; i < MeteorCount; i++)
+        //     {
+        //         Spawn();
+        //     }
+        // }
     }
+
+    public IEnumerator RunMeteorRain(){
+        while(true){
+            Spawn();
+            yield return new WaitForSeconds(200f);
+        }
+     
+    }
+
     public int GetRandomPos()
     {
         return Random.Range(1,Radius);

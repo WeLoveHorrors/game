@@ -15,7 +15,7 @@ public class Meteor : MonoBehaviour
     void Start()
     {
         StartCoroutine(Fall());
-        tempJumpDust = Instantiate(Crcle,new Vector3(transform.position.x,0f,transform.position.z), Quaternion.identity);
+        tempJumpDust = Instantiate(Crcle,new Vector3(transform.position.x,-11f,transform.position.z), Quaternion.identity);
         TakeDamage=true;
         Boom=true;
     }
@@ -23,10 +23,9 @@ public class Meteor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(transform.position.y<=1){
+       if(transform.position.y<=-9.8){
             Blast();
-            StartCoroutine(Vzriv());
-          
+            StartCoroutine(Vzriv()); 
        }
     }
 
@@ -35,25 +34,22 @@ public class Meteor : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         if(Boom==true){
             Boom=false;
-            tempJumpDust2 = Instantiate(Explo,new Vector3(transform.position.x,0f,transform.position.z), Quaternion.identity);
+            tempJumpDust2 = Instantiate(Explo,new Vector3(transform.position.x,-11f,transform.position.z), Quaternion.identity);
             Destroy(tempJumpDust2.gameObject,3);
             Destroy(tempJumpDust.gameObject);
             Destroy(this.gameObject);
         }
         
     }
-
     public IEnumerator Fall(){
         yield return new WaitForSeconds(2f);
         float i=0.5f;
-        while(transform.position.y>=1){
+        while(transform.position.y>=-9.8){
             transform.position-=new Vector3(0,i,0);
             yield return new WaitForSeconds(0.02f);
             i*=1.09f;
         }
     }
-
-
     public void Blast(){
         Collider[] colliders=Physics.OverlapSphere(transform.position,MaxRadius);
         for (int i = 0; i < colliders.Length; i++)

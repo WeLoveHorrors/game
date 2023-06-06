@@ -63,14 +63,14 @@ public class Wawe : MonoBehaviour
     }
 
     public void Update(){
-        if(Input.GetKeyDown(KeyCode.E)){
-            StartCoroutine(Blast());
-            TakeDamage=true;
-        }
+        // if(Input.GetKeyDown(KeyCode.E)){
+        //     StartCoroutine(Blast());
+        //     TakeDamage=true;
+        // }
     }
 
-    public void OnDrawGizmos(){
-        Gizmos.color=new Color(1f,0f,0f,0.5f);
-        Gizmos.DrawWireSphere(transform.position,MaxRadius);
-    }
+    // public void OnDrawGizmos(){
+    //     Gizmos.color=new Color(1f,0f,0f,0.5f);
+    //     Gizmos.DrawWireSphere(transform.position,MaxRadius);
+    // }
 }
