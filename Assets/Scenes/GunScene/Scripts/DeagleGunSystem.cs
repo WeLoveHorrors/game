@@ -91,11 +91,11 @@ public class DeagleGunSystem : MonoBehaviour
                 Destroy(rayHit.collider.gameObject, 0.05f);
             }
 
-            if (rayHit.rigidbody != null)
-            {
-                rayHit.rigidbody.AddForce(-rayHit.normal * 100);
-                rayHit.rigidbody.transform.parent = null;
-            }
+            // if (rayHit.rigidbody != null)
+            // {
+            //     rayHit.rigidbody.AddForce(-rayHit.normal * 100);
+            //     rayHit.rigidbody.transform.parent = null;
+            // }
         }
 
         TrailRenderer trailTemp = Instantiate(trail, attackPoint.position + new Vector3(0.25f, -0.05f, 0.05f), Quaternion.identity);

@@ -10,13 +10,14 @@ public class Wawe : MonoBehaviour
     public float Speed;
     public float startWidth;
     public bool TakeDamage;
+    public ParticleSystem Atention;
 
     void Start()
     {
-        lineRenderer=GetComponent<LineRenderer>();
+        lineRenderer=GetComponentInParent<LineRenderer>();
         lineRenderer.positionCount=PointsCount+1;
         TakeDamage=true;
-
+        StartCoroutine(WaweBlast());
     }
 
     public IEnumerator Blast(){
@@ -36,9 +37,7 @@ public class Wawe : MonoBehaviour
             if(rigidbody){
                 PlayerCharacterisictics player=rigidbody.GetComponentInParent<PlayerCharacterisictics>();
                 if(player){
-                    Debug.Log("++++++++++++++++++++++++++++++++++++++++++++++++++++");
                     if(GameObject.FindGameObjectWithTag("Player").transform.position.y<=2){
-                        
                         if(TakeDamage==true){
                             TakeDamage=false;
                             player.TakeDamage(30);
@@ -57,7 +56,7 @@ public class Wawe : MonoBehaviour
             float angle=i*angleBetweenPoints*Mathf.Deg2Rad;
             Vector3 direction=new Vector3(Mathf.Sin(angle),Mathf.Cos(angle),0f);
             Vector3 position=direction*CurentRadius;
-            lineRenderer.SetPosition(i,position/4f);
+            lineRenderer.SetPosition(i,position/1.5f);
         }
         lineRenderer.widthMultiplier=Mathf.Lerp(0f,startWidth,1f-CurentRadius/MaxRadius);
     }
@@ -67,6 +66,17 @@ public class Wawe : MonoBehaviour
         //     StartCoroutine(Blast());
         //     TakeDamage=true;
         // }
+    }
+
+    public IEnumerator WaweBlast(){
+        while(true){
+            ParticleSystem atention = Instantiate(Atention, this.transform.position, Quaternion.identity);
+            Destroy(atention.gameObject, 5f);
+            yield return new WaitForSeconds(5f);
+            StartCoroutine(Blast());
+            TakeDamage=true;
+            yield return new WaitForSeconds(15f);
+        }
     }
 
     // public void OnDrawGizmos(){

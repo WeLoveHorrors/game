@@ -10,7 +10,7 @@ public class Regdoll : MonoBehaviour
     void Start()
     {
         rigitbodies=GetComponentsInChildren<Rigidbody>();
-        DiactivRecdoll();
+        //DiactivRecdoll();
         animator=GetComponent<Animator>();
     
     }
@@ -19,12 +19,12 @@ public class Regdoll : MonoBehaviour
         foreach(var rigitbodi in rigitbodies){
             rigitbodi.isKinematic=true;
         }
-       // this.animator.enabled=false;
+       this.animator.enabled=false;
     }
     public void AactivRecdoll(){
         foreach(var rigitbodi in rigitbodies){
             rigitbodi.isKinematic=false;
         }
-       // animator.enabled=false;
+       animator.enabled=false;
     }
 }

@@ -17,13 +17,18 @@ public class Anemy : MonoBehaviour
     public GameObject player;
     public Transform BloodPosition;
     public ParticleSystem Blood;
+    public ParticleSystem Death;
     SkinnedMeshRenderer skinnedMeshRenderer;
     public GameObject anemy;
     public Slider HPbar;
+    public GameObject Bar;
+
+    Regdoll regdoll;
 
     // Start is called before the first frame update
     void Start()
     {
+        regdoll=GetComponent<Regdoll>();
         HPbar=GetComponentInChildren<Slider>();
         HPbar.maxValue=MaxHP;
         HPbar.value=MaxHP;
@@ -76,10 +81,15 @@ public class Anemy : MonoBehaviour
 
     public void Dead()
     {
+        regdoll.AactivRecdoll();
         player.GetComponent<PlayerCharacterisictics>().AddKill(Score);
+        Destroy(Bar.gameObject);
+        Destroy(this.gameObject,5f);
         ParticleSystem blood = Instantiate(Blood, BloodPosition.transform.position, Quaternion.identity);
         Destroy(blood.gameObject, 1f);
-        Destroy(this.gameObject);
+        ParticleSystem death = Instantiate(Death, BloodPosition.transform.position, Quaternion.identity);
+        Destroy(death.gameObject, 2f);
+
 
     }
 }
