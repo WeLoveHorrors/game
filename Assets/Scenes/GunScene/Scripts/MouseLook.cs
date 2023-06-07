@@ -104,6 +104,43 @@ public class MouseLook : MonoBehaviour
                     // item.GetComponent<Highlight>()?.ToggleHighlight(false);
                 }
             }
+            if((item != null && item.GetComponent<InstanceData>().Name == "Scroll1")
+            || (collider != null && collider.GetComponent<InstanceData>().Name == "Scroll1"))
+            {
+                if(Selected)
+                {
+                    collider.GetComponentInParent<Outline>().enabled = true;
+                    collider.GetComponent<TitleHandler>().Scaling = true;
+                    collider.GetComponent<TakeScroll>().enabled = true;
+                    // collider.GetComponent<Highlight>()?.ToggleHighlight(true);
+                }
+                else
+                {
+                    item.GetComponentInParent<Outline>().enabled = false;
+                    item.GetComponent<TitleHandler>().Scaling = false;
+                    item.GetComponent<TakeScroll>().enabled = false;
+                    // item.GetComponent<Highlight>()?.ToggleHighlight(false);
+                }
+            }
+
+            if((item != null && item.GetComponent<InstanceData>().Name == "Scroll2")
+            || (collider != null && collider.GetComponent<InstanceData>().Name == "Scroll2"))
+            {
+                if(Selected)
+                {
+                    collider.GetComponentInParent<Outline>().enabled = true;
+                    collider.GetComponent<TitleHandler>().Scaling = true;
+                    collider.GetComponent<TakeScroll>().enabled = true;
+                    // collider.GetComponent<Highlight>()?.ToggleHighlight(true);
+                }
+                else
+                {
+                    item.GetComponentInParent<Outline>().enabled = false;
+                    item.GetComponent<TitleHandler>().Scaling = false;
+                    item.GetComponent<TakeScroll>().enabled = false;
+                    // item.GetComponent<Highlight>()?.ToggleHighlight(false);
+                }
+            }
         } 
     }
 }

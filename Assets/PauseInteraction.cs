@@ -88,6 +88,7 @@ public class PauseInteraction : MonoBehaviour
         SceneManager.LoadScene("StartMenu",LoadSceneMode.Single);
     }
 
+
     public void BackToPauseMenu()
     {
         pauseCanvas.SetActive(true);
