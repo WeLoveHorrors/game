@@ -20,8 +20,8 @@ public class SimpleMouseLook : MonoBehaviour
         RotationY += Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         RotationX -= Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        RotationX = Mathf.Clamp(RotationX, -60f, 4f);
-        RotationY = Mathf.Clamp(RotationY, 0f, 180f);
+        RotationX = Mathf.Clamp(RotationX, -75f, 7f);
+        RotationY = Mathf.Clamp(RotationY, 51f, 156f);
 
         transform.eulerAngles = new Vector3(RotationX, RotationY, 0);
     }
