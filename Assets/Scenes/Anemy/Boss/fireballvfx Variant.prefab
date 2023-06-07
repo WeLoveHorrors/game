@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2556e13375f8ae54fa25087f5333ccc5, type: 3}
       propertyPath: m_Name
-      value: fireballvfx
+      value: fireballvfx Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2556e13375f8ae54fa25087f5333ccc5, type: 3}
@@ -74,6 +74,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5002687d0ee806c48a6d5b4ec44ba1cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxRadius: 5
+  MaxRadius: 6
   Crcle: {fileID: 3049428253405200659, guid: 9929105acf6d997468c9578c5f0eaff4, type: 3}
   Explo: {fileID: 4593184484909914550, guid: ebfde61c2eed2f54f981a95a707ce661, type: 3}

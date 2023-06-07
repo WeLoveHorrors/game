@@ -14,7 +14,7 @@ public class MeteorRain : MonoBehaviour
     void Start()
     {
         Boss=GameObject.FindGameObjectWithTag("Boss").transform;
-        StartCoroutine(RunMeteorRain());
+        //StartCoroutine(RunMeteorRain());
     }
 
     public void Spawn()

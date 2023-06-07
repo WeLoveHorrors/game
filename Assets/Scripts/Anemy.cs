@@ -58,6 +58,12 @@ public class Anemy : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
+        if(CurrentHP<=MaxHP/2){
+           StartCoroutine(GetComponentInChildren<Wawe>().WaweBlast());
+        }
+        if(CurrentHP<=(MaxHP-MaxHP/4)){
+            StartCoroutine(GetComponentInChildren<MeteorRain>().RunMeteorRain());
+        }
         BlinckTimer = BlinckDuration;
         if (this.Armor > 0)
         {

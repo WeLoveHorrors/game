@@ -17,7 +17,7 @@ public class Wawe : MonoBehaviour
         lineRenderer=GetComponentInParent<LineRenderer>();
         lineRenderer.positionCount=PointsCount+1;
         TakeDamage=true;
-        StartCoroutine(WaweBlast());
+        //StartCoroutine(WaweBlast());
     }
 
     public IEnumerator Blast(){
