@@ -70,8 +70,8 @@ public class Wawe : MonoBehaviour
 
     public IEnumerator WaweBlast(){
         while(true){
-            ParticleSystem atention = Instantiate(Atention, this.transform.position, Quaternion.identity);
-            Destroy(atention.gameObject, 5f);
+            // ParticleSystem atention = Instantiate(Atention, this.transform.position, Quaternion.identity);
+            // Destroy(atention.gameObject, 5f);
             yield return new WaitForSeconds(5f);
             StartCoroutine(Blast());
             TakeDamage=true;

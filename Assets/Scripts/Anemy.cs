@@ -13,6 +13,8 @@ public class Anemy : MonoBehaviour
     public float BlinckIntensiti;
     public float BlinckDuration;
     float BlinckTimer;
+    private bool Stage1;
+    private bool Stage2;
     public string name;
     public GameObject player;
     public Transform BloodPosition;
@@ -22,7 +24,6 @@ public class Anemy : MonoBehaviour
     public GameObject anemy;
     public Slider HPbar;
     public GameObject Bar;
-
     Regdoll regdoll;
 
     // Start is called before the first frame update
@@ -33,6 +34,8 @@ public class Anemy : MonoBehaviour
         HPbar.maxValue=MaxHP;
         HPbar.value=MaxHP;
         this.CurrentHP = this.MaxHP;
+        Stage1=true;
+        Stage2=true;
         //skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         player = GameObject.FindGameObjectWithTag("Player");
         this.IsAlive = true;
@@ -59,10 +62,16 @@ public class Anemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         if(CurrentHP<=MaxHP/2){
-           StartCoroutine(GetComponentInChildren<Wawe>().WaweBlast());
+            if(Stage1==true){
+                Stage1=false;
+                StartCoroutine(GetComponentInChildren<Wawe>().WaweBlast());
+            }
         }
         if(CurrentHP<=(MaxHP-MaxHP/4)){
-            StartCoroutine(GetComponentInChildren<MeteorRain>().RunMeteorRain());
+            if(Stage2==true){
+                Stage2=false;
+                StartCoroutine(GetComponentInChildren<MeteorRain>().RunMeteorRain());
+            }
         }
         BlinckTimer = BlinckDuration;
         if (this.Armor > 0)
