@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,11 +6,11 @@ using UnityEngine;
 public class Dialogue : MonoBehaviour
 {
     public string Question;
-    public List<string> Answears;
+    public List<Tuple<string, string>> AnswearsAndReplies;
 
-    public Dialogue(string Question, List<string> Answears)
+    public Dialogue(string Question, List<Tuple<string, string>> AnswearsAndReplies)
     {
         this.Question = Question;
-        this.Answears = Answears;
+        this.AnswearsAndReplies = AnswearsAndReplies;
     }
 }

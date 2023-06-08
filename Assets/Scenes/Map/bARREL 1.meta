@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: c499e12d5e01128498c11d940186db05
+<<<<<<<< HEAD:Assets/Scenes/Map/bARREL 1.meta
+guid: 32dd5be44b3a42c4ca6b7ff9d1dd0916
+========
+guid: 1a6cf9ed140ca6441b0b320221541863
+>>>>>>>> ea600cc (Added dialogues system):Assets/Scenes/Prologue/Images.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
