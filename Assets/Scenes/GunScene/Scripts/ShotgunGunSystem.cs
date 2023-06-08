@@ -72,29 +72,29 @@ public class ShotgunGunSystem : MonoBehaviour
                 bulletsShot++;
 
                 Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, z);
-
                 if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy))
                 {
+                    Debug.Log("Pizda");
                     Debug.Log(rayHit.collider.name);
 
-                    if (rayHit.collider.CompareTag("Enemy"))
-                    {
-                       // GetComponent<AnemySpawn>().IsAnemyDead(rayHit.collider.GetComponent<Anemy>().IsAlive, rayHit.collider.GetComponent<Anemy>().name);
-                        rayHit.collider.GetComponentInParent<Anemy>().TakeDamage(this.damage);
+                    if (rayHit.collider.CompareTag("Enemy")){
+                        if(rayHit.collider.GetComponentInParent<Anemy>().IsAlive==true){
+                            rayHit.collider.GetComponentInParent<Anemy>().TakeDamage(this.damage);
+                            Debug.Log("Huy YA EBAL Mamy Rectora");
+                        }
                     }
-                    else if (rayHit.collider.CompareTag("Head"))
-                    {
-                        rayHit.collider.GetComponentInParent<Anemy>().TakeDamage(this.damage * 2);
+                    else if (rayHit.collider.CompareTag("Head")){
+                        if(rayHit.collider.GetComponentInParent<Anemy>().IsAlive==true){
+                            rayHit.collider.GetComponentInParent<Anemy>().TakeDamage(this.damage * 2);
+                            Debug.Log("Huy YA EBAL Mamy Panika");
+                        }
                     }
-                    else if (rayHit.collider.CompareTag("Boss"))
-                    {
-                       // GetComponent<AnemySpawn>().IsAnemyDead(rayHit.collider.GetComponent<Anemy>().IsAlive, rayHit.collider.GetComponent<Anemy>().name);
-                        rayHit.collider.GetComponentInParent<BossScript>().TakeDamage(this.damage);
-                    }
-                    else if (rayHit.collider.CompareTag("HeadBoss"))
-                    {
-                        rayHit.collider.GetComponentInParent<BossScript>().TakeDamage(this.damage * 2);
-                    }
+                    // else if (rayHit.collider.CompareTag("Boss")){
+                    //     rayHit.collider.GetComponentInParent<BossScript>().TakeDamage(this.damage);
+                    // }
+                    // else if (rayHit.collider.CompareTag("BossHead")){
+                    //     rayHit.collider.GetComponentInParent<BossScript>().TakeDamage(this.damage * 2);
+                    // }
                     else if(rayHit.collider.CompareTag("BulletDropped")){
                         Destroy(rayHit.collider.gameObject, 0.05f);
                     }

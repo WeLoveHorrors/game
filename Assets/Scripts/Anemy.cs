@@ -13,15 +13,11 @@ public class Anemy : MonoBehaviour
     public float BlinckIntensiti;
     public float BlinckDuration;
     float BlinckTimer;
-    private bool Stage1;
-    private bool Stage2;
-    public string name;
     public GameObject player;
     public Transform BloodPosition;
     public ParticleSystem Blood;
     public ParticleSystem Death;
     SkinnedMeshRenderer skinnedMeshRenderer;
-    public GameObject anemy;
     public Slider HPbar;
     public GameObject Bar;
     Regdoll regdoll;
@@ -34,26 +30,12 @@ public class Anemy : MonoBehaviour
         HPbar.maxValue=MaxHP;
         HPbar.value=MaxHP;
         this.CurrentHP = this.MaxHP;
-        Stage1=true;
-        Stage2=true;
-        //skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         player = GameObject.FindGameObjectWithTag("Player");
         this.IsAlive = true;
-        if (anemy == null)
-        {
-            anemy = GameObject.FindGameObjectWithTag("Enemy");
-        }
-
-
     }
     // Update is called once per frame
     void Update()
     {
-        // if(Input.GetKeyDown(KeyCode.F)){
-        //     Debug.Log($"{gameObject.transform.forward*5f}");
-        //     gameObject.transform.position+=gameObject.transform.forward*5f;
-
-        // }
         BlinckTimer -= Time.deltaTime;
         float Lerp = Mathf.Clamp01(BlinckTimer / BlinckDuration);
         float intensiti = (Lerp * BlinckIntensiti) + 1.0f;
@@ -92,7 +74,5 @@ public class Anemy : MonoBehaviour
         Destroy(blood.gameObject, 1f);
         ParticleSystem death = Instantiate(Death, BloodPosition.transform.position, Quaternion.identity);
         Destroy(death.gameObject, 2f);
-
-
     }
 }

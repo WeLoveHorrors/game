@@ -109,26 +109,25 @@ public class M4GunSystem : MonoBehaviour
             {
                 Debug.Log(rayHit.collider.name);
 
-                if (rayHit.collider.CompareTag("Enemy"))
-                {
-                    rayHit.collider.GetComponentInParent<Anemy>().TakeDamage(this.damage);
+                if (rayHit.collider.CompareTag("Enemy")){
+                    if(rayHit.collider.GetComponentInParent<Anemy>().IsAlive==true){
+                        rayHit.collider.GetComponentInParent<Anemy>().TakeDamage(this.damage);
+                    }
                 }
                 else if(rayHit.collider.CompareTag("Head")){
-                    rayHit.collider.GetComponentInParent<Anemy>().TakeDamage(this.damage*4);
+                    if(rayHit.collider.GetComponentInParent<Anemy>().IsAlive==true){
+                        rayHit.collider.GetComponentInParent<Anemy>().TakeDamage(this.damage*4);
+                    }
                 }
-                else if (rayHit.collider.CompareTag("Boss"))
-                {
-                    // GetComponent<AnemySpawn>().IsAnemyDead(rayHit.collider.GetComponent<Anemy>().IsAlive, rayHit.collider.GetComponent<Anemy>().name);
-                    rayHit.collider.GetComponentInParent<BossScript>().TakeDamage(this.damage);
-                }
-                else if (rayHit.collider.CompareTag("HeadBoss"))
-                {
-                    rayHit.collider.GetComponentInParent<BossScript>().TakeDamage(this.damage * 2);
-                }
+                // else if (rayHit.collider.CompareTag("Boss")){
+                //     rayHit.collider.GetComponentInParent<BossScript>().TakeDamage(this.damage);
+                // }
+                // else if (rayHit.collider.CompareTag("BossHead")){
+                //     rayHit.collider.GetComponentInParent<BossScript>().TakeDamage(this.damage * 2);
+                // }
                 else if(rayHit.collider.CompareTag("BulletDropped")){
                     Destroy(rayHit.collider.gameObject, 0.05f);
                 }
-
                 // if (rayHit.rigidbody != null)
                 // {
                 //     rayHit.rigidbody.AddForce(-rayHit.normal * 30);
