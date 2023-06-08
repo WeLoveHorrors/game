@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Anemy : MonoBehaviour
+public class BossScript : MonoBehaviour
 {
     public int MaxHP;
     public int CurrentHP;
@@ -41,10 +41,8 @@ public class Anemy : MonoBehaviour
         this.IsAlive = true;
         if (anemy == null)
         {
-            anemy = GameObject.FindGameObjectWithTag("Enemy");
+            anemy = GameObject.FindGameObjectWithTag("Boss");
         }
-
-
     }
     // Update is called once per frame
     void Update()
@@ -61,6 +59,18 @@ public class Anemy : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
+        if(CurrentHP<=MaxHP/2){
+            if(Stage1==true){
+                Stage1=false;
+                StartCoroutine(GetComponentInChildren<Wawe>().WaweBlast());
+            }
+        }
+        if(CurrentHP<=(MaxHP-MaxHP/4)){
+            if(Stage2==true){
+                Stage2=false;
+                StartCoroutine(GetComponentInChildren<MeteorRain>().RunMeteorRain());
+            }
+        }
         BlinckTimer = BlinckDuration;
         if (this.Armor > 0)
         {

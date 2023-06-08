@@ -80,11 +80,20 @@ public class ShotgunGunSystem : MonoBehaviour
                     if (rayHit.collider.CompareTag("Enemy"))
                     {
                        // GetComponent<AnemySpawn>().IsAnemyDead(rayHit.collider.GetComponent<Anemy>().IsAlive, rayHit.collider.GetComponent<Anemy>().name);
-                         rayHit.collider.GetComponentInParent<Anemy>().TakeDamage(this.damage);
+                        rayHit.collider.GetComponentInParent<Anemy>().TakeDamage(this.damage);
                     }
                     else if (rayHit.collider.CompareTag("Head"))
                     {
                         rayHit.collider.GetComponentInParent<Anemy>().TakeDamage(this.damage * 2);
+                    }
+                    else if (rayHit.collider.CompareTag("Boss"))
+                    {
+                       // GetComponent<AnemySpawn>().IsAnemyDead(rayHit.collider.GetComponent<Anemy>().IsAlive, rayHit.collider.GetComponent<Anemy>().name);
+                        rayHit.collider.GetComponentInParent<BossScript>().TakeDamage(this.damage);
+                    }
+                    else if (rayHit.collider.CompareTag("HeadBoss"))
+                    {
+                        rayHit.collider.GetComponentInParent<BossScript>().TakeDamage(this.damage * 2);
                     }
                     else if(rayHit.collider.CompareTag("BulletDropped")){
                         Destroy(rayHit.collider.gameObject, 0.05f);
