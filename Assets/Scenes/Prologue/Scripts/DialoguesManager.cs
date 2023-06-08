@@ -18,6 +18,8 @@ public class DialoguesManager : MonoBehaviour
     private int CurrentDialogue = 0;
     private string TextGoal = "";
     private bool needToReply = false;
+    private bool isFading = false;
+
     void Start()
     {
         Dialogues = new List<Dialogue>();
@@ -35,7 +37,7 @@ public class DialoguesManager : MonoBehaviour
         {
             if(TextIndex < TextGoal.Length)
             {
-                Question.text = TextGoal.Substring(0, (int)(TextIndex+= 10f * Time.deltaTime));
+                Question.text = TextGoal.Substring(0, (int)(TextIndex+= 15f * Time.deltaTime));
             }
             else
             {
@@ -49,6 +51,18 @@ public class DialoguesManager : MonoBehaviour
                 {
                     Invoke("RunNext", 2f);
                 }
+            }
+        }
+        
+        if(isFading)
+        {
+            if(Question.color.a > 0)
+            {
+                Question.color -= new Color(0,0,0, 10f * Time.deltaTime);
+            }
+            else
+            {
+                Question.gameObject.SetActive(false);
             }
         }
     }
@@ -75,7 +89,7 @@ public class DialoguesManager : MonoBehaviour
 
     private void RunNext()
     {
-        if(CurrentDialogue < Dialogues.Count)
+        if(CurrentDialogue < Dialogues.Count - 1)
         {
             TextIndex = 0;
             CurrentDialogue++;
@@ -83,6 +97,10 @@ public class DialoguesManager : MonoBehaviour
             isTextRendered = false;
             // needToReply = true;
             SetDialogues();
+        }
+        else
+        {
+            isFading = true;
         }
     }
 
