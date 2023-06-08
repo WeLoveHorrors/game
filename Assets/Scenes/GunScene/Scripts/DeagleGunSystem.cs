@@ -82,22 +82,19 @@ public class DeagleGunSystem : MonoBehaviour
 
             if (rayHit.collider.CompareTag("Enemy"))
             {
-                if(rayHit.collider.GetComponentInParent<Anemy>().IsAlive==true){
-                    rayHit.collider.GetComponentInParent<Anemy>().TakeDamage(this.damage);
-                }
-                
+                rayHit.collider.GetComponentInParent<Anemy>().TakeDamage(this.damage);
             }
             else if(rayHit.collider.CompareTag("Head")){
-                if(rayHit.collider.GetComponentInParent<Anemy>().IsAlive==true){
-                    rayHit.collider.GetComponentInParent<Anemy>().TakeDamage(this.damage*4);
-                }
+
+                rayHit.collider.GetComponentInParent<Anemy>().TakeDamage(this.damage*4);
+
             }
-            // else if (rayHit.collider.CompareTag("Boss")){
-            //     rayHit.collider.GetComponentInParent<BossScript>().TakeDamage(this.damage);
-            // }
-            // else if (rayHit.collider.CompareTag("BossHead")){
-            //     rayHit.collider.GetComponentInParent<BossScript>().TakeDamage(this.damage * 2);
-            // }
+            else if (rayHit.collider.CompareTag("Boss")){
+                rayHit.collider.GetComponentInParent<BossScript>().TakeDamage(this.damage);
+            }
+            else if (rayHit.collider.CompareTag("BossHead")){
+                rayHit.collider.GetComponentInParent<BossScript>().TakeDamage(this.damage * 2);
+            }
             else if(rayHit.collider.CompareTag("BulletDropped")){
                 Destroy(rayHit.collider.gameObject, 0.05f);
             }

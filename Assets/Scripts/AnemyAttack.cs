@@ -15,7 +15,7 @@ public class AnemyAttack : MonoBehaviour
     }
 
     public void Atack(Collider col){
-        if(col.CompareTag("Player")){
+        if(col.CompareTag("Player")&&GetComponentInParent<Anemy>().IsAlive==true){
             Debug.Log("Player Detected");
             player.GetComponent<PlayerCharacterisictics>().TakeDamage(damage);
         }

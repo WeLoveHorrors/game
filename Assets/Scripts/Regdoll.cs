@@ -10,9 +10,20 @@ public class Regdoll : MonoBehaviour
     void Start()
     {
         rigitbodies=GetComponentsInChildren<Rigidbody>();
-        //DiactivRecdoll();
+        int i=0;
+        foreach (var item in rigitbodies)
+        {
+           item.useGravity=false;
+        }
         animator=GetComponent<Animator>();
     
+    }
+
+    public void TurnOnGraviti(){
+        foreach (var item in rigitbodies)
+        {
+           item.useGravity=true;
+        }
     }
 
     public void DiactivRecdoll(){

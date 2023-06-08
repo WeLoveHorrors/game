@@ -17,7 +17,6 @@ public class Anemy : MonoBehaviour
     public Transform BloodPosition;
     public ParticleSystem Blood;
     public ParticleSystem Death;
-    SkinnedMeshRenderer skinnedMeshRenderer;
     public Slider HPbar;
     public GameObject Bar;
     Regdoll regdoll;
@@ -39,7 +38,6 @@ public class Anemy : MonoBehaviour
         BlinckTimer -= Time.deltaTime;
         float Lerp = Mathf.Clamp01(BlinckTimer / BlinckDuration);
         float intensiti = (Lerp * BlinckIntensiti) + 1.0f;
-        //skinnedMeshRenderer.material.color = Color.white * intensiti;
     }
     public void TakeDamage(int damage)
     {
@@ -66,6 +64,7 @@ public class Anemy : MonoBehaviour
 
     public void Dead()
     {
+        regdoll.TurnOnGraviti();
         regdoll.AactivRecdoll();
         player.GetComponent<PlayerCharacterisictics>().AddKill(Score);
         Destroy(Bar.gameObject);

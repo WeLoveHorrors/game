@@ -85,6 +85,7 @@ public class BossScript : MonoBehaviour
 
     public void Dead()
     {
+        regdoll.TurnOnGraviti();
         regdoll.AactivRecdoll();
         player.GetComponent<PlayerCharacterisictics>().AddKill(Score);
         Destroy(Bar.gameObject);

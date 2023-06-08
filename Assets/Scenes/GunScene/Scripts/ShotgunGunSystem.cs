@@ -74,27 +74,24 @@ public class ShotgunGunSystem : MonoBehaviour
                 Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, z);
                 if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy))
                 {
-                    Debug.Log("Pizda");
                     Debug.Log(rayHit.collider.name);
 
                     if (rayHit.collider.CompareTag("Enemy")){
-                        if(rayHit.collider.GetComponentInParent<Anemy>().IsAlive==true){
-                            rayHit.collider.GetComponentInParent<Anemy>().TakeDamage(this.damage);
-                            Debug.Log("Huy YA EBAL Mamy Rectora");
-                        }
+
+                        rayHit.collider.GetComponentInParent<Anemy>().TakeDamage(this.damage);
+
                     }
                     else if (rayHit.collider.CompareTag("Head")){
-                        if(rayHit.collider.GetComponentInParent<Anemy>().IsAlive==true){
-                            rayHit.collider.GetComponentInParent<Anemy>().TakeDamage(this.damage * 2);
-                            Debug.Log("Huy YA EBAL Mamy Panika");
-                        }
+
+                        rayHit.collider.GetComponentInParent<Anemy>().TakeDamage(this.damage * 2);
+
                     }
-                    // else if (rayHit.collider.CompareTag("Boss")){
-                    //     rayHit.collider.GetComponentInParent<BossScript>().TakeDamage(this.damage);
-                    // }
-                    // else if (rayHit.collider.CompareTag("BossHead")){
-                    //     rayHit.collider.GetComponentInParent<BossScript>().TakeDamage(this.damage * 2);
-                    // }
+                    else if (rayHit.collider.CompareTag("Boss")){
+                        rayHit.collider.GetComponentInParent<BossScript>().TakeDamage(this.damage);
+                    }
+                    else if (rayHit.collider.CompareTag("BossHead")){
+                        rayHit.collider.GetComponentInParent<BossScript>().TakeDamage(this.damage * 2);
+                    }
                     else if(rayHit.collider.CompareTag("BulletDropped")){
                         Destroy(rayHit.collider.gameObject, 0.05f);
                     }
@@ -109,12 +106,15 @@ public class ShotgunGunSystem : MonoBehaviour
                 TrailRenderer trailTemp = Instantiate(trail, attackPoint.position + new Vector3(0.25f, -0.05f, 0.05f), Quaternion.identity);
                 StartCoroutine(SpawnTrail(trailTemp, rayHit));
 
+
                 GameObject impact = Instantiate(bulletHoleGraphic, rayHit.point + (rayHit.normal * .01f), Quaternion.LookRotation(rayHit.normal));
                 impact.transform.parent = rayHit.transform;
 
+               
+
                 
 
-                if (rayHit.collider != null)
+                if (rayHit.collider != null)    
                 {
                     if (rayHit.collider.CompareTag("Door"))
                     {
