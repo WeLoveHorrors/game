@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,11 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
+<<<<<<< HEAD
   controlID: 85
+=======
+  controlID: 39667
+>>>>>>> 4acda0d (Updated main car in catscene)
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -139,12 +143,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1464
     height: 947
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
   controlID: 95
+=======
+    width: 1469
+    height: 939
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 16192, y: 16192}
+  vertical: 1
+  controlID: 39668
+>>>>>>> 4acda0d (Updated main car in catscene)
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -164,12 +177,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1464
     height: 649
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
   controlID: 96
+=======
+    width: 1469
+    height: 707
+  m_MinSize: {x: 200, y: 100}
+  m_MaxSize: {x: 16192, y: 8096}
+  vertical: 0
+  controlID: 39669
+>>>>>>> 4acda0d (Updated main car in catscene)
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -187,11 +209,19 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 362
     height: 649
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
+=======
+    width: 361
+    height: 707
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 13}
+>>>>>>> 4acda0d (Updated main car in catscene)
   m_Panes:
   - {fileID: 14}
   m_Selected: 0
@@ -206,13 +236,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: SceneView
+  m_Name: GameView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 362
     y: 0
+<<<<<<< HEAD
     width: 1102
     height: 649
   m_MinSize: {x: 200, y: 200}
@@ -224,6 +255,19 @@ MonoBehaviour:
   - {fileID: 16}
   m_Selected: 0
   m_LastSelected: 1
+=======
+    width: 1108
+    height: 707
+  m_MinSize: {x: 102, y: 121}
+  m_MaxSize: {x: 4002, y: 4021}
+  m_ActualView: {fileID: 12}
+  m_Panes:
+  - {fileID: 14}
+  - {fileID: 15}
+  - {fileID: 12}
+  m_Selected: 2
+  m_LastSelected: 0
+>>>>>>> 4acda0d (Updated main car in catscene)
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -234,26 +278,44 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+<<<<<<< HEAD
   m_Name: AnimationWindow
+=======
+  m_Name: ProjectBrowser
+>>>>>>> 4acda0d (Updated main car in catscene)
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 649
     width: 1464
     height: 298
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 12}
+=======
+    y: 707
+    width: 1469
+    height: 232
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
+  m_ActualView: {fileID: 16}
+>>>>>>> 4acda0d (Updated main car in catscene)
   m_Panes:
   - {fileID: 17}
   - {fileID: 18}
   - {fileID: 19}
+<<<<<<< HEAD
   - {fileID: 20}
   - {fileID: 12}
   m_Selected: 4
   m_LastSelected: 0
+=======
+  m_Selected: 0
+  m_LastSelected: 1
+>>>>>>> 4acda0d (Updated main car in catscene)
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -269,6 +331,7 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 1464
     y: 0
     width: 456
@@ -279,6 +342,18 @@ MonoBehaviour:
   m_Panes:
   - {fileID: 21}
   - {fileID: 22}
+=======
+    x: 1469
+    y: 0
+    width: 451
+    height: 939
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 20}
+  m_Panes:
+  - {fileID: 20}
+  - {fileID: 21}
+>>>>>>> 4acda0d (Updated main car in catscene)
   m_Selected: 0
   m_LastSelected: 1
 --- !u!114 &12
@@ -333,10 +408,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 362
     y: 73
     width: 1100
     height: 628
+=======
+    x: 361
+    y: 73
+    width: 1106
+    height: 686
+>>>>>>> 4acda0d (Updated main car in catscene)
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -348,7 +430,11 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
+<<<<<<< HEAD
   m_TargetSize: {x: 1100, y: 607}
+=======
+  m_TargetSize: {x: 1106, y: 665}
+>>>>>>> 4acda0d (Updated main car in catscene)
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -356,17 +442,24 @@ MonoBehaviour:
   m_UseMipMap: 0
   m_VSyncEnabled: 0
   m_Gizmos: 0
-  m_Stats: 1
+  m_Stats: 0
   m_SelectedSizes: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
   m_ZoomArea:
     m_HRangeLocked: 0
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
+<<<<<<< HEAD
     m_HBaseRangeMin: -550
     m_HBaseRangeMax: 550
     m_VBaseRangeMin: -303.5
     m_VBaseRangeMax: 303.5
+=======
+    m_HBaseRangeMin: -553
+    m_HBaseRangeMax: 553
+    m_VBaseRangeMin: -332.5
+    m_VBaseRangeMax: 332.5
+>>>>>>> 4acda0d (Updated main car in catscene)
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -375,7 +468,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -384,16 +477,24 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
+<<<<<<< HEAD
       width: 1100
       height: 607
     m_Scale: {x: 1, y: 1}
     m_Translation: {x: 550, y: 303.5}
+=======
+      width: 1106
+      height: 665
+    m_Scale: {x: 1, y: 1}
+    m_Translation: {x: 553, y: 332.5}
+>>>>>>> 4acda0d (Updated main car in catscene)
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
+<<<<<<< HEAD
       x: -550
       y: -303.5
       width: 1100
@@ -401,6 +502,15 @@ MonoBehaviour:
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_LastWindowPixelSize: {x: 1100, y: 628}
+=======
+      x: -553
+      y: -332.5
+      width: 1106
+      height: 665
+    m_MinimalGUI: 1
+  m_defaultScale: 1
+  m_LastWindowPixelSize: {x: 1106, y: 686}
+>>>>>>> 4acda0d (Updated main car in catscene)
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -428,8 +538,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
+<<<<<<< HEAD
     width: 361
     height: 628
+=======
+    width: 360
+    height: 686
+>>>>>>> 4acda0d (Updated main car in catscene)
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -437,10 +552,17 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
+<<<<<<< HEAD
       scrollPos: {x: 0, y: 241}
       m_SelectedIDs: e4e1f2ff
       m_LastClickedID: -859676
       m_ExpandedIDs: 1467ffff1eb0ffff92b0ffffa2b0ffffaeb0ffffb2b0ffffb6b0ffffd2b0ffffeeb0fffff2b0fffff6b0fffffeb0ffff02b1ffff8ab1ffff8cb1ffffe8faffff50a50000
+=======
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 4205fbff4605fbff7e05fbff8205fbffb605fbff1606fbff8a06fbff8e06fbff9206fbff9a06fbff9e06fbff648afbff668afbff92aefbff9eaefbffa2aefbffa6aefbffc6aefbff7cdcfbff0cf3fbff3af4fbffcca0fcffcea0fcff3ea2fcffd8c0fcffdcc0fcfffcc0fcffb2eefcff3007fdffa807fdff3809fdff802cfdff7266fdff7217feffae17feffe217feffb618feffba18feffbe18feffc618feffca18feffdee8ffff9ae9ffffb08b0100ac9f01001cc50100c6d80100d4d80100
+>>>>>>> 4acda0d (Updated main car in catscene)
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -486,8 +608,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 362
     y: 73
+<<<<<<< HEAD
     width: 1100
     height: 628
+=======
+    width: 1106
+    height: 686
+>>>>>>> 4acda0d (Updated main car in catscene)
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -723,9 +850,15 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: 459.97946, y: 10.946714, z: 393.71274}
     speed: 2
     m_Value: {x: 459.97946, y: 10.946714, z: 393.71274}
+=======
+    m_Target: {x: -54.728874, y: 25.308144, z: -257.25052}
+    speed: 2
+    m_Value: {x: -54.728874, y: 25.308144, z: -257.25052}
+>>>>>>> 4acda0d (Updated main car in catscene)
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -772,6 +905,7 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
+<<<<<<< HEAD
     m_Target: {x: 0.007943472, y: 0.9849967, z: -0.17923999, w: -0.0011011491}
     speed: 2
     m_Value: {x: 0.007933918, y: 0.98381203, z: -0.17902441, w: -0.0010998248}
@@ -779,6 +913,15 @@ MonoBehaviour:
     m_Target: 8.317896
     speed: 2
     m_Value: 8.317896
+=======
+    m_Target: {x: -0.13109915, y: -0.69228154, z: 0.12482767, w: -0.7000058}
+    speed: 2
+    m_Value: {x: 0.13109915, y: 0.69228154, z: -0.124827676, w: 0.7000059}
+  m_Size:
+    m_Target: 0.8660254
+    speed: 2
+    m_Value: 0.8660254
+>>>>>>> 4acda0d (Updated main car in catscene)
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -853,9 +996,15 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 722
     width: 1463
     height: 277
+=======
+    y: 780
+    width: 1468
+    height: 211
+>>>>>>> 4acda0d (Updated main car in catscene)
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -874,12 +1023,17 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
+<<<<<<< HEAD
     - Assets/Scenes/Anemy/Boss/hammer
+=======
+    - Assets/Scenes/GunScene/Prefabs/Characters
+>>>>>>> 4acda0d (Updated main car in catscene)
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 46
   m_LastFolders:
+<<<<<<< HEAD
   - Assets/Scenes/Anemy/Boss/hammer
   m_LastFoldersGridSize: 46
   m_LastProjectPath: E:\WeLoveTitties\game
@@ -890,6 +1044,18 @@ MonoBehaviour:
     m_SelectedIDs: de0b0400
     m_LastClickedID: 265182
     m_ExpandedIDs: 00000000fea1000000a2000002a2000004a2000006a2000008a200000aa200000ca200000ea2000010a2000012a2000014a2000016a2000018a200001aa200001ca200001ea2000020a2000022a2000024a2000028a200002aa200002ca200002ea2000030a2000032a2000034a2000036a2000038a2000032a300004aa3000030b2010042bc010000ca9a3b
+=======
+  - Assets/Scenes/GunScene/Prefabs/Characters
+  m_LastFoldersGridSize: 16
+  m_LastProjectPath: D:\Projects\welovetitties_clone\game
+  m_LockTracker:
+    m_IsLocked: 0
+  m_FolderTreeState:
+    scrollPos: {x: 0, y: 433}
+    m_SelectedIDs: 74030100
+    m_LastClickedID: 66420
+    m_ExpandedIDs: 000000002460000026600000286000002a6000002c6000002e60000030600000326000003460000036600000386000003a6000003c6000003e60000040600000426000004460000000ca9a3b
+>>>>>>> 4acda0d (Updated main car in catscene)
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -917,7 +1083,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000fea1000000a2000002a2000004a2000006a2000008a200000aa200000ca200000ea2000010a2000012a2000014a2000016a2000018a200001aa200001ca200001ea2000020a2000022a2000024a2000026a2000028a200002aa200002ca200002ea2000030a2000032a2000034a2000036a2000038a20000
+=======
+    m_ExpandedIDs: 000000002460000026600000286000002a6000002c6000002e60000030600000326000003460000036600000386000003a6000003c6000003e60000040600000426000004460000000ca9a3b
+>>>>>>> 4acda0d (Updated main car in catscene)
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -942,10 +1112,17 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
+<<<<<<< HEAD
     m_SelectedInstanceIDs: 8ab1ffff
     m_LastClickedInstanceID: -20086
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
+=======
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
+    m_HadKeyboardFocusLastEvent: 0
+    m_ExpandedInstanceIDs: c623000000000000
+>>>>>>> 4acda0d (Updated main car in catscene)
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -970,7 +1147,11 @@ MonoBehaviour:
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
     m_ScrollPosition: {x: 0, y: 0}
+<<<<<<< HEAD
     m_GridSize: 46
+=======
+    m_GridSize: 16
+>>>>>>> 4acda0d (Updated main car in catscene)
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 206
 --- !u!114 &18
@@ -1031,6 +1212,12 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
     m_OverlaysVisible: 1
+<<<<<<< HEAD
+=======
+  m_LockTracker:
+    m_IsLocked: 0
+  m_LastSelectedObjectID: -292302
+>>>>>>> 4acda0d (Updated main car in catscene)
 --- !u!114 &20
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1080,10 +1267,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 1464
     y: 73
     width: 455
     height: 926
+=======
+    x: 1469
+    y: 73
+    width: 450
+    height: 918
+>>>>>>> 4acda0d (Updated main car in catscene)
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -1102,7 +1296,11 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewWindow: {fileID: 0}
+<<<<<<< HEAD
 --- !u!114 &22
+=======
+--- !u!114 &21
+>>>>>>> 4acda0d (Updated main car in catscene)
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1111,6 +1309,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 12141, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -1126,6 +1325,23 @@ MonoBehaviour:
     y: 73
     width: 455
     height: 926
+=======
+  m_Script: {fileID: 12079, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 390, y: 390}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Lighting
+    m_Image: {fileID: -1347227620855488341, guid: 0000000000000000d000000000000000, type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 1468
+    y: 73
+    width: 451
+    height: 918
+>>>>>>> 4acda0d (Updated main car in catscene)
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
