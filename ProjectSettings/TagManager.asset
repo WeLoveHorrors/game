@@ -25,6 +25,7 @@ TagManager:
   - Boss
   - Meteor
   - Room
+  - BossHead
   layers:
   - Default
   - TransparentFX
