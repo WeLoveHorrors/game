@@ -32,10 +32,10 @@ public class DialoguesManager : MonoBehaviour
         // Dialogues.Add(new Dialogue("Марті: Я зовсім нічого не розумію, Док.."));
         // Dialogues.Add(new Dialogue("Марті: Дідько, ну й халепа.."));
 
-        Dialogues.Add(new Dialogue("Док: мяяу?", new List<Tuple<string, string>>(){
-            new Tuple<string, string>("Мяяу", "Док: Хто мяукаэ?"), 
-            new Tuple<string, string>(":3", "Док: O_o"), 
-            new Tuple<string, string>("Мяяяяяяу", "Док: мяяяяяяяяяяяяяяяяяяу")}));
+        // Dialogues.Add(new Dialogue("Док: мяяу?", new List<Tuple<string, string>>(){
+        //     new Tuple<string, string>("Мяяу", "Док: Хто мяукаэ?"), 
+        //     new Tuple<string, string>(":3", "Док: O_o"), 
+        //     new Tuple<string, string>("Мяяяяяяу", "Док: мяяяяяяяяяяяяяяяяяяу")}));
         
         Dialogues.Add(new Dialogue("Док: Агов!"));
         Dialogues.Add(new Dialogue("Док: Марті, ти мене чуєш? Ти прийшов до тями?", new List<Tuple<string, string>>(){
