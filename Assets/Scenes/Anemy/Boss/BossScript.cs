@@ -56,11 +56,8 @@ public class BossScript : MonoBehaviour
                 StartCoroutine(GetComponentInChildren<Wawe>().WaweBlast());
             }
         }
-        if(CurrentHP<=(MaxHP-MaxHP/4)){
-            if(Stage2==true){
-                Stage2=false;
-                StartCoroutine(GetComponentInChildren<MeteorRain>().RunMeteorRain());
-            }
+        if(CurrentHP<=(MaxHP-4)){
+           StartCoroutine(GetComponentInChildren<MeteorRain>().RunMeteorRain());
         }
         BlinckTimer = BlinckDuration;
         if (this.Armor > 0)

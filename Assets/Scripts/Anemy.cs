@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.AI;
 public class Anemy : MonoBehaviour
 {
     public int MaxHP;
@@ -64,8 +64,10 @@ public class Anemy : MonoBehaviour
 
     public void Dead()
     {
+        
         regdoll.TurnOnGraviti();
         regdoll.AactivRecdoll();
+        GetComponent<NavMeshAgent>().speed=0;
         player.GetComponent<PlayerCharacterisictics>().AddKill(Score);
         Destroy(Bar.gameObject);
         Destroy(this.gameObject,5f);
