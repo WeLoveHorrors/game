@@ -8926,6 +8926,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5791522615230460030, guid: c748ea72b0792144f897d774ad6ef5c0, type: 3}
+      propertyPath: m_Speed
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6329007041098743467, guid: c748ea72b0792144f897d774ad6ef5c0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -12175,6 +12179,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 726266779, guid: 328777c048d28234ca8ba2149d81443a, type: 3}
+      propertyPath: m_Speed
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1503382497, guid: 328777c048d28234ca8ba2149d81443a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -12186,7 +12194,7 @@ PrefabInstance:
     - target: {fileID: 5746809707094614975, guid: 328777c048d28234ca8ba2149d81443a, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1261737352}
+      objectReference: {fileID: 0}
     - target: {fileID: 6079857685964703804, guid: 328777c048d28234ca8ba2149d81443a, type: 3}
       propertyPath: m_Name
       value: Knight2
@@ -12394,7 +12402,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 15
+  m_Speed: 0
   m_Acceleration: 40
   avoidancePriority: 50
   m_AngularSpeed: 720
@@ -13478,7 +13486,11 @@ PrefabInstance:
     - target: {fileID: 220466958, guid: 3dd3a6d4b2093bb49867536192ce2489, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1261737352}
+      objectReference: {fileID: 0}
+    - target: {fileID: 684335108, guid: 3dd3a6d4b2093bb49867536192ce2489, type: 3}
+      propertyPath: m_Speed
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1612886107, guid: 3dd3a6d4b2093bb49867536192ce2489, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -14315,6 +14327,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7169141332392401368, guid: c9775d65c5d080c45b58cb440e4226b1, type: 3}
+      propertyPath: m_Speed
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7169141332392401370, guid: c9775d65c5d080c45b58cb440e4226b1, type: 3}
       propertyPath: palyer
       value: 
@@ -14378,8 +14394,9 @@ PrefabInstance:
     - target: {fileID: 8051453030489974067, guid: c9775d65c5d080c45b58cb440e4226b1, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1261737352}
-    m_RemovedComponents: []
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7169141332392401373, guid: c9775d65c5d080c45b58cb440e4226b1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c9775d65c5d080c45b58cb440e4226b1, type: 3}
 --- !u!4 &8051713778038563748
 Transform:
