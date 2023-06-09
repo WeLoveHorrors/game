@@ -57,7 +57,7 @@ public class BossScript : MonoBehaviour
             }
         }
         if(CurrentHP<=(MaxHP-4)){
-           StartCoroutine(GetComponentInChildren<MeteorRain>().RunMeteorRain());
+        //    StartCoroutine(GetComponentInChildren<MeteorRain>().RunMeteorRain());
         }
         BlinckTimer = BlinckDuration;
         if (this.Armor > 0)
