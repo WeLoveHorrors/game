@@ -32,12 +32,19 @@ public class PauseHandler : MonoBehaviour
             EnableCanvas();
             Time.timeScale = 0;
             PauseCanvas.sortingOrder = 300;
-            // PausePanel.GetComponent<Animator>().Play("PauseShow", 0, 0);
+            PauseCanvas.gameObject.SetActive(true);
+            PausePanel.GetComponent<Animator>().Play("PauseShow", 0, 0);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
         else 
         {
-            PauseCanvas.sortingOrder = 0;
             PausePanel.GetComponent<Animator>().Play("PauseHide", 0, 0);
+            if(!GetComponentInChildren<DialoguesManager>().needToReply)
+            {
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
         }
     }
     

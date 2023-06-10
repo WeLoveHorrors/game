@@ -17,7 +17,7 @@ public class DialoguesManager : MonoBehaviour
     private float TextIndex = 0;
     private int CurrentDialogue = 0;
     private string TextGoal = "";
-    private bool needToReply = false;
+    public bool needToReply = false;
     private bool isFading = false;
 
     void Start()
