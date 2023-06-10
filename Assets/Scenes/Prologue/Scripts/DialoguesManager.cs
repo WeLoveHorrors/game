@@ -185,6 +185,7 @@ public class DialoguesManager : MonoBehaviour
 
         TextGoal = Dialogues[CurrentDialogue].AnswearsAndReplies[number].Item2;
         GetComponent<SimpleMouseLook>().multiplier = 1f;
+        // EventSystem.current.SetSelectedGameObject(null);
         // Invoke("RunNext", 4f);
         // Question.text = 
         // Question.text

@@ -12,7 +12,7 @@ public class PauseHandler : MonoBehaviour
     void Start()
     {
         PauseCanvas.sortingOrder = 0;
-        PauseCanvas.gameObject.SetActive(true);
+        PauseCanvas.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
