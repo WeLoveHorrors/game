@@ -110,14 +110,15 @@ public class DialoguesManager : MonoBehaviour
     private void SetDialogues()
     {
         TextIndex = 0;
-        if(Dialogues[CurrentDialogue].hasAnswears)
+        if(Dialogues[CurrentDialogue] != null && Dialogues[CurrentDialogue].hasAnswears)
         {
             int AnswearIndex = 0;
             Answears.ForEach(x=> x.text = Dialogues[CurrentDialogue].AnswearsAndReplies[AnswearIndex++].Item1);
             needToReply = true;
         }
+
         Question.text = "";
-        TextGoal = Dialogues[CurrentDialogue].Question;
+        TextGoal = (Dialogues[CurrentDialogue].Question != null ? Dialogues[CurrentDialogue].Question : "");
     }
 
     private void UnlockPanel()
