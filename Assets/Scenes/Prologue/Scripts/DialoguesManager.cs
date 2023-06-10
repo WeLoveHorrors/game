@@ -39,19 +39,16 @@ public class DialoguesManager : MonoBehaviour
         
         Dialogues.Add(new Dialogue("Док: Агов!"));
         Dialogues.Add(new Dialogue("Док: Марті, ти мене чуєш? Ти прийшов до тями?", new List<Tuple<string, string>>(){
-            new Tuple<string, string>("Так, я тебе чую. Що коїться, Док?", "Док: У нас проблеми, Марті... Я ледве встиг тебе врятувати," + 
-            "як в нас пройшла сутичка з тими бандитами."), 
-            new Tuple<string, string>("Я... Я зовсім нічого не пам'ятаю. Де ми?", "На нас напали, бо я вкрав пляшечку львівського. Тебе" + 
-            "вдарили по голові, і ти знепритомнів. Тому мені прийшлося тягнути тебе на спині, із-за цього я не встиг забрати більшість наших речей."), 
-            new Tuple<string, string>("Ти знову щось вкрав?!", "В цьому і проблема... Я зараз тестую збільшений бак для палива, тому, " + 
-            "через те, що на нас напали, я не встиг дозаправити Делоріан.")}));
+            new Tuple<string, string>("Так, я тебе чую. Що коїться, Док?", "Док: У нас проблеми, Марті... Я ледве встиг тебе врятувати, як в нас пройшла сутичка з тими бандитами."), 
+            new Tuple<string, string>("Я... Я зовсім нічого не пам'ятаю. Де ми?", "Док: На нас напали, бо я вкрав пляшечку львівського. Тебе вдарили по голові, і ти знепритомнів. Тому мені прийшлося тягнути тебе на спині, із-за цього я не встиг забрати більшість наших речей."), 
+            new Tuple<string, string>("Ти знову щось вкрав?!", "Док: В цьому і проблема... Я зараз тестую збільшений бак для палива, тому, через те, що на нас напали, я не встиг дозаправити Делоріан.")}));
         Dialogues.Add(new Dialogue("Марті: А чого ти мене не попередив про це? Я зовсім нічого не розумію, Док..."));
-        Dialogues.Add(new Dialogue("Док: Ну, не було часу на це... Також, коли вони намагалися нас догнати, то обстріляли машину. Бідний Делоріан.."));
+        Dialogues.Add(new Dialogue("Док: Ну, не було часу на це... Також, коли вони намагалися нас наздогнати, то обстріляли машину. Бідний Делоріан.."));
         Dialogues.Add(new Dialogue("Док: Прибор внаслідок ураження почав вибивати помилки у розрахунках.. Марті, це дуже погано.."));
         Dialogues.Add(new Dialogue("Док: Ти.. Ти розумієш, що це значить, Марті?", new List<Tuple<string, string>>(){
             new Tuple<string, string>("Ні, Док..", "Док: Ми в халепі, Марті.."), 
             new Tuple<string, string>("Ми в халепі, Док? Наскільки все погано?", "Так, Марті, прилад може вийти з ладу з хвилини на хвилину.."), 
-            new Tuple<string, string>("Пошкодження дуже серйозні?", "Я не можу оцінити ступінь ураження, але з виду нас може відправити" + 
+            new Tuple<string, string>("Пошкодження дуже серйозні?", "Док: Я не можу оцінити ступінь ураження, але з виду нас може відправити" + 
             " не туди, куди виставлений час подорожі..")}));
         Dialogues.Add(new Dialogue("Док: Я навіть не уявляю куди нас може відправити.."));
         Dialogues.Add(new Dialogue("Док: Тому, слухай мене уважно, Марті..."));
@@ -110,7 +107,7 @@ public class DialoguesManager : MonoBehaviour
     private void SetDialogues()
     {
         TextIndex = 0;
-        if(Dialogues[CurrentDialogue] != null && Dialogues[CurrentDialogue].hasAnswears)
+        if(Dialogues[CurrentDialogue].hasAnswears)
         {
             int AnswearIndex = 0;
             Answears.ForEach(x=> x.text = Dialogues[CurrentDialogue].AnswearsAndReplies[AnswearIndex++].Item1);
@@ -128,6 +125,7 @@ public class DialoguesManager : MonoBehaviour
         Time.timeScale = 0.5f;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        GetComponent<SimpleMouseLook>().multiplier = 0.1f;
     }
 
     private void RunNext()
@@ -138,7 +136,6 @@ public class DialoguesManager : MonoBehaviour
             CurrentDialogue++;
 
             isTextRendered = false;
-            // needToReply = true;
             SetDialogues();
 
             if(CurrentDialogue == 3)
@@ -187,6 +184,7 @@ public class DialoguesManager : MonoBehaviour
         Time.timeScale = 1f;
 
         TextGoal = Dialogues[CurrentDialogue].AnswearsAndReplies[number].Item2;
+        GetComponent<SimpleMouseLook>().multiplier = 1f;
         // Invoke("RunNext", 4f);
         // Question.text = 
         // Question.text
