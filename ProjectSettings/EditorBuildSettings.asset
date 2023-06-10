@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestMap.unity
     guid: 6dafef0e5c4a0a04583dfba8cb4c16e4
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: b8830f70fd6e4e44181ee4c2919eed2c
+  - enabled: 1
+    path: Assets/Scenes/CatScene.unity
+    guid: ef4f53b82ec6e0b419c801b58c02a8ee
   m_configObjects: {}
