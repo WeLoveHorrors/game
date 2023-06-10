@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class CarCrashing : MonoBehaviour
 {
     public Image fading;
+    public Light alert;
     
     void Start()
     {
@@ -19,5 +20,10 @@ public class CarCrashing : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("TestMap");
+    }
+
+    public void StartAlerting()
+    {
+        alert.GetComponent<Animator>().Play("BackLightAlert", 0, 0);
     }
 }
