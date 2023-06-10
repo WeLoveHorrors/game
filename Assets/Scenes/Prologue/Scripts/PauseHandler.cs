@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PauseHandler : MonoBehaviour
@@ -7,6 +8,8 @@ public class PauseHandler : MonoBehaviour
     private bool isPaused = false;
     public Canvas PauseCanvas;
     public GameObject PausePanel;
+    public GameObject RepliesPanel;
+    public List<AudioSource> sources;
 
     // Start is called before the first frame update
     void Start()
@@ -36,11 +39,13 @@ public class PauseHandler : MonoBehaviour
             PausePanel.GetComponent<Animator>().Play("PauseShow", 0, 0);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+            GetComponentInChildren<DialoguesManager>().sources.ForEach(x=>x.enabled = false);
         }
         else 
         {
+            GetComponentInChildren<DialoguesManager>().sources.ForEach(x=>x.enabled = true);
             PausePanel.GetComponent<Animator>().Play("PauseHide", 0, 0);
-            if(!GetComponentInChildren<DialoguesManager>().needToReply)
+            if(!RepliesPanel.activeSelf)
             {
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;

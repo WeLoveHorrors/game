@@ -10,6 +10,7 @@ public class DialoguesManager : MonoBehaviour
     public List<TMP_Text> Answears;
     public TMP_Text Question;
     public GameObject AnswearsPanel;
+    public List<AudioSource> sources;
 
     public bool isTextRendered = false;
 
@@ -123,6 +124,7 @@ public class DialoguesManager : MonoBehaviour
         AnswearsPanel.SetActive(true);
         AnswearsPanel.GetComponent<Animator>().Play("AnswearsShow", 0, 0);
         Time.timeScale = 0.5f;
+        sources.ForEach(x=> x.pitch -= 0.3f);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         GetComponent<SimpleMouseLook>().multiplier = 0.1f;
@@ -182,6 +184,7 @@ public class DialoguesManager : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1f;
+        sources.ForEach(x=> x.pitch += 0.3f);
 
         TextGoal = Dialogues[CurrentDialogue].AnswearsAndReplies[number].Item2;
         GetComponent<SimpleMouseLook>().multiplier = 1f;

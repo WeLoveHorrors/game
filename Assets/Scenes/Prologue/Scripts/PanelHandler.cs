@@ -5,13 +5,14 @@ using UnityEngine;
 public class PanelHandler : MonoBehaviour
 {
     public Canvas PauseCanvas;
+    public GameObject RepliesPanel;
     
     public void DisableCanvas()
     {
         PauseCanvas.sortingOrder = 0;
         PauseCanvas.gameObject.SetActive(false);
         Time.timeScale = 0.5f;
-        if(!Camera.main.GetComponent<DialoguesManager>().needToReply)
+        if(!RepliesPanel.activeSelf)
         {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
