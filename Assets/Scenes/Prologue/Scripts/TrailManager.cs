@@ -43,7 +43,7 @@ public class TrailManager : MonoBehaviour
             TimeToCreateVertical = Random.Range(MinTimeToCreate * 5, MaxTimeToCreate * 5);
         }
 
-        if(trails.Count > 0 && trails.First().gameObject.transform.position.x < -280){
+        if(trails.Count > 0 && trails.First().gameObject.transform.position.x < 0){
             Destroy(trails.First().gameObject);
             trails.Remove(trails.First());
         }
