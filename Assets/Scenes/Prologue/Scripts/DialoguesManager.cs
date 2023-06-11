@@ -164,8 +164,9 @@ public class DialoguesManager : MonoBehaviour
             {
                 GetComponent<ButtonsHandler>().HandleButton6();
             }
-            else if(CurrentDialogue == 16)
+            else if(CurrentDialogue == 2)
             {
+                GetComponent<Animator>().Play("ShakingEnd", 0, 0);
                 GetComponent<CarHandler>().HandleCar();
             }
         }

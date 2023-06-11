@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Anemy Test.unity
     guid: 32d762d15ec754b46b8240630df4cd02
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/TestMap.unity
     guid: 6dafef0e5c4a0a04583dfba8cb4c16e4
   - enabled: 1
