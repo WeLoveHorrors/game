@@ -19,6 +19,7 @@ public class Anemy : MonoBehaviour
     public ParticleSystem Death;
     public Slider HPbar;
     public GameObject Bar;
+   // public AudioSource 
     Regdoll regdoll;
 
     // Start is called before the first frame update

@@ -9,13 +9,13 @@ public class AnemyAttack : MonoBehaviour
 
 
     public void Start(){
-        //player=GameObject.FindGameObjectWithTag("Player");
+        player=GameObject.FindGameObjectWithTag("Player");
     }
     public void OnTriggerEnter(Collider col){
-        // if(GetComponentInParent<Animations>().distance<=GetComponentInParent<Animations>().MaxAttackDistance){
-            
-        // }
-        Atack(col);
+        if(GetComponentInParent<Animations>().distance<=GetComponentInParent<Animations>().MaxAttackDistance){
+            Atack(col);
+        }
+    
        
     }
 

@@ -25,11 +25,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4978281438579837739, guid: 471da7de251e8b940abe31eed57a94a7, type: 3}
       propertyPath: m_Speed
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4978281438579837740, guid: 471da7de251e8b940abe31eed57a94a7, type: 3}
       propertyPath: m_Name
-      value: Boss
+      value: Boss Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4998747663891788773, guid: 471da7de251e8b940abe31eed57a94a7, type: 3}
       propertyPath: m_TagString
@@ -125,7 +125,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4978281438579837738, guid: 471da7de251e8b940abe31eed57a94a7, type: 3}
+    - {fileID: 4978281438579837742, guid: 471da7de251e8b940abe31eed57a94a7, type: 3}
+    - {fileID: 5320722885184190400, guid: 471da7de251e8b940abe31eed57a94a7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 471da7de251e8b940abe31eed57a94a7, type: 3}
+--- !u!1 &1689423192792982884 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3538010612306179991, guid: 471da7de251e8b940abe31eed57a94a7, type: 3}
+  m_PrefabInstance: {fileID: 2768447792709440243}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1358453315636077414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689423192792982884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 275ef33f13248d24784116dc1c1e3e93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
+  player: {fileID: 0}
 --- !u!1 &7169141332392401375 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4978281438579837740, guid: 471da7de251e8b940abe31eed57a94a7, type: 3}

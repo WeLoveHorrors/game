@@ -3867,6 +3867,25 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &1138108968 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1689423192792982884, guid: c9775d65c5d080c45b58cb440e4226b1, type: 3}
+  m_PrefabInstance: {fileID: 8051453028849694294}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1138108974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138108968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 275ef33f13248d24784116dc1c1e3e93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
+  player: {fileID: 0}
 --- !u!1 &1213481343
 GameObject:
   m_ObjectHideFlags: 0
@@ -14397,6 +14416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7169141332392401373, guid: c9775d65c5d080c45b58cb440e4226b1, type: 3}
+    - {fileID: 8051453030489974067, guid: c9775d65c5d080c45b58cb440e4226b1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c9775d65c5d080c45b58cb440e4226b1, type: 3}
 --- !u!4 &8051713778038563748
 Transform:
