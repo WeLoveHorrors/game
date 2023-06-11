@@ -63,7 +63,7 @@ public class DialoguesManager : MonoBehaviour
         Dialogues.Add(new Dialogue("Марті: Я зовсім нічого не розумію, Док.."));
         Dialogues.Add(new Dialogue("Марті: Чому на панелі приладів усе почало блимати?"));
         Dialogues.Add(new Dialogue("Док: Ні.. Я цього і очікував.. Тримайся, Марті!!"));
-        Dialogues.Add(new Dialogue("Марті: Щ..?"));
+        // Dialogues.Add(new Dialogue("Марті: Щ..?"));
 
         SetDialogues();
         AnswearsPanel.SetActive(false);
@@ -164,7 +164,7 @@ public class DialoguesManager : MonoBehaviour
             {
                 GetComponent<ButtonsHandler>().HandleButton6();
             }
-            else if(CurrentDialogue == 2)
+            else if(CurrentDialogue == 16)
             {
                 GetComponent<Animator>().Play("ShakingEnd", 0, 0);
                 GetComponent<CarHandler>().HandleCar();
