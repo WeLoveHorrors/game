@@ -65,17 +65,18 @@ public class DialoguesManager : MonoBehaviour
         Dialogues.Add(new Dialogue("Док: Ні.. Я цього і очікував.. Тримайся, Марті!!"));
         // Dialogues.Add(new Dialogue("Марті: Щ..?"));
 
-        SetDialogues();
         AnswearsPanel.SetActive(false);
+        SetDialogues();
     }
 
     void Update()
     {
-        if(!isTextRendered)
+        if(!isTextRendered && TextGoal != null)
         {
             if(TextIndex < TextGoal.Length)
             {
-                Question.text = TextGoal.Substring(0, (int)(TextIndex+= 25f * Time.deltaTime));
+                var Length = (int)(TextIndex+= 25f * Time.deltaTime);
+                Question.text = TextGoal.Substring(0, Length <= TextGoal.Length ? Length : TextGoal.Length);
             }
             else
             {
@@ -164,7 +165,7 @@ public class DialoguesManager : MonoBehaviour
             {
                 GetComponent<ButtonsHandler>().HandleButton6();
             }
-            else if(CurrentDialogue == 2)
+            else if(CurrentDialogue == 16)
             {
                 GetComponent<Animator>().Play("ShakingEnd", 0, 0);
                 GetComponent<CarHandler>().HandleCar();
