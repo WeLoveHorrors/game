@@ -9,6 +9,7 @@ public class PauseHandler : MonoBehaviour
     private bool isPaused = false;
     public Canvas PauseCanvas;
     public GameObject PausePanel;
+    public GameObject SettingsPanel;
     public GameObject RepliesPanel;
     public List<AudioSource> sources;
 
@@ -17,6 +18,7 @@ public class PauseHandler : MonoBehaviour
     {
         PauseCanvas.sortingOrder = 0;
         PauseCanvas.gameObject.SetActive(false);
+        SettingsPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -24,8 +26,27 @@ public class PauseHandler : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            HandlePause();
+            if(SettingsPanel.activeSelf)
+            {
+                TurnToPause();
+            }
+            else
+            {
+                HandlePause();
+            }
         }
+    }
+
+    public void TurnSettings()
+    {
+        SettingsPanel.SetActive(true);
+        PausePanel.SetActive(false);
+    }
+
+    public void TurnToPause()
+    {
+        SettingsPanel.SetActive(false);
+        PausePanel.SetActive(true);
     }
 
     public void HandlePause()
