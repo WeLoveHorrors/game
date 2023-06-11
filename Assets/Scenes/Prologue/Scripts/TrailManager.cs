@@ -40,12 +40,23 @@ public class TrailManager : MonoBehaviour
             var temptrial = GameObject.Instantiate(trail, trailsPosition.transform.position, Quaternion.identity);
             temptrial.GetComponent<Trail>().isVertical = true;
             trails.Add(temptrial);
-            TimeToCreateVertical = Random.Range(MinTimeToCreate * 5, MaxTimeToCreate * 5);
+            TimeToCreateVertical = Random.Range(MinTimeToCreate * 3, MaxTimeToCreate * 3);
         }
 
-        if(trails.Count > 0 && trails.First().gameObject.transform.position.x < 0){
-            Destroy(trails.First().gameObject);
-            trails.Remove(trails.First());
+        // if(trails.Count > 0){
+        //     trails.Where(x=> x.gameObject.transform.position.x < -100).ToList().ForEach(x=>
+        //     {
+        //         Destroy(x.gameObject);
+        //         trails.Remove(x);
+        //     });
+        // }
+        
+        if(trails.Count > 150)
+        {
+            while(trails.Count > 150){
+                Destroy(trails[0].gameObject);
+                trails.Remove(trails[0]);
+            }
         }
     }
 }
