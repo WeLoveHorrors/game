@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseHandler : MonoBehaviour
 {
@@ -57,5 +58,31 @@ public class PauseHandler : MonoBehaviour
     {
         PauseCanvas.sortingOrder = 300;
         PauseCanvas.gameObject.SetActive(true);
+    }
+
+    public void ProceedClicked()
+    {
+        HandlePause();
+    }
+    
+    public void SettingsClicked()
+    {
+        
+    }
+    
+    public void MainMenuClicked()
+    {
+        StartCoroutine(LoadMainMenuScene());
+        // SceneManager.LoadScene("MainMenu");
+    }
+    IEnumerator LoadMainMenuScene()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("MainMenu");
+ 
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
     }
 }
