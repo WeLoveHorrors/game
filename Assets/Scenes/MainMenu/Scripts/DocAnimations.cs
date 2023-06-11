@@ -39,7 +39,7 @@ public class DocAnimations : MonoBehaviour
                 //isAnim=false;
             }
             Debug.Log("AnimStop");
-            yield return new WaitForSeconds(20);
+            yield return new WaitForSeconds(10);
             Debug.Log("AnimStop2");
         }
     }
