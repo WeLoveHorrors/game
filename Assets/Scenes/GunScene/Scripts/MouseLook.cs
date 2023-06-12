@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MouseLook : MonoBehaviour
 {
-    public float mouseSensitivity = 145f;
+    public float mouseSensitivity;
     public Transform playerBody;
     public Transform weapon;
     float xRotation = 0f;
@@ -36,6 +36,11 @@ public class MouseLook : MonoBehaviour
         UpdateHighlights();
 
         playerBody.Rotate(Vector3.up * mouseX);
+    }
+
+    public void getUpdateSend(float sens)
+    {
+        mouseSensitivity=sens;
     }
 
     void UpdateHighlights()

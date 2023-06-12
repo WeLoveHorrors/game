@@ -7,31 +7,31 @@ using UnityEngine.Audio;
 public class SoundsSettings : MonoBehaviour
 {
     [SerializeField] Slider soundslider;
-    [SerializeField] AudioMixer masterMixer;
+     
 
     void Start()
     {
-        SetVolume(PlayerPrefs.GetFloat("SavedMasterVolume",100));
-
-    }
-
-    public void SetVolume(float _value){
-        if(_value<1){
-            _value=.01f;
+        if(!PlayerPrefs.HasKey("musicVolume"))
+        {
+            PlayerPrefs.SetFloat("musicVolume",1);
+            Load();
         }
-
-        RefreshSlider(_value);
-        PlayerPrefs.SetFloat("SavedMasterVolume",_value);
-        masterMixer.SetFloat("MasterVolume",Mathf.Log10(_value/100)+15f);
+        else{
+            Load();
+        }
     }
 
-
-    public void SetVolumeFromSlider(){
-        SetVolume(soundslider.value);
+    public void ChangeVolume(){
+        AudioListener.volume=soundslider.value;
+        Save();
     }
 
-    public void RefreshSlider(float _value){
-        soundslider.value=_value;
+    private void Load(){
+        soundslider.value=PlayerPrefs.GetFloat("musicVolume");
+    }
+
+    private void Save(){
+        PlayerPrefs.SetFloat("musicVolume", soundslider.value);
     }
 
     

@@ -29,4 +29,6 @@ public class PauseHandle : MonoBehaviour
         SettingsPanel.SetActive(false);
         MainPanel.SetActive(true);
     }
+
+    
 }

@@ -25,6 +25,14 @@ public class Anemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+         if(!PlayerPrefs.HasKey("CurrentHpMobs"))
+        {
+            PlayerPrefs.SetInt("CurrentHpMobs",300);
+            Load();
+        }
+        else{
+            Load();
+        }
         regdoll=GetComponent<Regdoll>();
         HPbar=GetComponentInChildren<Slider>();
         HPbar.maxValue=MaxHP;
@@ -32,6 +40,8 @@ public class Anemy : MonoBehaviour
         this.CurrentHP = this.MaxHP;
         player = GameObject.FindGameObjectWithTag("Player");
         this.IsAlive = true;
+
+        
     }
     // Update is called once per frame
     void Update()
@@ -69,14 +79,30 @@ public class Anemy : MonoBehaviour
         if(this.CurrentHP>200){
             this.CurrentHP=200;
         }
+
+         PlayerPrefs.SetInt("CurrentHpMobs", this.MaxHP);
     }
 
+    private void Load(){
+         
+         this.MaxHP=PlayerPrefs.GetInt("CurrentHpMobs");
+    }
     public void HardSettinds()
     {
         this.MaxHP=300;
         if(this.CurrentHP>300){
             this.CurrentHP=300;
         }
+        PlayerPrefs.SetInt("CurrentHpMobs", this.MaxHP);
+    }
+
+    public void HardExtraSettinds()
+    {
+        this.MaxHP=350;
+        if(this.CurrentHP>350){
+            this.CurrentHP=350;
+        }
+        PlayerPrefs.SetInt("CurrentHpMobs", this.MaxHP);
     }
 
     public void Dead()

@@ -11,7 +11,7 @@ public class PauseInteraction : MonoBehaviour
     public GameObject pauseCanvas;
     public GameObject settingsCanvas;
     public Image crosshair;
-    public TMP_Text mouseSensitivity;
+    //public TMP_Text mouseSensitivity;
     public Slider mouseSensitivitySlider;
 
     public AudioSource source;
@@ -23,6 +23,14 @@ public class PauseInteraction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(!PlayerPrefs.HasKey("mouseSens"))
+        {
+            PlayerPrefs.SetFloat("mouseSens",0.7f);
+            Load();
+        }
+        else{
+            Load();
+        }
         isPaused = false;
         canvas.SetActive(false);
         pauseCanvas.SetActive(false);
@@ -32,12 +40,14 @@ public class PauseInteraction : MonoBehaviour
         Time.timeScale = isPaused ? 0 : 1;
         crosshair.enabled = !isPaused;
 
-        mouseSensitivity.text = (Camera.main.GetComponent<MouseLook>().mouseSensitivity / 100f).ToString();
+       // mouseSensitivity.text = (Camera.main.GetComponent<MouseLook>().mouseSensitivity / 100f).ToString();
+
+
     }
 
     private void Awake() {
         mouseSensitivitySlider.value = Camera.main.GetComponent<MouseLook>().mouseSensitivity / 100f;   
-        mouseSensitivity.text = (Camera.main.GetComponent<MouseLook>().mouseSensitivity / 100f).ToString();
+        //mouseSensitivity.text = (Camera.main.GetComponent<MouseLook>().mouseSensitivity / 100f).ToString();
     }
 
     public void CheckClick(){
@@ -63,7 +73,18 @@ public class PauseInteraction : MonoBehaviour
     public void UpdateSensitivity(float sensitivity)
     {
         Camera.main.GetComponent<MouseLook>().mouseSensitivity = sensitivity * 100;
-        mouseSensitivity.text = sensitivity.ToString("0.00");
+
+        Save();
+       
+    }
+
+    private void Load(){
+        mouseSensitivitySlider.value=PlayerPrefs.GetFloat("mouseSens");
+        Camera.main.GetComponent<MouseLook>().mouseSensitivity = mouseSensitivitySlider.value * 100;
+    }
+
+    private void Save(){
+        PlayerPrefs.SetFloat("mouseSens", mouseSensitivitySlider.value);
     }
 
     public void UpdateSounds(float volume)
