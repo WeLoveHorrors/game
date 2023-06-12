@@ -15,6 +15,8 @@ public class PauseInteraction : MonoBehaviour
     public Slider mouseSensitivitySlider;
 
     public AudioSource source;
+
+    public AudioSource volume;
     public AudioClip buttonClicked;
 
     private bool isPaused = false;
@@ -38,6 +40,10 @@ public class PauseInteraction : MonoBehaviour
         mouseSensitivity.text = (Camera.main.GetComponent<MouseLook>().mouseSensitivity / 100f).ToString();
     }
 
+    public void CheckClick(){
+        Debug.Log("Clicked");
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -58,6 +64,13 @@ public class PauseInteraction : MonoBehaviour
     {
         Camera.main.GetComponent<MouseLook>().mouseSensitivity = sensitivity * 100;
         mouseSensitivity.text = sensitivity.ToString("0.00");
+    }
+
+    public void UpdateSounds(float volume)
+    {
+        //Camera.main.GetComponent<MouseLook>().mouseSensitivity = sensitivity * 100;
+        //mouseSensitivity.text = sensitivity.ToString("0.00");
+        
     }
 
     public void TogglePause()
