@@ -63,6 +63,22 @@ public class Anemy : MonoBehaviour
         HPbar.value=CurrentHP;
     }
 
+    public void MediumSettinds()
+    {
+        this.MaxHP=200;
+        if(this.CurrentHP>200){
+            this.CurrentHP=200;
+        }
+    }
+
+    public void HardSettinds()
+    {
+        this.MaxHP=300;
+        if(this.CurrentHP>300){
+            this.CurrentHP=300;
+        }
+    }
+
     public void Dead()
     {
         
