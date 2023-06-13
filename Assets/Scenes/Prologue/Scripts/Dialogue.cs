@@ -9,6 +9,7 @@ public class Dialogue : MonoBehaviour
     public List<Tuple<string, string>> AnswearsAndReplies;
     public bool hasAnswears = false;
     public AudioClip voice = null;
+    public List<AudioClip> answers = null;
 
     public Dialogue(string Question)
     {
@@ -28,19 +29,28 @@ public class Dialogue : MonoBehaviour
         this.AnswearsAndReplies = AnswearsAndReplies;
         this.hasAnswears = true;
     }
-    public Dialogue(string Question, List<Tuple<string, string>> AnswearsAndReplies, AudioClip voice)
+    public Dialogue(string Question, List<Tuple<string, string>> AnswearsAndReplies, AudioClip voice, List<AudioClip> answers)
     {
         this.Question = Question;
         this.AnswearsAndReplies = AnswearsAndReplies;
         this.hasAnswears = true;
         this.voice = voice;
+        this.answers = answers;
     }
 
     public void Play(AudioSource source)
     {
         if(this.voice != null)
         {
-            source.PlayOneShot(this.voice, 0.2f);
+            source.PlayOneShot(this.voice, 0.65f);
+        }
+    }
+    
+    public void PlayAnswear(AudioSource source, int index)
+    {
+        if(this.answers != null)
+        {
+            source.PlayOneShot(this.answers[index], 0.65f);
         }
     }
 }
