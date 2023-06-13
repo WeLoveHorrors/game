@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MouseLook : MonoBehaviour
 {
-    public float mouseSensitivity = 145f;
+    public float mouseSensitivity;
     public Transform playerBody;
     public Transform weapon;
     float xRotation = 0f;
@@ -36,6 +36,11 @@ public class MouseLook : MonoBehaviour
         UpdateHighlights();
 
         playerBody.Rotate(Vector3.up * mouseX);
+    }
+
+    public void getUpdateSend(float sens)
+    {
+        mouseSensitivity=sens;
     }
 
     void UpdateHighlights()
@@ -101,6 +106,43 @@ public class MouseLook : MonoBehaviour
                     item.GetComponentInParent<Outline>().enabled = false;
                     item.GetComponent<TitleHandler>().Scaling = false;
                     item.GetComponent<TakeWeapon>().enabled = false;
+                    // item.GetComponent<Highlight>()?.ToggleHighlight(false);
+                }
+            }
+            if((item != null && item.GetComponent<InstanceData>().Name == "Scroll1")
+            || (collider != null && collider.GetComponent<InstanceData>().Name == "Scroll1"))
+            {
+                if(Selected)
+                {
+                    collider.GetComponentInParent<Outline>().enabled = true;
+                    collider.GetComponent<TitleHandler>().Scaling = true;
+                    collider.GetComponent<TakeScroll>().enabled = true;
+                    // collider.GetComponent<Highlight>()?.ToggleHighlight(true);
+                }
+                else
+                {
+                    item.GetComponentInParent<Outline>().enabled = false;
+                    item.GetComponent<TitleHandler>().Scaling = false;
+                    item.GetComponent<TakeScroll>().enabled = false;
+                    // item.GetComponent<Highlight>()?.ToggleHighlight(false);
+                }
+            }
+
+            if((item != null && item.GetComponent<InstanceData>().Name == "Scroll2")
+            || (collider != null && collider.GetComponent<InstanceData>().Name == "Scroll2"))
+            {
+                if(Selected)
+                {
+                    collider.GetComponentInParent<Outline>().enabled = true;
+                    collider.GetComponent<TitleHandler>().Scaling = true;
+                    collider.GetComponent<TakeScroll>().enabled = true;
+                    // collider.GetComponent<Highlight>()?.ToggleHighlight(true);
+                }
+                else
+                {
+                    item.GetComponentInParent<Outline>().enabled = false;
+                    item.GetComponent<TitleHandler>().Scaling = false;
+                    item.GetComponent<TakeScroll>().enabled = false;
                     // item.GetComponent<Highlight>()?.ToggleHighlight(false);
                 }
             }

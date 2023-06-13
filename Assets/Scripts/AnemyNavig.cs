@@ -11,7 +11,7 @@ public class AnemyNavig : MonoBehaviour
     public float MaxDistance=1.0f;
     float timer=0.0f;
     //public Animator animator;
-    NavMeshAgent agent;
+    public NavMeshAgent agent;
     // Start is called before the first frame update
     void Start()
     {

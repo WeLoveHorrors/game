@@ -6,15 +6,22 @@ public class AnemyAttack : MonoBehaviour
 {
     public int damage;
     public GameObject player;
-    public void OnTriggerEnter(Collider col){
-        Atack(col);
+
+
+    public void Start(){
         player=GameObject.FindGameObjectWithTag("Player");
+    }
+    public void OnTriggerEnter(Collider col){
+        if(GetComponentInParent<Animations>().distance<=GetComponentInParent<Animations>().MaxAttackDistance){
+            Atack(col);
+        }
+    
+       
     }
 
     public void Atack(Collider col){
-        Debug.Log("Colision Detected");
-        if(col.CompareTag("Player")){
-            Debug.Log("Player Detected");
+        Debug.Log(col.tag);
+        if(col.CompareTag("Player")&&GetComponentInParent<Anemy>().IsAlive==true){
             player.GetComponent<PlayerCharacterisictics>().TakeDamage(damage);
         }
     }

@@ -34,7 +34,7 @@ public class DoorScript : MonoBehaviour
         {
             item.SetActive(true);
         }
-        if(Spawn==true){
+        if(Spawn==true&&IsOpen==true){
             Spawn=false;
             EnemySpawn();
         }
@@ -42,7 +42,6 @@ public class DoorScript : MonoBehaviour
     }
     private void Update()
     {
-
         if (!IsOpen && !isBlocked)
         {
             Vector3 playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;

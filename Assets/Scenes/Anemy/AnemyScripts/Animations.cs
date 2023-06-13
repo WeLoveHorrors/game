@@ -20,8 +20,8 @@ public class Animations : MonoBehaviour
     private bool inJump;
     private float JumpUpforce = 0.03f;
     private float Jumptimeout = 0.03f;
+    public float distance;
 
-    private float distance;
     // Start is called before the first frame update
     void Start()
     {

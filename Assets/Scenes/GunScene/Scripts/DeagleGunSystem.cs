@@ -82,20 +82,28 @@ public class DeagleGunSystem : MonoBehaviour
 
             if (rayHit.collider.CompareTag("Enemy"))
             {
-                rayHit.collider.GetComponentInParent<Anemy>().TakeDamage(this.damage);
+                rayHit.collider.GetComponentInParent<Anemy>().TakeDamage(this.damage*8);
             }
             else if(rayHit.collider.CompareTag("Head")){
+
                 rayHit.collider.GetComponentInParent<Anemy>().TakeDamage(this.damage*4);
+
+            }
+            else if (rayHit.collider.CompareTag("Boss")){
+                rayHit.collider.GetComponentInParent<BossScript>().TakeDamage(this.damage);
+            }
+            else if (rayHit.collider.CompareTag("BossHead")){
+                rayHit.collider.GetComponentInParent<BossScript>().TakeDamage(this.damage * 2);
             }
             else if(rayHit.collider.CompareTag("BulletDropped")){
                 Destroy(rayHit.collider.gameObject, 0.05f);
             }
 
-            if (rayHit.rigidbody != null)
-            {
-                rayHit.rigidbody.AddForce(-rayHit.normal * 100);
-                rayHit.rigidbody.transform.parent = null;
-            }
+            // if (rayHit.rigidbody != null)
+            // {
+            //     rayHit.rigidbody.AddForce(-rayHit.normal * 100);
+            //     rayHit.rigidbody.transform.parent = null;
+            // }
         }
 
         TrailRenderer trailTemp = Instantiate(trail, attackPoint.position + new Vector3(0.25f, -0.05f, 0.05f), Quaternion.identity);

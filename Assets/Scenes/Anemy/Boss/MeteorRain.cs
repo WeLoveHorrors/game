@@ -15,6 +15,7 @@ public class MeteorRain : MonoBehaviour
     {
         Boss=GameObject.FindGameObjectWithTag("Boss").transform;
         StartCoroutine(RunMeteorRain());
+        //StartCoroutine(GetComponentInChildren<MeteorRain>().RunMeteorRain());
     }
 
     public void Spawn()
@@ -37,8 +38,11 @@ public class MeteorRain : MonoBehaviour
 
     public IEnumerator RunMeteorRain(){
         while(true){
-            Spawn();
-            yield return new WaitForSeconds(200f);
+            for (int i = 0; i < MeteorCount; i++)
+            {
+                Spawn();
+            }
+            yield return new WaitForSeconds(10f);
         }
      
     }
