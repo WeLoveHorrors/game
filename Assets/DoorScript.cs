@@ -21,22 +21,23 @@ public class DoorScript : MonoBehaviour
         {
             GetComponentInParent<Animator>().Play("DoorShoot1", 0, 0);
             IsOpen = true;
+            Spawn=false;
+            EnemySpawn();
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        foreach (var item in GameObject.FindGameObjectsWithTag("Room"))
-        {
-            item.SetActive(false);
-        }
-        foreach (var item in RoomsToShow)
-        {
-            item.SetActive(true);
-        }
+        // foreach (var item in GameObject.FindGameObjectsWithTag("Room"))
+        // {
+        //     item.SetActive(false);
+        // }
+        // foreach (var item in RoomsToShow)
+        // {
+        //     item.SetActive(true);
+        // }
         if(Spawn==true&&IsOpen==true){
-            Spawn=false;
-            EnemySpawn();
+            
         }
        
     }
@@ -53,6 +54,8 @@ public class DoorScript : MonoBehaviour
                 if (Input.GetKeyDown("e"))
                 {
                     IsOpen = true;
+                    Spawn=false;
+                    EnemySpawn();
                     GetComponentInParent<Animator>().Play("DoorOpen", 0, 0);
                     GetComponent<TitleHandler>().Scaling = false;
                 }
