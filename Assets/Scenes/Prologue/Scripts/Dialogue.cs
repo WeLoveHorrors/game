@@ -42,7 +42,7 @@ public class Dialogue : MonoBehaviour
     {
         if(this.voice != null)
         {
-            source.PlayOneShot(this.voice, 0.65f);
+            source.PlayOneShot(this.voice, 0.6f);
         }
     }
     
@@ -50,7 +50,7 @@ public class Dialogue : MonoBehaviour
     {
         if(this.answers != null)
         {
-            source.PlayOneShot(this.answers[index], 0.65f);
+            source.PlayOneShot(this.answers[index], 0.6f);
         }
     }
 }
