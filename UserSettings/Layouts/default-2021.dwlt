@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Project
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 2445
+  controlID: 87
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 2394
+  controlID: 88
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 2365
+  controlID: 68
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -272,8 +272,8 @@ MonoBehaviour:
     y: 0
     width: 451
     height: 947
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -404,23 +404,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 5e110000
+      m_SelectedIDs: 98c10000
       m_LastClickedID: 0
-      m_ExpandedIDs: 2a80f8fffa9df8ff269ef8ff2a9ef8ff4a9ef8ff94dbf8ff1e04f9ff401ff9ffba53f9ff5020faff5c5bfaffbc5bfaff405cfaff725cfaff427afaff927afaffdcb7fafff4befaff78c2faff30d3faff18ebfaff48ebfaff1aeefaffb430fbff686afbff746afbffc46afbffce6afbffac70fbfff886fbff98acfbffe8acfbff32eafbff8400fcffcc00fcff0a09fcff6834fcffb271fcff8e8efcff76b5fcffc6b5fcff10f3fcff4c78fdff5e78fdffa078fdffae78fdff187cfdff02a4fdff52a4fdff9ce1fdff16f4fdffb403feff3c56ffff6856ffff6c56ffff8c56ffffd693fffff098ffff06fbffff2ed40000dcd4000066d90000acde0000e2eb0000eeeb000060ec0000aaf30000b2f5000076f700008ef70000bc010100e40401001c070100e20b0100fc270800e4e60800d80c0900320d0900200e09002c0e09005c0e0900386309002e6e09006470090054890900be890900a88a0900ee8b0900cad5090020df09008adf090002e0090074e009009c0c0a0092170a00ba320a009c330a000e340a009c560a00745a0a009a6c0a00006d0a00046d0a00ee6d0a00986f0a00c07b0a00c27b0a00c67b0a004c7d0a00808f0a00d4900a002c910a00aa9e0a00b09e0a0078c90a006ed40a0012d90b0078d90b007cd90b00f4d90b0066da0b00b0db0b0012dc0b00a8540d001a560d00608f0d00f28f0d00dcd20d00badd0d00d4dd0d00
+      m_ExpandedIDs: 06fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Canvas
-        m_OriginalName: Canvas
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 888672
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 8}
       m_SearchString: 
@@ -680,7 +680,7 @@ MonoBehaviour:
       layout: 4
     m_OverlaysVisible: 1
   m_WindowGUID: cc27987af1a868c49b0894db9c0f5429
-  m_Gizmos: 1
+  m_Gizmos: 0
   m_OverrideSceneCullingMask: 6917529027641081856
   m_SceneIsLit: 1
   m_SceneLighting: 1
@@ -689,9 +689,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1012.49664, y: -24.945995, z: -465.49063}
+    m_Target: {x: -903.1134, y: 10.625264, z: -136.9988}
     speed: 2
-    m_Value: {x: 1012.49664, y: -24.945995, z: -465.49063}
+    m_Value: {x: -903.1134, y: 10.625264, z: -136.9988}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -738,9 +738,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.3475156, y: -0.06939786, z: -0.037810855, w: 0.93506324}
+    m_Target: {x: -0.01162123, y: 0.78230083, z: -0.0038688995, w: 0.6238752}
     speed: 2
-    m_Value: {x: -0.3472802, y: -0.06935085, z: -0.037785243, w: 0.9344299}
+    m_Value: {x: -0.01162123, y: 0.78230083, z: -0.0038688995, w: 0.6238752}
   m_Size:
     m_Target: 0.8660254
     speed: 2
@@ -1063,22 +1063,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes/GunScene/Scripts
+    - Assets
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scenes/GunScene/Scripts
+  - Assets
   m_LastFoldersGridSize: 16
   m_LastProjectPath: D:\game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 391}
-    m_SelectedIDs: 90c00000
-    m_LastClickedID: 49296
-    m_ExpandedIDs: 00000000d0bf0000d2bf0000d4bf0000d6bf0000d8bf0000dabf0000dcbf0000debf00009ec0000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: 82bf0000
+    m_LastClickedID: 49026
+    m_ExpandedIDs: 0000000082bf000084bf000086bf000088bf00008abf00008cbf00008ebf000090bf000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1106,7 +1106,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000d0bf0000d2bf0000d4bf0000d6bf0000d8bf0000dabf0000dcbf0000debf000000ca9a3bffffff7f
+    m_ExpandedIDs: 0000000082bf000084bf000086bf000088bf00008abf00008cbf00008ebf000090bf0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1137,18 +1137,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c62300005ebbfeff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: MouseLook
-      m_OriginalName: MouseLook
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 4446
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 10}
     m_CreateAssetUtility:
@@ -1158,7 +1158,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 17}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 16
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207
