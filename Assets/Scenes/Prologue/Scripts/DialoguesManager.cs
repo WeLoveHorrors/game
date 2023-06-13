@@ -11,9 +11,9 @@ public class DialoguesManager : MonoBehaviour
     public TMP_Text Question;
     public GameObject AnswearsPanel;
     public List<AudioSource> sources;
+    public List<AudioClip> voices;
 
     public bool isTextRendered = false;
-
     
     private float TextIndex = 0;
     private int CurrentDialogue = 0;
@@ -38,31 +38,30 @@ public class DialoguesManager : MonoBehaviour
         //     new Tuple<string, string>(":3", "Док: O_o"), 
         //     new Tuple<string, string>("Мяяяяяяу", "Док: мяяяяяяяяяяяяяяяяяяу")}));
         
-        Dialogues.Add(new Dialogue("Док: Агов!"));
-        Dialogues.Add(new Dialogue("Док: Марті, ти мене чуєш? Ти прийшов до тями?", new List<Tuple<string, string>>(){
-            new Tuple<string, string>("Марті: Так, я тебе чую. Що коїться, Док?", "Док: У нас проблеми, Марті... Я ледве встиг тебе врятувати, як в нас пройшла сутичка з тими бандитами."), 
-            new Tuple<string, string>("Док: Я... Я зовсім нічого не пам'ятаю. Де ми?", "Док: На нас напали, бо я вкрав пляшечку львівського. Тебе вдарили по голові, і ти знепритомнів. Тому мені прийшлося тягнути тебе на спині, із-за цього я не встиг забрати більшість наших речей."), 
-            new Tuple<string, string>("Марти: Ти знову щось вкрав?!", "Док: В цьому і проблема... Я зараз тестую збільшений бак для палива, тому, через те, що на нас напали, я не встиг дозаправити Делоріан.")}));
+        Dialogues.Add(new Dialogue("Док: Агов!", voices[0]));
+        Dialogues.Add(new Dialogue("Док: Марті, ти мене чуєш? Ти повертаєшся до свідомості?", new List<Tuple<string, string>>(){
+            new Tuple<string, string>("Так, я тебе чую. Що коїться, Док?", "Док: У нас халепа, Марті... Я ледве зміг тебе врятувати після сутички з тими бандитами."), 
+            new Tuple<string, string>("Я... Я зовсім нічого не пам'ятаю. Де ми?", "Док: На нас напали, бо я вкрав пляшечку львівського. Тебе вдарили по голові і ти знепритомнів. Тому мені прийшлося тягнути тебе на спині, із-за цього я не встиг забрати більшість наших речей."), 
+            new Tuple<string, string>("Ти знову щось вкрав?!", "Док: В цьому і проблема... Я зараз тестую збільшений бак для палива, тому, через те, що на нас напали, я не встиг дозаправити Делоріан.")},
+            voices[1]));
         Dialogues.Add(new Dialogue("Марті: А чого ти мене не попередив про це? Я зовсім нічого не розумію, Док..."));
-        Dialogues.Add(new Dialogue("Док: Ну, не було часу на це... Також, коли вони намагалися нас наздогнати, то обстріляли машину. Бідний Делоріан.."));
-        Dialogues.Add(new Dialogue("Док: Прибор внаслідок ураження почав вибивати помилки у розрахунках.. Марті, це дуже погано.."));
+        Dialogues.Add(new Dialogue("Док: Ну, не було часу на це... Ще й коли вони намагалися нас наздогнати, то обстріляли машину. Бідний Делоріан..", voices[2]));
+        Dialogues.Add(new Dialogue("Док: Внаслідок ураження система почала вибивати помилки у обчисленнях.. Марті, це катастрофа..", voices[3]));
         Dialogues.Add(new Dialogue("Док: Ти.. Ти розумієш, що це значить, Марті?", new List<Tuple<string, string>>(){
-            new Tuple<string, string>("Марті: Ні, Док..", "Док: Ми в халепі, Марті.."), 
-            new Tuple<string, string>("Марті: Ми в халепі, Док? Наскільки все погано?", "Док: Так, Марті, прилад може вийти з ладу з хвилини на хвилину.."), 
-            new Tuple<string, string>("Марті: ?Пошкодження дуже серйозні?", "Док: Я не можу оцінити ступінь ураження, але з виду нас може відправити" + 
-            " не туди, куди виставлений час подорожі..")}));
+            new Tuple<string, string>("Ні, Док..", "Док: Ми в халепі, Марті.."), 
+            new Tuple<string, string>("Ми в халепі, Док? Наскільки все погано?", "Док: Так, Марті, система може вийти з ладу з миті на мить.."), 
+            new Tuple<string, string>("Пошкодження дуже серйозні?", "Док: Я не можу оцінити ступінь ураження, але нас цілком може відправити не туди, куди виставлений час подорожі..")}));
         Dialogues.Add(new Dialogue("Док: Я навіть не уявляю куди нас може відправити.."));
-        Dialogues.Add(new Dialogue("Док: Тому, слухай мене уважно, Марті..."));
+        Dialogues.Add(new Dialogue("Док: Тож, слухай мене уважно, Марті..."));
         Dialogues.Add(new Dialogue("Марті: Так, Док?"));
         Dialogues.Add(new Dialogue("Док: У тебе в ногах зараз знаходиться автомат, це моя нова розробка."));
-        Dialogues.Add(new Dialogue("Док: Так як він працює по іншій системі, то кулі замінювати не потрібно."));
-        Dialogues.Add(new Dialogue("Док: Також, коли ми ще були у лабораторії, я тайкома замінив твоє взуття на інше, воно дозволяє пом'якшити" + 
-        " падіння з висоти."));
-        Dialogues.Add(new Dialogue("Док: В такому випадку, навіть якщо нас розділить, чого не повинно статися, ти зможеш себе захистити. І ще.."));
+        Dialogues.Add(new Dialogue("Док: Оскільки він має новітню системі, то кулі замінювати не потрібно."));
+        Dialogues.Add(new Dialogue("Док: Також, поки ми ще були у лабораторії, я тайкома замінив твоє взуття на інше, воно дозволяє пом'якшити падіння з висоти."));
+        Dialogues.Add(new Dialogue("Док: В такому разі, навіть якщо нас розділять, чого не повинно трапитися, ти зможеш себе захистити. І ще..."));
         Dialogues.Add(new Dialogue("Док: Якщо це все-таки станеться, обов'язково знайди мене."));
         Dialogues.Add(new Dialogue("Марті: Я зовсім нічого не розумію, Док.."));
         Dialogues.Add(new Dialogue("Марті: Чому на панелі приладів усе почало блимати?"));
-        Dialogues.Add(new Dialogue("Док: Ні.. Я цього і очікував.. Тримайся, Марті!!"));
+        Dialogues.Add(new Dialogue("Док: Ні.. Я боявся цього.. Тримайся, Марті!!"));
         // Dialogues.Add(new Dialogue("Марті: Щ..?"));
 
         AnswearsPanel.SetActive(false);
@@ -114,6 +113,10 @@ public class DialoguesManager : MonoBehaviour
             int AnswearIndex = 0;
             Answears.ForEach(x=> x.text = Dialogues[CurrentDialogue].AnswearsAndReplies[AnswearIndex++].Item1);
             needToReply = true;
+        }
+        else
+        {
+            Dialogues[CurrentDialogue].Play(sources[0]);
         }
 
         Question.text = "";
@@ -179,6 +182,7 @@ public class DialoguesManager : MonoBehaviour
 
     public void AnswearToQuestion(int number)
     {
+        Dialogues[CurrentDialogue].Play(sources[0]);
         needToReply = false;
         TextIndex = 0;
         AnswearsPanel.SetActive(false);
