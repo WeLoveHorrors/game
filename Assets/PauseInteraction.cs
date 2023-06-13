@@ -46,7 +46,7 @@ public class PauseInteraction : MonoBehaviour
     }
 
     private void Awake() {
-        mouseSensitivitySlider.value = Camera.main.GetComponent<MouseLook>().mouseSensitivity / 100f;   
+        //mouseSensitivitySlider.value = Camera.main.GetComponent<MouseLook>().mouseSensitivity / 100f;   
         //mouseSensitivity.text = (Camera.main.GetComponent<MouseLook>().mouseSensitivity / 100f).ToString();
     }
 

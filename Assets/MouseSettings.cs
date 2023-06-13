@@ -9,7 +9,7 @@ public class MouseSettings : MonoBehaviour
 {
     [SerializeField] Slider mouselider;
 
-    MouseLook look;
+    float look;
      
      float mousesens;
 
@@ -28,8 +28,16 @@ public class MouseSettings : MonoBehaviour
 
      public void UpdateSensitivity()
     {
+        Scene scene = SceneManager.GetActiveScene();
         //Camera.main.GetComponent<MouseLook>().mouseSensitivity = mouselider.value * 100;
-        look.getUpdateSend(mouselider.value);
+        if(scene.name=="TestMap")
+        {
+            
+            Camera.main.GetComponent<MouseLook>().mouseSensitivity = mouselider.value * 100;
+        }
+        //look.getUpdateSend(mouselider.value);
+        look=mouselider.value;
+        Debug.Log(look);
         Save();
        
     }
@@ -38,13 +46,18 @@ public class MouseSettings : MonoBehaviour
         Scene scene = SceneManager.GetActiveScene();
         
 
-        if(scene.Name=="MainMenu")
+        if(scene.name=="MainMenu")
         {
             mousesens=PlayerPrefs.GetFloat("mouseSens");
         }
+        else if(scene.name=="TestMap")
+        {
+            mouselider.value=PlayerPrefs.GetFloat("mouseSens");
+            Camera.main.GetComponent<MouseLook>().mouseSensitivity = mouselider.value * 100;
+        }
         else{
         mouselider.value=PlayerPrefs.GetFloat("mouseSens");
-        look.getUpdateSend(mouselider.value);
+        look=mouselider.value;
         }
         
 
@@ -56,6 +69,7 @@ public class MouseSettings : MonoBehaviour
 
     private void Save(){
         PlayerPrefs.SetFloat("mouseSens", mouselider.value);
+       
     }
 
     
